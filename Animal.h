@@ -21,10 +21,10 @@ enum class Species {
 	NULLSPECIES, // Use to denote a null species, useful in for loop (for int i=0; i<Species::NULLSPECIES; i++)
 };
 
-enum class State {
-	Walk,
-	Run,
-	Idle,
+
+enum class Age {
+	Child,
+	Adult
 };
 
 enum class Gene {
@@ -62,6 +62,15 @@ public:
 	// Update this animal.
 	//************************************
 	virtual void Update() = 0;
+
+	//************************************
+	// Method:    GetAge
+	// FullName:  Animal::GetAge
+	// Access:    virtual public 
+	// Returns:   Age of this animal, if it is adult, it can call breed new animal.
+	// Qualifier:
+	//************************************
+	virtual Age GetAge() = 0;
 
 	Vector2D GetPosition();
 
@@ -121,7 +130,7 @@ protected:
 	map<Gene, float> genes;
 
 	//Add 1 in every update
-	int age;
+	int age_int;
 
 	int stamina;
 	
