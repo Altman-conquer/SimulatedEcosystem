@@ -1,5 +1,6 @@
 #pragma once
 #include<utility>
+#include "Environment.h"
 
 class Vector2D;
 
@@ -22,3 +23,5 @@ int RandomInteger(int l, int r);
 // Qualifier:
 //************************************
 Vector2D RandomUnitVector();
+
+void PrintAnimals(Environment environment);

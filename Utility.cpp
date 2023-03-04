@@ -15,3 +15,11 @@ Vector2D RandomUnitVector()
 {
 	return Vector2D::GetDirectionVector(Direction(RandomInteger(0, 3)));
 }
+
+void PrintAnimals(Environment environment)
+{
+	for (shared_ptr<Animal>& animal:*environment.GetEnvironment())
+	{
+		Log::LogMessage(std::to_string(animal->GetPosition().GetX())+ std::to_string(animal->GetPosition().GetY()), LogLevel::Info);
+	}
+}
