@@ -1,9 +1,10 @@
 #include "Grass.h"
+#include "Utility.h"
 
 Grass::Grass(shared_ptr<vector<shared_ptr<Animal>>> _environment):Animal(_environment)
 {
 	radius = AnimalConstants::GRASS_INITIAL_RADIUS;
-	position = 
+	position = RandomPositionVector();
 }
 
 Species Grass::GetSpecies()

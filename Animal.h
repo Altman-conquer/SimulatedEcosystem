@@ -35,23 +35,24 @@ enum class Gene {
 namespace AnimalConstants {
 
 	// Age limits of animals to tell it is adult or not.
-	const int COW_ADULT_AGE = 50;
+	extern const int COW_ADULT_AGE;
 	
-	const int GRASS_ADULT_AGE = 10;
+	extern const int GRASS_ADULT_AGE;
 	
 
 	const int Deer_ADULT_AGE = 50;
 	
 	// Max age of animals
-	const int COW_MAX_AGE = 100;
+	extern const int COW_MAX_AGE;
 
-	const float GRASS_INITIAL_RADIUS = 1.0;
+	extern const float GRASS_INITIAL_RADIUS;
 	
-	const float GRASS_GROWTH_SPEED = 1.0; // radius += GRASS_GROWTH_SPEED;
+	extern const float GRASS_GROWTH_SPEED; // radius += GRASS_GROWTH_SPEED;
 
 	const int Deer_MAX_AGE = 100;
 
 	// Breed probability of animals
+	extern const float GRASS_BREED_PROBABILITY;
 	const float GRASS_BREED_PROBABILITY = 0.1;
 
 	//Eat probability of animals
