@@ -91,6 +91,9 @@ protected:
 
 	map<Gene, float> genes;
 
+	//Add 1 in every update
+	int age;
+
 	// Used to identify an animal
 	const int id;
 
