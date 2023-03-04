@@ -54,3 +54,9 @@ Vector2D Vector2D::operator/(const float& other) const
 		Log::LogMessage("In function Vector2D::operator/, other is 0", LogLevel::Error);
 	return Vector2D(this->x / other, this->y / other);
 }
+
+std::ostream& operator<<(std::ostream& o, const Vector2D& other)
+{
+	o << other.x << ' ' << other.y << std::endl;
+	return o;
+}
