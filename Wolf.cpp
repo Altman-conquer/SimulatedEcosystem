@@ -1,6 +1,6 @@
 #include "Wolf.h"
 
-Wolf::Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Vector2D velocity, bool _isMale, map<Gene, float> _genes) :Animal(_environment,  _position,velocity, _isMale,_genes)
+Wolf::Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Vector2D velocity, bool _isMale, map<Gene, float> _genes, float _stamina, float _energy) :Animal(_environment,  _position,velocity, _isMale,_genes, _stamina, _energy)
 {
 
 }

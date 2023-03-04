@@ -3,7 +3,7 @@
 class Wolf :
 	public Animal
 {
-	Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Vector2D velocity, bool _isMale, map<Gene, float> _genes);
+	Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Vector2D velocity, bool _isMale, map<Gene, float> _genes, float _stamina, float _energy);
 
 	Species GetSpecies() override;
 
