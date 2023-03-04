@@ -2,7 +2,7 @@
 #include <iostream>
 #include <windows.h>
 
-void Log::LogMessage(const std::string& message, LogLevel level)
+void Log::LogMessage(const std::string message, LogLevel level)
 {
 	int log_color = WHITE;
 	switch (level)

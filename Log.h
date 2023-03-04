@@ -11,7 +11,7 @@ class Log
 {
 public:
 	
-	static void LogMessage(const std::string& message, LogLevel level = LogLevel::Info);
+	static void LogMessage(const std::string message, LogLevel level = LogLevel::Info);
 
 private:
 
