@@ -2,12 +2,12 @@
 #include <utility>
 #include <memory>
 #include <map>
-#include "Vector2D.h"
 #include "Environment.h"
 #include "Log.h"
 #include <QString>
 
 class Environment;
+class Vector2D;
 
 using std::shared_ptr;
 using std::vector;

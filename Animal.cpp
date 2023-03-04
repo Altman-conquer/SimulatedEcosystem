@@ -1,4 +1,5 @@
 #include "Animal.h"
+#include "Vector2D.h"
 
 int Animal::animalCount = 0;
 
