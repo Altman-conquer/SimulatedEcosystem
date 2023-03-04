@@ -1,5 +1,6 @@
 #pragma once
 #include "Utility.h"
+#include <iostream>
 
 
 enum class Direction {
@@ -11,6 +12,8 @@ enum class Direction {
 
 class Vector2D {
 
+	friend std::ostream& operator<<(std::ostream& o, const Vector2D& other);
+	
 public:
 
 	Vector2D();
@@ -51,6 +54,7 @@ public:
 
 	Vector2D operator/(const float& other)const;
 
+
 	
 
 private:
@@ -60,4 +64,4 @@ private:
 	float y;
 };
 
-
+std::ostream& operator<<(std::ostream& o,const Vector2D& other);
