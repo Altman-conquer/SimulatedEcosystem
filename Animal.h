@@ -13,6 +13,9 @@ using std::vector;
 using std::map;
 
 enum class Species {
+	Grass,
+	Cow,
+	Deer,
 	Tiger,
 	NULLSPECIES, // Use to denote a null species, useful in for loop (for int i=0; i<Species::NULLSPECIES; i++)
 };
@@ -87,6 +90,9 @@ protected:
 	shared_ptr<vector<shared_ptr<Animal>>> environment;
 
 	map<Gene, float> genes;
+
+	//Add 1 in every update
+	int age;
 
 	// Used to identify an animal
 	const int id;
