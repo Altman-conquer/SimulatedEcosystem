@@ -2,7 +2,8 @@
 
 Grass::Grass(shared_ptr<vector<shared_ptr<Animal>>> _environment):Animal(_environment)
 {
-	radius = 1.0;
+	radius = AnimalConstants::GRASS_INITIAL_RADIUS;
+	position = 
 }
 
 Species Grass::GetSpecies()
@@ -12,7 +13,12 @@ Species Grass::GetSpecies()
 
 void Grass::Update()
 {
-	radius += 0.5;
+	radius += AnimalConstants::GRASS_GROWTH_SPEED;
+}
+
+Age Grass::GetAge()
+{
+	return Age(this->age_int >= AnimalConstants::GRASS_ADULT_AGE);
 }
 
 void Grass::Mutate()
@@ -23,4 +29,14 @@ void Grass::Mutate()
 void Grass::Breed()
 {
 	return;
+}
+
+void Grass::Move()
+{
+	return;
+}
+
+bool Grass::Eat(Animal& other)
+{
+	return false;
 }
