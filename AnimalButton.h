@@ -16,7 +16,7 @@ class AnimalButton : public QPushButton
 	Q_OBJECT
 
 public:
-	AnimalButton(QWidget *parent, shared_ptr<Animal> animal);
+	AnimalButton(QWidget *parent = NULL, shared_ptr<Animal> animal = shared_ptr<Animal>(nullptr));
 	~AnimalButton();
 
 private:

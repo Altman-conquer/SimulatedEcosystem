@@ -5,6 +5,7 @@
 #include "Vector2D.h"
 #include "Environment.h"
 #include "Log.h"
+#include <QString>
 
 class Environment;
 
@@ -72,10 +73,12 @@ public:
 	//************************************
 	virtual Age GetAge() = 0;
 
+	virtual QString GetPicturePath() = 0;
+
 	Vector2D GetPosition();
 
 	bool operator==(const Animal& other)const;
-	
+
 protected:
 	
 	//************************************
@@ -138,6 +141,7 @@ protected:
 
 	// Used to identify an animal
 	const int id;
+
 
 private:
 	
