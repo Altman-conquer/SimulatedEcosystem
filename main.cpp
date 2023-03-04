@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include "Environment.h"
+#include "Grass.h"
+#include <memory>
 
 /*
 * 
@@ -35,10 +37,8 @@ int main(int argc, char *argv[])
     
     Environment environment(test_species);
 
-    for (shared_ptr<Animal>& animal : *environment.GetEnvironment())
-    {
-        animal->GetPosition();
-    }
+    std::shared_ptr<Grass> it = std::dynamic_pointer_cast<Grass>(*environment.GetEnvironment()->begin());
+    PrintAnimals(environment);
 
 #else
 

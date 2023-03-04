@@ -1,8 +1,8 @@
 #pragma once
 #include<utility>
-#include "Environment.h"
 
 class Vector2D;
+class Environment;
 
 //************************************
 // Method:    RandomInteger
