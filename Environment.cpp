@@ -25,6 +25,11 @@ shared_ptr<vector<shared_ptr<Animal>>> Environment::GetEnvironment() const
 	return animals;
 }
 
+bool Environment::AddSpecies(shared_ptr<Animal> new_animal)
+{
+
+}
+
 void Environment::Update()
 {
 	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
