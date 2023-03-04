@@ -2,6 +2,7 @@
 #include<random>
 #include<ctime>
 #include "Vector2D.h"
+#include "Environment.h"
 
 int RandomInteger(int l, int r)
 {
@@ -22,4 +23,9 @@ float RandomFloat(float l, float r)
 Vector2D RandomUnitVector()
 {
 	return Vector2D::GetDirectionVector(Direction(RandomInteger(0, 3)));
+}
+
+Vector2D RandomVector()
+{
+	return Vector2D(RandomFloat(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND))
 }

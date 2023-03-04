@@ -33,3 +33,12 @@ float RandomFloat(float l, float r);
 // Qualifier:
 //************************************
 Vector2D RandomUnitVector();
+
+//************************************
+// Method:    RandomVector
+// FullName:  RandomVector
+// Access:    public 
+// Returns:   Random position vector in the environment
+// Qualifier:
+//************************************
+Vector2D RandomVector();

@@ -4,6 +4,7 @@
 #include "Vector2D.h"
 #include <iostream>
 #include <string>
+#include "Environment.h"
 
 /*
 * 
@@ -28,6 +29,16 @@ int main(int argc, char *argv[])
 	Log::LogMessage("HelloWorld", LogLevel::Warning);
 	Log::LogMessage("HelloWorld", LogLevel::Error);*/
     //std::cout << RandomFloat(0.0, 1.0);
+    //map<Species,int> _n
+    map<Species, int> test_species;
+    test_species[Species::Grass] = 100;
+    
+    Environment environment(test_species);
+
+    for (shared_ptr<Animal>& animal : *environment.GetEnvironment())
+    {
+        animal->GetPosition();
+    }
 
 #else
 

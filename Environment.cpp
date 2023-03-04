@@ -1,5 +1,6 @@
 #include "Environment.h"
 #include "Tiger.h"
+#include "Grass.h"
 
 Environment::Environment(map<Species, int> _n)
 {
@@ -10,8 +11,8 @@ Environment::Environment(map<Species, int> _n)
 		{
 			switch (species)
 			{
-			case Species::Tiger:
-				// this->animals->push_back(std::make_shared<Tiger>(animals));
+			case Species::Grass:
+				this->animals->push_back(std::make_shared<Grass>(this->animals));
 				break;
 			default:
 				break;
