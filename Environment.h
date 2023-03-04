@@ -12,6 +12,12 @@ using std::map;
 using std::vector;
 using std::shared_ptr;
 
+namespace EnvironmentConstants{
+	// Position limit of every dimension, assuming the environment is rectangular.
+	float UPPER_BOUND = 100.0;
+	float LOWER_BOUND = 0.0;
+}
+
 
 class Environment
 {

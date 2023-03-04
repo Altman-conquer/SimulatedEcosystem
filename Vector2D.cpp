@@ -23,6 +23,16 @@ Vector2D Vector2D::GetDirectionVector(Direction direction)
 	}
 }
 
+float Vector2D::GetX()
+{
+	return x;
+}
+
+float Vector2D::GetY()
+{
+	return y;
+}
+
 Vector2D Vector2D::operator+(const Vector2D& other) const
 {
 	return Vector2D(this->x + other.x, this->y + other.y);
