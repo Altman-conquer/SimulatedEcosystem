@@ -36,7 +36,6 @@ enum class Gene {
 class Animal
 {
 public:
-	
 
 	Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment);
 		
@@ -90,6 +89,26 @@ protected:
 	// Born new animal with the same species in some probability
 	//************************************
 	virtual void Breed() = 0;
+
+	
+	//************************************
+	// Method:    Move
+	// FullName:  Animal::Move
+	// Access:    virtual protected 
+	// Returns:   void
+	// Qualifier:
+	//************************************
+	virtual void Move() = 0;
+
+	//************************************
+	// Method:    Eat
+	// FullName:  Animal::Eat
+	// Access:    virtual protected 
+	// Returns:   Whether the animal is ate successfully.
+	// Qualifier:
+	// Parameter: Animal & other
+	//************************************
+	virtual bool Eat(Animal& other) = 0;
 	
 	Vector2D position;
 

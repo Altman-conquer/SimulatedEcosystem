@@ -10,6 +10,7 @@ enum class LogLevel {
 class Log
 {
 public:
+	Log();
 	
 	static void LogMessage(const std::string message, LogLevel level = LogLevel::Info);
 
