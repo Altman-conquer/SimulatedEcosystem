@@ -15,6 +15,7 @@ public:
 
 	Vector2D operator-(const Vector2D& other)const;
 
+
 private:
 
 	int x;
