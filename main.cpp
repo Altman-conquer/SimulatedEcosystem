@@ -6,6 +6,7 @@
 #include <string>
 #include "Environment.h"
 #include "Grass.h"
+#include <memory>
 
 /*
 * 
@@ -28,21 +29,13 @@ int main(int argc, char *argv[])
     /*
     Log::LogMessage("HelloWorld", LogLevel::Info);
 	Log::LogMessage("HelloWorld", LogLevel::Warning);
-	Log::LogMessage("HelloWorld", LogLevel::Error);*/
-    //std::cout << RandomFloat(0.0, 1.0);
-    
-	
+	Log::LogMessage("HelloWorld", LogLevel::Error);
+    std::shared_ptr<Grass> it = std::dynamic_pointer_cast<Grass>(*environment.GetEnvironment()->begin());*/
     
     map<Species, int> test_species;
     test_species[Species::Grass] = 100;
-    
     Environment environment(test_species);
 
-    for (shared_ptr<Animal>& animal : *environment.GetEnvironment())
-    {
-        std::cout<<animal->GetPosition();
-    }
-    
 #else
 
 #endif
