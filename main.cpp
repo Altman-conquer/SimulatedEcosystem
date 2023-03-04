@@ -43,6 +43,8 @@ int main(int argc, char *argv[])
         animal->GetPosition();
     }
 
+    //shared_ptr<Animal>d
+    a
     
 #else
 

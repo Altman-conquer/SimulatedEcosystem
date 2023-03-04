@@ -3,6 +3,7 @@
 #include<memory>
 
 class Vector2D;
+class Animal;
 
 //************************************
 // Method:    RandomInteger
@@ -44,7 +45,3 @@ Vector2D RandomUnitVector();
 //************************************
 Vector2D RandomPositionVector();
 
-/*
-
-template<typename T>
-shared_ptr<T> CastAnimal(shared_ptr<Animal> animal);*/
