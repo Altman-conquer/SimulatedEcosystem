@@ -31,7 +31,9 @@ int main(int argc, char *argv[])
 	Log::LogMessage("HelloWorld", LogLevel::Warning);
 	Log::LogMessage("HelloWorld", LogLevel::Error);*/
     //std::cout << RandomFloat(0.0, 1.0);
-    //map<Species,int> _n
+    
+	
+    
     map<Species, int> test_species;
     test_species[Species::Grass] = 100;
     
@@ -40,6 +42,9 @@ int main(int argc, char *argv[])
     std::shared_ptr<Grass> it = std::dynamic_pointer_cast<Grass>(*environment.GetEnvironment()->begin());
     PrintAnimals(environment);
 
+    //shared_ptr<Animal>d
+    a
+    
 #else
 
 #endif

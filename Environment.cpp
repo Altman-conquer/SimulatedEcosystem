@@ -2,6 +2,13 @@
 #include "Tiger.h"
 #include "Grass.h"
 
+namespace EnvironmentConstants {
+	// Position limit of every dimension, assuming the environment is rectangular.
+	const float UPPER_BOUND = 100.0;
+	const float LOWER_BOUND = 0.0;
+}
+
+
 Environment::Environment(map<Species, int> _n)
 {
 	this->animals = std::make_shared<vector<shared_ptr<Animal>>>();

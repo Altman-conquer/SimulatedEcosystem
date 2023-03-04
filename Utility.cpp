@@ -1,6 +1,7 @@
 #include "Utility.h"
 #include<random>
 #include<ctime>
+#include "Animal.h"
 #include "Vector2D.h"
 #include "Environment.h"
 
@@ -25,11 +26,12 @@ Vector2D RandomUnitVector()
 	return Vector2D::GetDirectionVector(Direction(RandomInteger(0, 3)));
 }
 
-Vector2D RandomVector()
+Vector2D RandomPositionVector()
 {
 	return Vector2D(RandomFloat(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND),
 		RandomFloat(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND));
 }
+
 
 void PrintAnimals(Environment environment)
 {

@@ -2,11 +2,11 @@
 #include <utility>
 #include <memory>
 #include <map>
-#include "Vector2D.h"
 #include "Environment.h"
 #include "Log.h"
 
 class Environment;
+class Vector2D;
 
 using std::shared_ptr;
 using std::vector;
@@ -34,19 +34,19 @@ enum class Gene {
 namespace AnimalConstants {
 
 	// Age limits of animals to tell it is adult or not.
-	const int COW_ADULT_AGE = 50;
+	extern const int COW_ADULT_AGE;
 	
-	const int GRASS_ADULT_AGE = 10;
+	extern const int GRASS_ADULT_AGE;
 	
 	// Max age of animals
-	const int COW_MAX_AGE = 100;
+	extern const int COW_MAX_AGE;
 
-	const float GRASS_INITIAL_RADIUS = 1.0;
+	extern const float GRASS_INITIAL_RADIUS;
 	
-	const float GRASS_GROWTH_SPEED = 1.0; // radius += GRASS_GROWTH_SPEED;
+	extern const float GRASS_GROWTH_SPEED; // radius += GRASS_GROWTH_SPEED;
 
 	// Breed probability of animals
-	const float GRASS_BREED_PROBABILITY = 0.1;
+	extern const float GRASS_BREED_PROBABILITY;
 }
 
 class Animal
