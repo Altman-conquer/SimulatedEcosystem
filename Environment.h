@@ -39,6 +39,16 @@ public:
 	shared_ptr<vector<shared_ptr<Animal>>> GetEnvironment() const;
 
 	//************************************
+	// Method:    AddSpecies
+	// FullName:  Environment::AddSpecies
+	// Access:    public 
+	// Returns:   The add is successful or not.
+	// Qualifier:
+	// Parameter: shared_ptr<Animal> new_animal
+	//************************************
+	bool AddSpecies(shared_ptr<Animal> new_animal);
+
+	//************************************
 	// Method:    Update
 	// FullName:  Environment::Update
 	// Access:    public 
