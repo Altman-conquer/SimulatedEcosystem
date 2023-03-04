@@ -16,13 +16,23 @@ enum class Species {
 	Grass,
 	Cow,
 	Deer,
+	Wolf,
 	Tiger,
 	NULLSPECIES, // Use to denote a null species, useful in for loop (for int i=0; i<Species::NULLSPECIES; i++)
+};
+
+enum class State {
+	Walk,
+	Run,
+	Idle,
 };
 
 enum class Gene {
 	TestName,
 };
+
+
+
 class Animal
 {
 public:
@@ -93,6 +103,10 @@ protected:
 
 	//Add 1 in every update
 	int age;
+
+	int stamina;
+	
+	int energy;
 
 	// Used to identify an animal
 	const int id;
