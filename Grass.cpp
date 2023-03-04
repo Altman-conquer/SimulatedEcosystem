@@ -17,10 +17,10 @@ void Grass::Update()
 
 void Grass::Mutate()
 {
-	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
+	return;
 }
 
 void Grass::Breed()
 {
-	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
+	return;
 }
