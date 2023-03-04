@@ -13,7 +13,7 @@ class AnimalButton : public QPushButton
 	Q_OBJECT
 
 public:
-	AnimalButton(QWidget *parent = nullptr, Animal animal = Animal);
+	AnimalButton(QWidget *parent = nullptr);
 	~AnimalButton();
 
 private:
