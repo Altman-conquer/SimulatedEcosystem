@@ -1,6 +1,14 @@
 #pragma once
 #include "Utility.h"
 
+
+enum class Direction {
+	Up,
+	Right,
+	Down,
+	Left
+};
+
 class Vector2D {
 
 public:

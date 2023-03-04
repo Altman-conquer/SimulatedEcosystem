@@ -43,3 +43,8 @@ const shared_ptr<vector<Vector2D>> Environment::GetPrevPositions() const
 {
 	return prev_positions;
 }
+
+int Environment::GetClosetPair(const Animal& animal, Species species)
+{
+	return -1;
+}
