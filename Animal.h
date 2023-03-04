@@ -31,7 +31,18 @@ enum class Gene {
 	TestName,
 };
 
+namespace AnimalConstants {
 
+	// Age limits of animals to tell it is adult or not.
+	const int COW_ADULT_AGE = 50;
+	
+	// Max age of animals
+	const int COW_MAX_AGE = 100;
+
+	const float GRASS_INITIAL_RADIUS = 1.0;
+	
+	const float GRASS_GROWTH_SPEED = 1.0; // radius += GRASS_GROWTH_SPEED;
+}
 
 class Animal
 {
@@ -72,7 +83,7 @@ public:
 	//************************************
 	virtual Age GetAge() = 0;
 
-	Vector2D GetPosition();
+	Vector2D GetPosition() const;
 
 	bool operator==(const Animal& other)const;
 	
