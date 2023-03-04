@@ -1,8 +1,10 @@
 #include "Wolf.h"
 
-Wolf::Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment) :Animal(_environment)
+Wolf::Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Vector2D velocity, bool _isMale, map<Gene, float> _genes) :Animal(_environment,  _position,velocity, _isMale,_genes)
 {
+
 }
+
 
 Species Wolf::GetSpecies()
 {
@@ -17,4 +19,20 @@ void Wolf::Mutate()
 void Wolf::Breed()
 {
 	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
+}
+
+bool Wolf::Eat(Animal& other) 
+{
+	if (other.GetSpecies() == Species::Cow || other.GetSpecies() == Species::Deer)
+		return true;
+	else return false;
+}
+
+void Wolf::Move() {
+
+}
+
+void Wolf::Update()
+{
+	age_int++;
 }
