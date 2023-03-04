@@ -49,10 +49,13 @@ namespace AnimalConstants {
 	
 	const float GRASS_GROWTH_SPEED = 1.0; // radius += GRASS_GROWTH_SPEED;
 
+	const int Deer_MAX_AGE = 100;
+
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
 
-	const int Deer_ADULT_AGE = 100;
+	//Eat probability of animals
+	const float Deer_EAT_PROBABILITY = 0.5;
 }
 
 class Animal
