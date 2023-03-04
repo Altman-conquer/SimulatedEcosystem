@@ -2,6 +2,23 @@
 
 int Animal::animalCount = 0;
 
+namespace AnimalConstants {
+
+	// Age limits of animals to tell it is adult or not.
+	const int COW_ADULT_AGE = 50;
+
+	const int GRASS_ADULT_AGE = 10;
+
+	// Max age of animals
+	const int COW_MAX_AGE = 100;
+
+	const float GRASS_INITIAL_RADIUS = 1.0;
+
+	const float GRASS_GROWTH_SPEED = 1.0; // radius += GRASS_GROWTH_SPEED;
+
+	// Breed probability of animals
+	const float GRASS_BREED_PROBABILITY = 0.1;
+}
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):id(Animal::animalCount++),age_int(0)
 {

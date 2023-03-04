@@ -35,10 +35,10 @@ float RandomFloat(float l, float r);
 Vector2D RandomUnitVector();
 
 //************************************
-// Method:    RandomVector
-// FullName:  RandomVector
+// Method:    RandomPositionVector
+// FullName:  RandomPositionVector
 // Access:    public 
 // Returns:   Random position vector in the environment
 // Qualifier:
 //************************************
-Vector2D RandomVector();
+Vector2D RandomPositionVector();
