@@ -64,12 +64,12 @@ public:
 	// Method:    GetClosetPair
 	// FullName:  Environment::GetClosetPair
 	// Access:    public 
-	// Returns:   int
+	// Returns:   shared_ptr<Animal> Closest animal with corresponding species in the environment
 	// Qualifier:
 	// Parameter: const Animal & animal
 	// Parameter: Species species Which species in the compare range. NULL_SPECIES if all species.
 	//************************************
-	int GetClosetPair(const Animal& animal, Species species);
+	shared_ptr<Animal> GetClosetPair(const Animal& animal, Species species);
 private:
 	
 	// Storing animals

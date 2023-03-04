@@ -14,7 +14,8 @@ Vector2D Animal::GetPosition()
 }
 
 
-Animal::Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Vector2D velocity, bool _isMale, map<Gene, float> _genes):Animal(_environment)
+Animal::Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
+	Vector2D velocity, bool _isMale, map<Gene, float> _genes):Animal(_environment)
 {
 	this->position = _position;
 	this->velocity = velocity;

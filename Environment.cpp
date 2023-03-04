@@ -44,7 +44,9 @@ const shared_ptr<vector<Vector2D>> Environment::GetPrevPositions() const
 	return prev_positions;
 }
 
-int Environment::GetClosetPair(const Animal& animal, Species species)
+shared_ptr<Animal> Environment::GetClosetPair(const Animal& animal, Species species)
 {
-	return -1;
+	Log::LogMessage("The method is not implemented.", LogLevel::Error);
+	return NULL;
 }
+
