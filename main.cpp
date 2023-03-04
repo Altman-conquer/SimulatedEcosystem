@@ -40,11 +40,8 @@ int main(int argc, char *argv[])
 
     for (shared_ptr<Animal>& animal : *environment.GetEnvironment())
     {
-        animal->GetPosition();
+        std::cout<<animal->GetPosition();
     }
-
-    //shared_ptr<Animal>d
-    a
     
 #else
 
