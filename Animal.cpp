@@ -18,6 +18,10 @@ namespace AnimalConstants {
 
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
+
+	// Size of picture of the adult and child animal
+	const int SIZE_OF_CHILD = 50;
+	const int SIZE_OF_ADULT = 100;
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):id(Animal::animalCount++),age_int(0)
@@ -25,7 +29,7 @@ Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):id(Anim
 	this->environment = _environment;
 }
 
-Vector2D Animal::GetPosition() const
+Vector2D Animal::GetPosition() 
 {
 	return position;
 }
