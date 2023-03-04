@@ -16,6 +16,7 @@ enum class Species {
 	Grass,
 	Cow,
 	Deer,
+	Wolf,
 	Tiger,
 	NULLSPECIES, // Use to denote a null species, useful in for loop (for int i=0; i<Species::NULLSPECIES; i++)
 };
