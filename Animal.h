@@ -35,28 +35,18 @@ namespace AnimalConstants {
 
 	// Age limits of animals to tell it is adult or not.
 	extern const int COW_ADULT_AGE;
-	
-	extern const int GRASS_ADULT_AGE;
-	const int COW_ADULT_AGE = 50;
 
-	const int GRASS_ADULT_AGE = 10;
-	
-	const int Wolf_ADULT_AGE = 40;
+	extern const int GRASS_ADULT_AGE;
 
 	// Max age of animals
 	extern const int COW_MAX_AGE;
 
 	extern const float GRASS_INITIAL_RADIUS;
-	const int Wolf_MAX_AGE = 120;
 
-
-	const float GRASS_INITIAL_RADIUS = 1.0;
-	
 	extern const float GRASS_GROWTH_SPEED; // radius += GRASS_GROWTH_SPEED;
 
 	// Breed probability of animals
 	extern const float GRASS_BREED_PROBABILITY;
-	const float GRASS_BREED_PROBABILITY = 0.1;
 
 }
 
