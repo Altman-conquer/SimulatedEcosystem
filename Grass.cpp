@@ -2,7 +2,7 @@
 
 Grass::Grass(shared_ptr<vector<shared_ptr<Animal>>> _environment):Animal(_environment)
 {
-	radius = 1.0;
+	radius = AnimalConstants::GRASS_INITIAL_RADIUS;
 }
 
 Species Grass::GetSpecies()
@@ -12,7 +12,7 @@ Species Grass::GetSpecies()
 
 void Grass::Update()
 {
-	radius += 0.5;
+	radius += AnimalConstants::GRASS_GROWTH_SPEED;
 }
 
 void Grass::Mutate()

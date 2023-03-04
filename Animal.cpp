@@ -3,12 +3,12 @@
 int Animal::animalCount = 0;
 
 
-Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):id(Animal::animalCount++)
+Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):id(Animal::animalCount++),age_int(0)
 {
 	this->environment = _environment;
 }
 
-Vector2D Animal::GetPosition()
+Vector2D Animal::GetPosition() const
 {
 	return position;
 }
