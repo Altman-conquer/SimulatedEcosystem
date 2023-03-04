@@ -27,6 +27,10 @@ public:
 	//************************************
 	static Vector2D GetDirectionVector(Direction direction);
 
+	float GetX();
+	
+	float GetY();
+
 	Vector2D operator+(const Vector2D& other)const;
 
 	Vector2D operator-(const Vector2D& other)const;

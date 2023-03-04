@@ -32,7 +32,23 @@ enum class Gene {
 	TestName,
 };
 
+namespace AnimalConstants {
 
+	// Age limits of animals to tell it is adult or not.
+	extern const int COW_ADULT_AGE;
+	
+	extern const int GRASS_ADULT_AGE;
+	
+	// Max age of animals
+	extern const int COW_MAX_AGE;
+
+	extern const float GRASS_INITIAL_RADIUS;
+	
+	extern const float GRASS_GROWTH_SPEED; // radius += GRASS_GROWTH_SPEED;
+
+	// Breed probability of animals
+	extern const float GRASS_BREED_PROBABILITY;
+}
 
 class Animal
 {
@@ -40,7 +56,8 @@ public:
 
 	Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment);
 		
-	Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Vector2D velocity, bool _isMale, map<Gene, float> _genes);
+	Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
+		Vector2D velocity, bool _isMale, map<Gene, float> _genes, float _stamina, float _energy);
 
 	virtual ~Animal();
 

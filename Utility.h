@@ -15,6 +15,17 @@ class Vector2D;
 int RandomInteger(int l, int r);
 
 //************************************
+// Method:    RandomFloat
+// FullName:  RandomFloat
+// Access:    public 
+// Returns:   Random float in range [l,r]
+// Qualifier:
+// Parameter: float l
+// Parameter: float r
+//************************************
+float RandomFloat(float l, float r);
+
+//************************************
 // Method:    RandomUnitVector
 // FullName:  RandomUnitVector
 // Access:    public 
@@ -22,3 +33,12 @@ int RandomInteger(int l, int r);
 // Qualifier:
 //************************************
 Vector2D RandomUnitVector();
+
+//************************************
+// Method:    RandomPositionVector
+// FullName:  RandomPositionVector
+// Access:    public 
+// Returns:   Random position vector in the environment
+// Qualifier:
+//************************************
+Vector2D RandomPositionVector();

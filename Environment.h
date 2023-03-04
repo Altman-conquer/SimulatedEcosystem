@@ -12,6 +12,12 @@ using std::map;
 using std::vector;
 using std::shared_ptr;
 
+namespace EnvironmentConstants{
+	// Position limit of every dimension, assuming the environment is rectangular.
+	extern const float UPPER_BOUND;
+	extern const float LOWER_BOUND;
+}
+
 
 class Environment
 {
@@ -37,6 +43,16 @@ public:
 	// Qualifier:
 	//************************************
 	shared_ptr<vector<shared_ptr<Animal>>> GetEnvironment() const;
+
+	//************************************
+	// Method:    AddSpecies
+	// FullName:  Environment::AddSpecies
+	// Access:    public 
+	// Returns:   The add is successful or not.
+	// Qualifier:
+	// Parameter: shared_ptr<Animal> new_animal
+	//************************************
+	bool AddSpecies(shared_ptr<Animal> new_animal);
 
 	//************************************
 	// Method:    Update
