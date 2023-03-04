@@ -36,9 +36,13 @@ namespace AnimalConstants {
 
 	// Age limits of animals to tell it is adult or not.
 	const int COW_ADULT_AGE = 50;
+
+	const int Deer_ADULT_AGE = 50;
 	
 	// Max age of animals
 	const int COW_MAX_AGE = 100;
+
+	const int Deer_ADULT_AGE = 100;
 }
 
 class Animal
