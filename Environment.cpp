@@ -46,7 +46,23 @@ const shared_ptr<vector<Vector2D>> Environment::GetPrevPositions() const
 
 shared_ptr<Animal> Environment::GetClosetPair(const Animal& animal, Species species)
 {
-	Log::LogMessage("The method is not implemented.", LogLevel::Error);
+	Log::LogMessage("GetClosetPair is called", LogLevel::Info);
+	shared_ptr<Animal> target=NULL;
+	float min_distance=1e9;
+	float distance;
+	Vector2D position = animal.GetPosition();
+	if (species != Species::NULLSPECIES) {
+		for (shared_ptr<Animal>& neighbour: *animals)
+			if (species==neighbour->GetSpecies())
+			{
+				distance=Vector2D::GetDistance(neighbour->GetPosition(),position)
+			}
+	}
+	else {
+		for (shared_ptr<Animal>& animal : *animals)
+	}
+		
+
 	return NULL;
 }
 
