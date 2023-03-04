@@ -27,5 +27,6 @@ Vector2D RandomUnitVector()
 
 Vector2D RandomVector()
 {
-	return Vector2D(RandomFloat(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND))
+	return Vector2D(RandomFloat(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND),
+		RandomFloat(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND));
 }
