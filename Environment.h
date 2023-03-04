@@ -14,8 +14,8 @@ using std::shared_ptr;
 
 namespace EnvironmentConstants{
 	// Position limit of every dimension, assuming the environment is rectangular.
-	float UPPER_BOUND = 100.0;
-	float LOWER_BOUND = 0.0;
+	extern const float UPPER_BOUND;
+	extern const float LOWER_BOUND;
 }
 
 
