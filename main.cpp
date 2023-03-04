@@ -28,6 +28,13 @@ int main(int argc, char *argv[])
 
 #endif
 
+	Log::LogMessage("HelloWorld", LogLevel::Info);
+	Log::LogMessage("HelloWorld", LogLevel::Warning);
+	Log::LogMessage("HelloWorld", LogLevel::Error);
+    Vector2D::GetDirectionVector(Direction(5));
+
+    //?????????????????
+
 
     return a.exec();
 }

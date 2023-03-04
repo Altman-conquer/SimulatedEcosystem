@@ -6,6 +6,7 @@
 #include "Environment.h"
 #include "Log.h"
 
+
 class Environment;
 
 using std::shared_ptr;
@@ -81,5 +82,7 @@ protected:
 	shared_ptr<vector<shared_ptr<Animal>>> environment;
 
 	map<Gene, float> genes;
+
+	
 };
 
