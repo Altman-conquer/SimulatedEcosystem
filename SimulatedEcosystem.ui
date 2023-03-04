@@ -7,30 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>720</width>
-    <height>542</height>
+    <height>517</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>SimulatedEcosystem</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <widget class="AnimalButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>90</y>
-      <width>131</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/sourcePicture/cow.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -52,13 +35,6 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>AnimalButton</class>
-   <extends>QPushButton</extends>
-   <header location="global">animalbutton.h</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="SimulatedEcosystem.qrc"/>
  </resources>
