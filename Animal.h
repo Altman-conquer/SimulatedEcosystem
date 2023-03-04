@@ -16,17 +16,26 @@ enum class Species {
 	Grass,
 	Cow,
 	Deer,
+	Wolf,
 	Tiger,
 	NULLSPECIES, // Use to denote a null species, useful in for loop (for int i=0; i<Species::NULLSPECIES; i++)
+};
+
+
+enum class Age {
+	Child,
+	Adult
 };
 
 enum class Gene {
 	TestName,
 };
+
+
+
 class Animal
 {
 public:
-	
 
 	Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment);
 		
@@ -54,6 +63,15 @@ public:
 	//************************************
 	virtual void Update() = 0;
 
+	//************************************
+	// Method:    GetAge
+	// FullName:  Animal::GetAge
+	// Access:    virtual public 
+	// Returns:   Age of this animal, if it is adult, it can call breed new animal.
+	// Qualifier:
+	//************************************
+	virtual Age GetAge() = 0;
+
 	Vector2D GetPosition();
 
 	bool operator==(const Animal& other)const;
@@ -80,6 +98,26 @@ protected:
 	// Born new animal with the same species in some probability
 	//************************************
 	virtual void Breed() = 0;
+
+	
+	//************************************
+	// Method:    Move
+	// FullName:  Animal::Move
+	// Access:    virtual protected 
+	// Returns:   void
+	// Qualifier:
+	//************************************
+	virtual void Move() = 0;
+
+	//************************************
+	// Method:    Eat
+	// FullName:  Animal::Eat
+	// Access:    virtual protected 
+	// Returns:   Whether the animal is ate successfully.
+	// Qualifier:
+	// Parameter: Animal & other
+	//************************************
+	virtual bool Eat(Animal& other) = 0;
 	
 	Vector2D position;
 
@@ -90,6 +128,13 @@ protected:
 	shared_ptr<vector<shared_ptr<Animal>>> environment;
 
 	map<Gene, float> genes;
+
+	//Add 1 in every update
+	int age_int;
+
+	int stamina;
+	
+	int energy;
 
 	// Used to identify an animal
 	const int id;

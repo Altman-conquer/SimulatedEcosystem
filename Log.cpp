@@ -2,6 +2,11 @@
 #include <iostream>
 #include <windows.h>
 
+Log::Log()
+{
+
+}
+
 void Log::LogMessage(const std::string message, LogLevel level)
 {
 	int log_color = WHITE;
