@@ -13,6 +13,9 @@ using std::vector;
 using std::map;
 
 enum class Species {
+	Grass,
+	Cow,
+	Deer,
 	Tiger,
 	NULLSPECIES, // Use to denote a null species, useful in for loop (for int i=0; i<Species::NULLSPECIES; i++)
 };
