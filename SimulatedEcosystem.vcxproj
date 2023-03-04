@@ -83,11 +83,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimalButton.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Tiger.cpp" />
     <ClCompile Include="Utility.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <QtRcc Include="SimulatedEcosystem.qrc" />
+    <QtUic Include="AnimalButton.ui" />
     <QtUic Include="SimulatedEcosystem.ui" />
     <QtMoc Include="SimulatedEcosystem.h" />
     <ClCompile Include="Animal.cpp" />
@@ -97,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
+    <QtMoc Include="AnimalButton.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Tiger.h" />

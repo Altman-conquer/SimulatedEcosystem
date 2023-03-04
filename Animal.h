@@ -26,6 +26,7 @@ class Animal
 public:
 	
 	Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment);
+	Animal();
 
 	virtual Species GetSpecies() = 0;
 	
