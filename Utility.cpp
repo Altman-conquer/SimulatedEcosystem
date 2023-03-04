@@ -1,6 +1,7 @@
 #include "Utility.h"
 #include<random>
 #include<ctime>
+#include "Animal.h"
 #include "Vector2D.h"
 #include "Environment.h"
 

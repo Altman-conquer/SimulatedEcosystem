@@ -1,7 +1,9 @@
 #pragma once
 #include<utility>
+#include<memory>
 
 class Vector2D;
+class Animal;
 
 //************************************
 // Method:    RandomInteger
@@ -42,3 +44,4 @@ Vector2D RandomUnitVector();
 // Qualifier:
 //************************************
 Vector2D RandomPositionVector();
+
