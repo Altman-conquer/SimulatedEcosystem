@@ -1,5 +1,6 @@
 #pragma once
 #include<utility>
+#include<memory>
 
 class Vector2D;
 
@@ -42,3 +43,8 @@ Vector2D RandomUnitVector();
 // Qualifier:
 //************************************
 Vector2D RandomPositionVector();
+
+/*
+
+template<typename T>
+shared_ptr<T> CastAnimal(shared_ptr<Animal> animal);*/

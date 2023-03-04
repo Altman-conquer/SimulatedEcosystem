@@ -30,3 +30,10 @@ Vector2D RandomPositionVector()
 	return Vector2D(RandomFloat(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND),
 		RandomFloat(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND));
 }
+
+template<typename T>
+shared_ptr<T> CastAnimal(shared_ptr<Animal> animal)
+{
+	return std::dynamic_pointer_cast<T>(animal);
+	
+}

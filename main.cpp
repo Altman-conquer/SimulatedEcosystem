@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "Environment.h"
+#include "Grass.h"
 
 /*
 * 
@@ -29,7 +30,9 @@ int main(int argc, char *argv[])
 	Log::LogMessage("HelloWorld", LogLevel::Warning);
 	Log::LogMessage("HelloWorld", LogLevel::Error);*/
     //std::cout << RandomFloat(0.0, 1.0);
-    //map<Species,int> _n
+    
+	
+    
     map<Species, int> test_species;
     test_species[Species::Grass] = 100;
     
@@ -40,6 +43,7 @@ int main(int argc, char *argv[])
         animal->GetPosition();
     }
 
+    
 #else
 
 #endif
