@@ -59,6 +59,17 @@ public:
 	// Get positions of animals in the t-1 iterations
 	//************************************
 	const shared_ptr<vector<Vector2D>> GetPrevPositions() const;
+	
+	//************************************
+	// Method:    GetClosetPair
+	// FullName:  Environment::GetClosetPair
+	// Access:    public 
+	// Returns:   shared_ptr<Animal> Closest animal with corresponding species in the environment
+	// Qualifier:
+	// Parameter: const Animal & animal
+	// Parameter: Species species Which species in the compare range. NULL_SPECIES if all species.
+	//************************************
+	shared_ptr<Animal> GetClosetPair(const Animal& animal, Species species);
 private:
 	
 	// Storing animals
