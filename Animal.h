@@ -27,8 +27,24 @@ public:
 	
 	Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment);
 
+	//************************************
+	// Method:    GetSpecies
+	// FullName:  Animal::GetSpecies
+	// Access:    virtual public 
+	// Returns:   Species
+	// Qualifier:
+	// Get what kind of animal it is.
+	//************************************
 	virtual Species GetSpecies() = 0;
 	
+	//************************************
+	// Method:    Update
+	// FullName:  Animal::Update
+	// Access:    virtual public 
+	// Returns:   void
+	// Qualifier:
+	// Update this animal.
+	//************************************
 	virtual void Update() = 0;
 
 	Vector2D GetPosition();
