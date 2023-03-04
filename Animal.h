@@ -42,6 +42,9 @@ namespace AnimalConstants {
 	const float GRASS_INITIAL_RADIUS = 1.0;
 	
 	const float GRASS_GROWTH_SPEED = 1.0; // radius += GRASS_GROWTH_SPEED;
+
+	// Breed probability of animals
+	const float GRASS_BREED_PROBABILITY = 0.1;
 }
 
 class Animal

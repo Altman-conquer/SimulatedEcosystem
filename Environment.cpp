@@ -27,7 +27,8 @@ shared_ptr<vector<shared_ptr<Animal>>> Environment::GetEnvironment() const
 
 bool Environment::AddSpecies(shared_ptr<Animal> new_animal)
 {
-
+	animals->push_back(new_animal);
+	return true;
 }
 
 void Environment::Update()

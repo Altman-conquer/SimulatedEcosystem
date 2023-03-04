@@ -22,5 +22,5 @@ void Grass::Mutate()
 
 void Grass::Breed()
 {
-	return;
+	
 }

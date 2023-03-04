@@ -3,6 +3,7 @@
 #include "Log.h"
 #include "Vector2D.h"
 #include <iostream>
+#include <string>
 
 /*
 * 
@@ -22,10 +23,11 @@ int main(int argc, char *argv[])
     w.show();
  
 #ifdef DEBUG
-    
+    /*
     Log::LogMessage("HelloWorld", LogLevel::Info);
-    Log::LogMessage("HelloWorld", LogLevel::Warning);
-    Log::LogMessage("HelloWorld", LogLevel::Error);
+	Log::LogMessage("HelloWorld", LogLevel::Warning);
+	Log::LogMessage("HelloWorld", LogLevel::Error);*/
+    //std::cout << RandomFloat(0.0, 1.0);
 
 #else
 
