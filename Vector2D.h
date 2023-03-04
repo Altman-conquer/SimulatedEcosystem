@@ -27,6 +27,10 @@ public:
 	//************************************
 	static Vector2D GetDirectionVector(Direction direction);
 
+	float GetX();
+	
+	float GetY();
+
 	//************************************
 	// Method:    GetDistance
 	// FullName:  Vector2D::GetDistance
@@ -38,10 +42,6 @@ public:
 	// it is used to calculate the Euler distance between two animal 
 	//************************************
 	static float GetDistance(const Vector2D& vector1, const Vector2D& vector2);
-
-	float GetY();
-
-	float GetX();
 
 	Vector2D operator+(const Vector2D& other)const;
 
