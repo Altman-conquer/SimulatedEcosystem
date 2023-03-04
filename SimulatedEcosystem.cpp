@@ -7,4 +7,7 @@ SimulatedEcosystem::SimulatedEcosystem(QWidget *parent)
 }
 
 SimulatedEcosystem::~SimulatedEcosystem()
-{}
+{
+
+
+}
