@@ -66,10 +66,11 @@ shared_ptr<Animal> Environment::GetClosetPair(const Animal& animal, Species spec
 	Vector2D position = animal.GetPosition();
 
 	if (species != Species::NULLSPECIES) {
+		
 		for (shared_ptr<Animal>& neighbour: *animals)
 			if (species==neighbour->GetSpecies()&&//belong to
-				min_distance < Vector2D::GetDistance(neighbour->GetPosition(), position)&&//closest
-				Vector2D::GetDistance(neighbour->GetPosition(), position)!=0)//do not itself
+				min_distance > Vector2D::GetDistance(neighbour->GetPosition(), position)&&//closest
+				!(*neighbour==animal))//do not itself
 			{//update
 				min_distance = Vector2D::GetDistance(neighbour->GetPosition(), position);
 				target = neighbour;
@@ -77,8 +78,8 @@ shared_ptr<Animal> Environment::GetClosetPair(const Animal& animal, Species spec
 	}
 	else {
 		for (shared_ptr<Animal>& neighbour : *animals)
-			if (min_distance < Vector2D::GetDistance(neighbour->GetPosition(), position) &&//closest
-				Vector2D::GetDistance(neighbour->GetPosition(), position) != 0)//do not itself)
+			if (min_distance > Vector2D::GetDistance(neighbour->GetPosition(), position) &&//closest
+				!(*neighbour == animal))//do not itself)
 			{
 				min_distance = Vector2D::GetDistance(neighbour->GetPosition(), position);
 				target = neighbour;

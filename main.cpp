@@ -30,21 +30,20 @@ int main(int argc, char *argv[])
     Log::LogMessage("HelloWorld", LogLevel::Info);
 	Log::LogMessage("HelloWorld", LogLevel::Warning);
 	Log::LogMessage("HelloWorld", LogLevel::Error);*/
-    //std::cout << RandomFloat(0.0, 1.0);
-    
-	
     
     map<Species, int> test_species;
     test_species[Species::Grass] = 100;
     
     Environment environment(test_species);
 
-    std::shared_ptr<Grass> it = std::dynamic_pointer_cast<Grass>(*environment.GetEnvironment()->begin());
-    PrintAnimals(environment);
+   /* std::shared_ptr<Grass> it = std::dynamic_pointer_cast<Grass>(*environment.GetEnvironment()->begin());
+	Log::LogMessage(std::to_string(it->GetPosition().GetX()) +"  " + std::to_string(it->GetPosition().GetY()), LogLevel::Info);
+    Log::LogMessage("HelloWorld", LogLevel::Info);
+    shared_ptr<Grass> aim = std::dynamic_pointer_cast<Grass>(environment.GetClosetPair(*it,it->GetSpecies()));
+    if(aim!=NULL) Log::LogMessage(std::to_string(aim->GetPosition().GetX()) + "  "+ std::to_string(aim->GetPosition().GetY()), LogLevel::Info);
+    Log::LogMessage("HelloWorld", LogLevel::Info);
+    PrintAnimals(environment);*/
 
-    //shared_ptr<Animal>d
-    a
-    
 #else
 
 #endif
