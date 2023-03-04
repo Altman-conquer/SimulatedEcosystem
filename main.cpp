@@ -26,10 +26,6 @@ int main(int argc, char *argv[])
     Log::LogMessage("HelloWorld", LogLevel::Info);
     Log::LogMessage("HelloWorld", LogLevel::Warning);
     Log::LogMessage("HelloWorld", LogLevel::Error);
-    Vector2D v1(2, 2);
-    Vector2D v2(7, 5);
-    
-    Log::LogMessage(std::to_string(Vector2D::GetDistance(v1,v2)), LogLevel::Info);
 
 #else
 
