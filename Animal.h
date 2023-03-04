@@ -132,7 +132,7 @@ protected:
 	//Add 1 in every update
 	int age_int;
 
-	int stamina;
+	int stamina; 
 	
 	int energy;
 
