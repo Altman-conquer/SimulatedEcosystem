@@ -39,8 +39,7 @@ namespace AnimalConstants {
 	
 	extern const int GRASS_ADULT_AGE;
 	
-
-	const int Deer_ADULT_AGE = 50;
+	extern const int Deer_ADULT_AGE;
 	
 	// Max age of animals
 	extern const int COW_MAX_AGE;
@@ -49,14 +48,11 @@ namespace AnimalConstants {
 	
 	extern const float GRASS_GROWTH_SPEED; // radius += GRASS_GROWTH_SPEED;
 
-	const int Deer_MAX_AGE = 100;
+	extern const int Deer_MAX_AGE;
 
 	// Breed probability of animals
 	extern const float GRASS_BREED_PROBABILITY;
-	const float GRASS_BREED_PROBABILITY = 0.1;
 
-	//Eat probability of animals
-	const float Deer_EAT_PROBABILITY = 0.5;
 }
 
 class Animal
