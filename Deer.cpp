@@ -4,13 +4,13 @@
 Deer::Deer(shared_ptr<vector<shared_ptr<Animal>>> _environment) :Animal(_environment)
 {
 	position = RandomPositionVector();
-	energy = AnimalConstants::COW_INITIAL_ENERGY;
+	energy = AnimalConstants::DEER_INITIAL_ENERGY;
 }
 
 Deer::Deer(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Gender _gender) :Animal(_environment)
 {
 	position = _position;
-	energy = AnimalConstants::COW_INITIAL_ENERGY;
+	energy = AnimalConstants::DEER_INITIAL_ENERGY;
 }
 
 
