@@ -89,8 +89,11 @@ void Deer::Move()
 void Deer::Update()
 {
 	this->age_int += 1;
+	prev_position = position;
+
 	if (age_int > AnimalConstants::DEER_MAX_AGE || energy <= 0.0)
 		Die();
+
 	Move();
 	Breed();
 }
