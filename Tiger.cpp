@@ -12,7 +12,9 @@ Species Tiger::GetSpecies()
 
 void Tiger::Update()
 {
-	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
+	Log::LogMessage("Tiger update", LogLevel::Info);
+	Breed();
+	
 }
 
 void Tiger::Mutate()
@@ -22,7 +24,9 @@ void Tiger::Mutate()
 
 void Tiger::Breed()
 {
-	throw std::logic_error("The method or operation is not implemented.");
+	
+	Log::LogMessage("Tiger breed", LogLevel::Info);
+
 }
 
 void Tiger::Move()
