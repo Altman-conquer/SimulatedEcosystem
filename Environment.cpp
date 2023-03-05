@@ -19,7 +19,7 @@ Environment::Environment(map<Species, int> _n)
 			switch (species)
 			{
 			case Species::Grass:
-				//this->animals->push_back(std::make_shared<Grass>(this->animals));
+				this->animals->push_back(std::make_shared<Grass>(this->animals));
 				break;
 			default:
 				break;
@@ -85,6 +85,7 @@ shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr
 				target = neighbour;
 			}
 	}
+
 	return target;
 }
 
