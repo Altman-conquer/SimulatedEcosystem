@@ -91,7 +91,7 @@ void Cow::Move()
 		{
 			velocity_scalar = AnimalConstants::COW_MAX_VELOCITY;
 		}
-		else if (this->stamina > AnimalConstants::COW_MAX_STAMINA)
+		else if (this->stamina > AnimalConstants::COW_MIN_STAMINA)
 		{
 			velocity_scalar = AnimalConstants::COW_MAX_VELOCITY * (this->stamina * 2 / AnimalConstants::COW_MAX_STAMINA);
 		}
