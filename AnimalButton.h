@@ -22,6 +22,4 @@ public:
 
 private:
 	Ui::AnimalButtonClass *ui;
-	const int ADULT_SIZE = 300;
-	const int CHILD_SIZE = 100;
 };

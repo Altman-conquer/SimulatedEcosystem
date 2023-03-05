@@ -8,9 +8,9 @@ namespace AnimalConstants {
 	const float BREED_RADIUS = 10.0;
 
 	// The distance of crash
-	const float CHILD_DISTANCE = 0.5;
+	const float CHILD_DISTANCE = 10;
 
-	const float ADULT_DISTANCE = 1;
+	const float ADULT_DISTANCE = 100;
 
 	// Age limits of animals to tell it is adult or not.
 	const int GRASS_ADULT_AGE = 10;

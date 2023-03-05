@@ -1,4 +1,5 @@
 #include "Cow.h"
+#include "Utility.h"
 #include <memory>
 
 Cow::Cow(shared_ptr<vector<shared_ptr<Animal>>> _environment) :Animal(_environment)
@@ -30,6 +31,11 @@ void Cow::Update()
 Age Cow::GetAge()
 {
 	return Age(age_int >= AnimalConstants::COW_ADULT_AGE);
+}
+
+QString Cow::GetPicturePath()
+{
+	return ":/sourcePicture/cow.png";
 }
 
 void Cow::Mutate()

@@ -104,15 +104,28 @@
     </widget>
     <widget class="QWidget" name="page_2"/>
    </widget>
-   <widget class="QChartView" name="graphicsView">
+   <widget class="QScrollArea" name="scrollArea">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>110</y>
-      <width>361</width>
-      <height>291</height>
+      <x>50</x>
+      <y>40</y>
+      <width>521</width>
+      <height>391</height>
      </rect>
     </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>519</width>
+       <height>389</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -136,13 +149,6 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>QChartView</class>
-   <extends>QGraphicsView</extends>
-   <header location="global">qchartview.h</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="SimulatedEcosystem.qrc"/>
  </resources>

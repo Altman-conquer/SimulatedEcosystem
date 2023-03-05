@@ -8,18 +8,24 @@ SimulatedEcosystem::SimulatedEcosystem(QWidget *parent)
     temp->setParent(this);
     temp->show();
     move_of_sidebar = 0;
+    ui.scrollAreaWidgetContents->setFixedHeight(800);
+    ui.scrollAreaWidgetContents->setFixedWidth(600);
+
+        
+    connect(timer, &QTimer::timeout, this, &SimulatedEcosystem::update_Surface);
+
 
     map<Species, int> test_species;
-    test_species[Species::Grass] = 100;
-    Environment environment(test_species);
+    test_species[Species::Grass] = 1000;
+	test_species[Species::Cow] = 100;
+    environment = std::make_shared<Environment>(test_species);
     
-    shared_ptr<vector<shared_ptr<Animal>>> animals = environment.GetEnvironment();
+    shared_ptr<vector<shared_ptr<Animal>>> animals = environment->GetEnvironment();
+
+
     for (shared_ptr<Animal>& animal : *animals) {
-        AnimalButton temp = new AnimalButton(this, animal);
+        AnimalButton temp = new AnimalButton(ui.scrollAreaWidgetContents, animal);
     }
-    
-
-
 
     connect(ui.unfold, &QPushButton::clicked, this, &SimulatedEcosystem::dealUnfold);
     pointlist.clear();
@@ -40,12 +46,14 @@ void SimulatedEcosystem::resizeEvent(QResizeEvent* event) {
     int h = height();
 
     ui.stackedWidget->setGeometry(w - 20 - move_of_sidebar, 0, 200, 500);
+    ui.scrollArea->setGeometry(0, 0, w - 200, h-100);
+
     //chart->setGeometry(0, 0, 800, 600);
 }
 
 void SimulatedEcosystem::dealUnfold() {
     if (move_of_sidebar == 0) {
-        move_of_sidebar = 200;
+        move_of_sidebar = 200 - 20;
         ui.stackedWidget->setGeometry(width() - 20 - move_of_sidebar, 0, 200, 500);
         ui.unfold->setText(">");
     }
@@ -69,4 +77,12 @@ void SimulatedEcosystem::initChart()
     /*QHBoxLayout* pHLayout = new QHBoxLayout(ui.centralWidget);
     //将chart添加到布局中
     pHLayout->addWidget(chart);*/
+}
+
+void SimulatedEcosystem::update_Surface() {
+    environment->Update();
+	shared_ptr<vector<shared_ptr<Animal>>> animals = environment->GetEnvironment();
+	for (shared_ptr<Animal>& animal : *animals) {
+		
+	}
 }

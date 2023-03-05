@@ -9,21 +9,24 @@ AnimalButton::AnimalButton(QWidget *parent, shared_ptr<Animal>animal)
 
 
 	int animalSize = 0;
-	if (animal->GetAge() == Age::Child) {
-		animalSize = CHILD_SIZE;
-	}
-	else if (animal->GetAge() == Age::Adult) {
-		animalSize = ADULT_SIZE;
-	}
-
-
-
+	int x = 0;
+	int y = 0;
+	
 	//setGeometry(animal->GetPosition().GetX(), animal->GetPosition().GetY(), , 500);
 	//setStyleSheet("QPushButton{background-image:" + animal->GetPicturePath() + ";}");
 	
-	if (animal != NULL)
-		setStyleSheet("QWidget{image:url(" + animal->GetPicturePath() +  ");border:dashed; }");
-
+	if (animal != NULL) {
+		if (animal->GetAge() == Age::Child) {
+			animalSize = AnimalConstants::CHILD_DISTANCE;
+		}
+		else if (animal->GetAge() == Age::Adult) {
+			animalSize = AnimalConstants::ADULT_DISTANCE;
+		}
+		setStyleSheet("QWidget{image:url(" + animal->GetPicturePath() + ");border:dashed; }");
+		x = animal->GetPosition().GetX();
+		y = animal->GetPosition().GetY();
+	}
+	this->setGeometry(x, y, animalSize, animalSize);
 }
 
 AnimalButton::~AnimalButton()
