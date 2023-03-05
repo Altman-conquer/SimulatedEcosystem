@@ -288,6 +288,7 @@ public:
 	// Kill the animal if it is too old or is being ate.
 	//************************************
 	bool Die();
+
 	
   
 protected:
@@ -336,6 +337,8 @@ protected:
 	Vector2D position;
 
 	Vector2D velocity;
+
+	Vector2D prev_position;
 	
 	Gender gender;
 
