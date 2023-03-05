@@ -1,6 +1,18 @@
 #include "Deer.h"
 #include "Utility.h"
 
+Deer::Deer(shared_ptr<vector<shared_ptr<Animal>>> _environment) :Animal(_environment)
+{
+	position = RandomPositionVector();
+	energy = AnimalConstants::COW_INITIAL_ENERGY;
+}
+
+Deer::Deer(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Gender _gender) :Animal(_environment)
+{
+	position = _position;
+	energy = AnimalConstants::COW_INITIAL_ENERGY;
+}
+
 
 Species Deer::GetSpecies()
 {
@@ -96,15 +108,30 @@ void Deer::Mutate()
 
 void Deer::Breed()
 {
-	if (GetAge() == Age::Child || RandomFloat(0.0, 1.0) > AnimalConstants::DEER_BREED_PROBABILITY)
+	if (GetAge() == Age::Child || RandomFloat(0.0, 1.0) > AnimalConstants::COW_BREED_PROBABILITY)
 		return;
 
-	shared_ptr<Animal> other = Environment::GetClosetPair(environment, *this, Species::Deer);
+	shared_ptr<Animal> other = Environment::GetClosetPair(environment, *this, Species::Cow);
 	if (other->GetGender() != gender)
 	{
-		shared_ptr<Animal> new_animal =
-			std::make_shared<Deer>(this->environment, RandomPositionVector(position, AnimalConstants::BREED_RADIUS));
-		this->environment->push_back(new_animal);
+		bool is_success = false;
+		if (other->GetGender() == Gender::Female && other->GetEnergy() > AnimalConstants::DEER_INITIAL_ENERGY * 2.0)
+		{
+			other->DecreaseEnergy(AnimalConstants::DEER_INITIAL_ENERGY);
+			is_success = true;
+		}
+		else if (energy > AnimalConstants::DEER_INITIAL_ENERGY * 2.0)
+		{
+			DecreaseEnergy(AnimalConstants::DEER_INITIAL_ENERGY);
+			is_success = true;
+		}
+
+		if (is_success)
+		{
+			shared_ptr<Animal> new_animal =
+				std::make_shared<Deer>(this->environment, RandomPositionVector(position, AnimalConstants::BREED_RADIUS), Gender(RandomInteger(0, 1)));
+			this->environment->push_back(new_animal);
+		}
 	}
 }
 
