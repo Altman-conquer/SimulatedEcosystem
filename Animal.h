@@ -126,10 +126,14 @@ namespace AnimalConstants {
 	//recover stamina ratio
 	extern const float DEER_RECOVER_STAMINA_RATIO;
 
+	extern const float WOLF_RECOVER_STAMINA_RATIO;
+
 	//consume stamina ratio
 	extern const float DEER_CONSUME_STAMINA_RATIO;
 
-	extern const float WOLF_RECOVER_STAMINA_RATIO;
+	extern const float WOLF_CONSUME_STAMINA_RATIO;
+
+	
 
 	//probe radius of animals
 	extern const float DEER_PROBE_RADIUS;
@@ -144,6 +148,8 @@ namespace AnimalConstants {
 	
 	//Idle probability of animals
 	extern const float DEER_IDLE_PROBABILITY;
+
+	extern const float WOLF_IDLE_PROBABILITY;
 
 }
 

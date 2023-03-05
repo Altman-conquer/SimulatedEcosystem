@@ -66,12 +66,12 @@ void Deer::Move()
 	//update stamina and energy
 	if (state == MoveState::Idle || state == MoveState::Walk)
 	{
-		this->stamina = std::max(this->stamina + AnimalConstants::DEER_RECOVER_STAMINA_RATIO, AnimalConstants::DEER_MAX_STAMINA);
-		this->energy = std::min(this->energy - AnimalConstants::DEER_CONSUME_ENERGY_RATIO, 0.0f);
+		this->stamina = std::min(this->stamina + AnimalConstants::DEER_RECOVER_STAMINA_RATIO, AnimalConstants::DEER_MAX_STAMINA);
+		this->energy = std::max(this->energy - AnimalConstants::DEER_CONSUME_ENERGY_RATIO, 0.0f);
 	}
 	else if (state == MoveState::Run)
 	{
-		this->stamina = std::min(this->stamina - AnimalConstants::DEER_CONSUME_STAMINA_RATIO, AnimalConstants::DEER_MIN_STAMINA);
+		this->stamina = std::max(this->stamina - AnimalConstants::DEER_CONSUME_STAMINA_RATIO, AnimalConstants::DEER_MIN_STAMINA);
 	}
 
 }

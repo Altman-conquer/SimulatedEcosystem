@@ -24,10 +24,15 @@ void Wolf::Breed()
 
 bool Wolf::Eat(Animal& other) 
 {
-	if (other.GetSpecies() == Species::Cow || other.GetSpecies() == Species::Deer)
-	{	
-		energy += AnimalConstants::WOLF_ENERGY_TRANSFORMATION_RATIO* other.GetEnergy();
-		return true;
+	if ((other.GetPosition() - position).GetLength() <= GetCollisionRadius())
+	{
+		if (other.GetSpecies() == Species::Cow || other.GetSpecies() == Species::Deer)
+		{
+			energy += AnimalConstants::WOLF_ENERGY_TRANSFORMATION_RATIO * other.GetEnergy();
+			return true;
+			other.Die();
+		}
+		else return false;
 	}
 	else return false;
 }
@@ -38,98 +43,74 @@ void Wolf::Move()
 	//calculate the magnitude of velocity
 
 	MoveState state;
-	Vector2D presentPosition = this->position;
+	Vector2D unit_direction;
 
-	shared_ptr<Animal> target1 = Environment::GetClosetPair(this->environment, *this, Species::Cow);
-	Vector2D position1 = target1->GetPosition();
-	int d1 = Vector2D::GetDistance(position1, presentPosition);
-	
-	shared_ptr<Animal> target2 = Environment::GetClosetPair(this->environment, *this, Species::Deer);
-	Vector2D position2 = target2->GetPosition();
-	int d2 = Vector2D::GetDistance(position2,presentPosition);
-
+	shared_ptr<Animal> nearest = Environment::GetClosetPair(this->environment, *this, { Species::Cow, Species::Deer });
+	if (Vector2D::GetDistance(nearest->GetPosition(), this->GetPosition()) <= AnimalConstants::DEER_PROBE_RADIUS)
+	{
+		unit_direction = (nearest->GetPosition() - this->GetPosition()).GetNormalized();
+		state = MoveState::Run;
+	}
+	else
+	{
+		state = MoveState::Walk;
+	}
 
 	float speed = 0;
-	//move toward cow
-	if (d1 < d2&&d1<= AnimalConstants::WOLF_PROBE_RADIUS)
-	{
-		if (stamina >= AnimalConstants::WOLF_MIN_STAMINA)
-		{	
-			//calculate speed.
-			if (this->stamina >= AnimalConstants::WOLF_MAX_STAMINA / 2)
-			{
-				speed = AnimalConstants::WOLF_MAX_VELOCITY;
-			}
-			else if (this->stamina > AnimalConstants::WOLF_MAX_STAMINA)
-			{
-				speed = AnimalConstants::WOLF_MAX_VELOCITY * (this->stamina * 2 / AnimalConstants::WOLF_MAX_STAMINA);
-			}
-			else
-			{
-				speed = AnimalConstants::WOLF_MIN_VELOCITY;
-			}
 
-			state = MoveState::Run;
-			this->velocity =  (position1-presentPosition)* (speed/(position1 - presentPosition).GetLength());
+	if (state == MoveState::Run) {
+		if (this->stamina >= AnimalConstants::WOLF_MAX_STAMINA / 2)
+		{
+			speed = AnimalConstants::WOLF_MAX_VELOCITY;
+		}
+		else if (this->stamina > AnimalConstants::WOLF_MAX_STAMINA)
+		{
+			speed = AnimalConstants::WOLF_MAX_VELOCITY * (this->stamina * 2 / AnimalConstants::WOLF_MAX_STAMINA);
 		}
 		else
 		{
-			state = MoveState::Walk;
 			speed = AnimalConstants::WOLF_MIN_VELOCITY;
-			this->velocity= (position1 - presentPosition) * (speed/ (position1 - presentPosition).GetLength());
 		}
 	}
-	//move toward deer
-	else if(d1 >= d2 && d2 <= AnimalConstants::WOLF_PROBE_RADIUS)
+
+	else
 	{
-		if (stamina >= AnimalConstants::WOLF_MIN_STAMINA)
-		{	
-			//calculate speed.
-			if (this->stamina >= AnimalConstants::WOLF_MAX_STAMINA / 2)
-			{
-				speed = AnimalConstants::WOLF_MAX_VELOCITY;
-			}
-			else if (this->stamina > AnimalConstants::WOLF_MAX_STAMINA)
-			{
-				speed = AnimalConstants::WOLF_MAX_VELOCITY * (this->stamina * 2 / AnimalConstants::WOLF_MAX_STAMINA);
-			}
-			else
-			{
-				speed = AnimalConstants::WOLF_MIN_VELOCITY;
-			}
-			state = MoveState::Run;
-			this->velocity = (position1 - presentPosition) * (speed / (position2 - presentPosition).GetLength());
+		if (RandomFloat(0.0, 1.0) <= AnimalConstants::WOLF_IDLE_PROBABILITY)
+		{
+			speed = 0;
+			state = MoveState::Idle;
 		}
 		else
 		{
-			state = MoveState::Walk;
+			unit_direction = RandomUnitVector();
 			speed = AnimalConstants::WOLF_MIN_VELOCITY;
-			this->velocity = (position1 - presentPosition) * (speed / (position2 - presentPosition).GetLength());
+			state = MoveState::Walk;
 		}
 	}
-	else 
-	{
-		state = MoveState::Idle;
-		this->velocity = Vector2D(0, 0);
-	}
+
+
+	//Get Direction
+	this->velocity = unit_direction * speed;
+
+	//update position
 	this->position = this->position + this->velocity;
 
-	if (state == MoveState::Run)
+	if (state == MoveState::Idle || state == MoveState::Walk)
 	{
-		this->energy = this->energy*(1-AnimalConstants::WOLF_CONSUME_ENERGY_RATIO*2);
-		this->stamina = this->stamina * (1 - AnimalConstants::WOLF_RECOVER_STAMINA_RATIO);
+		this->stamina = std::min(this->stamina + AnimalConstants::WOLF_RECOVER_STAMINA_RATIO, AnimalConstants::WOLF_MAX_STAMINA);
+		this->energy = std::max(this->energy - AnimalConstants::WOLF_CONSUME_ENERGY_RATIO, 0.0f);
 	}
-	else if(state==MoveState::Walk)
-	{	
-		this->energy = this->energy * (1 - AnimalConstants::WOLF_CONSUME_ENERGY_RATIO);
+	else if (state == MoveState::Run)
+	{
+		this->stamina = std::max(this->stamina - AnimalConstants::WOLF_CONSUME_STAMINA_RATIO, AnimalConstants::WOLF_MIN_STAMINA);
 	}
-		
 
 }
 
 void Wolf::Update()
 {
 	age_int++;
+	Wolf::Move();
 }
 
 Age Wolf::GetAge()
