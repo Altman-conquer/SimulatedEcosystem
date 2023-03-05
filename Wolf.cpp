@@ -25,7 +25,7 @@ bool Wolf::Eat(Animal& other)
 {
 	if (other.GetSpecies() == Species::Cow || other.GetSpecies() == Species::Deer)
 	{	
-		energy+=
+		energy += energy_conversion_rate;
 		return true;
 	}
 	else return false;
