@@ -202,6 +202,11 @@ float Animal::GetCollisionRadius()
 		return AnimalConstants::ADULT_DISTANCE;
 }
 
+bool Animal::operator!=(const Animal& other) const
+{
+	return this->id != other.id;
+}
+
 Vector2D Animal::Interp(float elapsed_time, float period_time)
 {
 	if (elapsed_time > period_time)

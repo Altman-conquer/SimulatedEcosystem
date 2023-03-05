@@ -277,6 +277,8 @@ public:
 	float GetCollisionRadius();
 
 	bool operator==(const Animal& other)const;
+	
+	bool operator!=(const Animal& other)const;
 
 	Vector2D Interp(float elapsed_time, float period_time);
 
@@ -290,8 +292,6 @@ public:
 	// Kill the animal if it is too old or is being ate.
 	//************************************
 	bool Die();
-
-	
   
 protected:
 	
