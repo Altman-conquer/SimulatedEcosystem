@@ -46,12 +46,12 @@ void Cow::Breed()
 	if (other->GetGender() != gender)
 	{
 		bool is_success = false;
-		if (other->GetGender() == Gender::Female && other->GetEnergy() > AnimalConstants::COW_INITIAL_ENERGY)
+		if (other->GetGender() == Gender::Female && other->GetEnergy() > AnimalConstants::COW_INITIAL_ENERGY * 2.0)
 		{
 			other->DecreaseEnergy(AnimalConstants::COW_INITIAL_ENERGY);
 			is_success = true;
 		}
-		else if (energy > AnimalConstants::COW_INITIAL_ENERGY)
+		else if (energy > AnimalConstants::COW_INITIAL_ENERGY * 2.0)
 		{
 			DecreaseEnergy(AnimalConstants::COW_INITIAL_ENERGY);
 			is_success = true;
