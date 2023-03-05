@@ -32,6 +32,7 @@ bool Wolf::Eat(Animal& other)
 	else return false;
 }
 
+
 void Wolf::Move()
 {
 	State state;
@@ -51,19 +52,34 @@ void Wolf::Move()
 		if (stamina >= AnimalConstants::WOLF_MIN_STAMINA)
 		{
 			state = State::Run;
-			this->velocity=AnimalConstants
+			this->velocity =  (position1-presentPosition)* (AnimalConstants::WOLF_MAX_VELOCITY/(position1 - presentPosition).GetLength());
+		}
+		else
+		{
+			state = State::Walk;
+			this->velocity= (position1 - presentPosition) * (AnimalConstants::WOLF_MIN_VELOCITY / (position1 - presentPosition).GetLength());
 		}
 	}
-
 	//move toward deer
 	else if(d1 >= d2 && d2 <= AnimalConstants::WOLF_PROBE_DISTANCE)
 	{
-
+		if (stamina >= AnimalConstants::WOLF_MIN_STAMINA)
+		{
+			state = State::Run;
+			this->velocity = (position1 - presentPosition) * (AnimalConstants::WOLF_MAX_VELOCITY / (position2 - presentPosition).GetLength());
+		}
+		else
+		{
+			state = State::Walk;
+			this->velocity = (position1 - presentPosition) * (AnimalConstants::WOLF_MIN_VELOCITY / (position2 - presentPosition).GetLength());
+		}
 	}
 	else 
 	{
-
+		state = State::Stay;
+		this->velocity = Vector2D(0, 0);
 	}
+	this->position = this->position + this->velocity;
 }
 
 void Wolf::Update()
