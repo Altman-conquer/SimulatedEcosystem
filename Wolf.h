@@ -19,6 +19,8 @@ protected:
 	bool Eat(Animal& other) override;
 
 	void Move() override;
+	
+	Age GetAge() override;
 
 private:
 	

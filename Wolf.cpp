@@ -25,7 +25,7 @@ bool Wolf::Eat(Animal& other)
 {
 	if (other.GetSpecies() == Species::Cow || other.GetSpecies() == Species::Deer)
 	{	
-		energy += energy_conversion_rate * other.GetEnergy();
+		energy += AnimalConstants::WOLF_ENERGY_CONVERSION_RATE * other.GetEnergy();
 		return true;
 	}
 	else return false;
@@ -38,4 +38,9 @@ void Wolf::Move() {
 void Wolf::Update()
 {
 	age_int++;
+}
+
+Age Wolf::GetAge()
+{
+	return Age(this->age_int >= AnimalConstants::WOLF_ADULT_AGE);
 }

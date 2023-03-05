@@ -41,6 +41,7 @@ namespace AnimalConstants {
 	
 	extern const int Deer_ADULT_AGE;
 	
+	extern const int WOLF_ADULT_AGE;
 
 	// Max age of animals
 	extern const int COW_MAX_AGE;
@@ -51,8 +52,23 @@ namespace AnimalConstants {
 
 	extern const int Deer_MAX_AGE;
 
+	extern const int WOLF_MAX_AGE;
+
 	// Breed probability of animals
 	extern const float GRASS_BREED_PROBABILITY;
+
+
+	//energy_conversion_rate
+	extern const float WOLF_ENERGY_CONVERSION_RATE;
+
+	//maximal stamina of animals
+	extern const float WOLF_MAX_STAMINA;
+
+	//maximal speed of animals
+	extern const float WOLF_MAX_SPEED;
+
+	//minimal speed of animals
+	extern const float WOLF_MIN_SPEED;
 
 }
 
@@ -167,7 +183,7 @@ protected:
 	//Add 1 in every update
 	int age_int;
 
-	int stamina; 
+	float stamina; 
 	
 	float energy;
 

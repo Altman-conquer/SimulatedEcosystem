@@ -12,6 +12,9 @@ namespace AnimalConstants {
 
 	const int Deer_ADULT_AGE = 50;
 
+	const int WOLF_ADULT_AGE=60;
+
+
 	// Max age of animals
 	const int COW_MAX_AGE = 100;
 
@@ -20,6 +23,8 @@ namespace AnimalConstants {
 	const float GRASS_GROWTH_SPEED = 1.0; // radius += GRASS_GROWTH_SPEED;
 
 	const int Deer_MAX_AGE = 100;
+
+	const int WOLF_MAX_AGE=120;
 
 
 	// Breed probability of animals
