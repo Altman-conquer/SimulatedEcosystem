@@ -70,6 +70,12 @@ namespace AnimalConstants {
 	//Energy transformation ratio
 	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
 
+	//Energy consume ratio
+	extern const float DEER_CONSUME_ENERGY_RATIO;
+
+	//recover stamina ratio
+	extern const float DEER_RECOVER_STAMINA_RATIO;
+
 	
 
 }

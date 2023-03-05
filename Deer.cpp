@@ -35,6 +35,7 @@ void Deer::Move()
 void Deer::Update()
 {
 	this->age_int += 1;
+
 }
 
 void Deer::Mutate()
