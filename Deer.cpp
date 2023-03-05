@@ -9,13 +9,12 @@ Species Deer::GetSpecies()
 
 void Deer::Move()
 {
-
 	MoveState state = MoveState::Walk;
 	Vector2D unit_direction;
 
 	shared_ptr<Animal> nearest = Environment::GetClosetPair(environment, *this, { Species::Grass, Species::Wolf, Species::Tiger });
 	
-	if (Vector2D::GetDistance(nearest->GetPosition(), this->GetPosition()) <= AnimalConstants::DEER_PROBE_RADIUS)
+	if (Vector2D::GetDistance(nearest->GetPosition(), this->GetPosition()) <= AnimalConstants::PROBE_RADIUS)
 	{
 		if (nearest->GetSpecies() == Species::Grass)
 			unit_direction = (nearest->GetPosition() - this->GetPosition()).GetNormalized();
@@ -73,7 +72,6 @@ void Deer::Move()
 	{
 		this->stamina = std::min(this->stamina - AnimalConstants::DEER_CONSUME_STAMINA_RATIO, AnimalConstants::DEER_MIN_STAMINA);
 	}
-
 }
 
 void Deer::Update()

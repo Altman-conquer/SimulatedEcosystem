@@ -75,8 +75,6 @@ namespace AnimalConstants {
 
 	extern const float DEER_BREED_PROBABILITY;
 
-	// Breed radius
-
 	//Max stamina of animals
 	extern const float COW_MAX_STAMINA;
 	
@@ -112,29 +110,41 @@ namespace AnimalConstants {
 	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
 
 	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
-
+	
 	// the energy of grass will increase every tick
 	extern const float GRASS_RECOVER_SPEED;
 
-	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
 
 	//Energy consume ratio
 	extern const float DEER_CONSUME_ENERGY_RATIO;
 
+	extern const float COW_CONSUME_ENERGY_RATIO;
+
+
 	//recover stamina ratio
 	extern const float DEER_RECOVER_STAMINA_RATIO;
 
+	extern const float COW_RECOVER_STAMINA_RATIO;
+
 	//consume stamina ratio
 	extern const float DEER_CONSUME_STAMINA_RATIO;
+	
+	extern const float COW_CONSUME_STAMINA_RATIO;
+	
 
 	//probe radius of animals
-	extern const float DEER_PROBE_RADIUS;
+	extern const float PROBE_RADIUS;
 
-	extern const float COW_PROBE_RADIUS;
-
-	
 	//Idle probability of animals
 	extern const float DEER_IDLE_PROBABILITY;
+
+	extern const float COW_IDLE_PROBABILITY;
+
+	extern const float COW_MAX_ENERGY;
+
+	extern const float GRASS_INITIAL_ENERGY;
+	
+	extern const float COW_INITIAL_ENERGY;
 
 }
 
@@ -183,6 +193,8 @@ public:
 	Gender GetGender();
 
 	float GetEnergy();
+
+	bool DecreaseEnergy(float value);
 
 	Vector2D GetPosition() const;
 
