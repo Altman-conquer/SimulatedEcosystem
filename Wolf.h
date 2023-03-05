@@ -1,11 +1,13 @@
 #pragma once
 #include "Animal.h"
+#include"deer.h"
+#include"cow.h"
 class Wolf :
 	public Animal
 {
 public:
-	Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
-		Vector2D _velocity, Gender _gender, map<Gene, float> _genes, float _stamina, float _energy);
+	Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment);
+	Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Gender _gender);
 
 	Species GetSpecies() override;
 
