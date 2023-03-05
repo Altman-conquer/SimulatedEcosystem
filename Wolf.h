@@ -20,5 +20,8 @@ protected:
 
 	void Move() override;
 
+private:
+	double energy_conversion_rate;
+
 };
 

@@ -24,7 +24,10 @@ void Wolf::Breed()
 bool Wolf::Eat(Animal& other) 
 {
 	if (other.GetSpecies() == Species::Cow || other.GetSpecies() == Species::Deer)
+	{	
+		energy+=
 		return true;
+	}
 	else return false;
 }
 
