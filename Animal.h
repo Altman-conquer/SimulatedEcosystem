@@ -40,6 +40,8 @@ namespace AnimalConstants {
 	extern const int GRASS_ADULT_AGE;
 	
 	extern const int Deer_ADULT_AGE;
+
+	extern const int Tiger_ADULT_AGE;
 	
 	// Max age of animals
 	extern const int COW_MAX_AGE;
@@ -50,8 +52,12 @@ namespace AnimalConstants {
 
 	extern const int Deer_MAX_AGE;
 
+	extern const int Tigrt_MAX_AGE;
+
 	// Breed probability of animals
 	extern const float GRASS_BREED_PROBABILITY;
+
+	extern const float TIGER_BREED_PROBABILITY;
 
 }
 
