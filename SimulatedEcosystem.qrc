@@ -1,4 +1,8 @@
 <RCC>
-    <qresource prefix="SimulatedEcosystem">
+    <qresource prefix="/">
+        <file>sourcePicture/cow.png</file>
+        <file>sourcePicture/dear.png</file>
+        <file>sourcePicture/tiger.png</file>
+        <file>sourcePicture/wolf.png</file>
     </qresource>
 </RCC>

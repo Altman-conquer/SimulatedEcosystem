@@ -4,6 +4,7 @@
 #include <map>
 #include "Environment.h"
 #include "Log.h"
+#include <QString>
 
 
 class Environment;
@@ -134,6 +135,7 @@ public:
 
 	bool operator==(const Animal& other)const;
 
+
 	//************************************
 	// Method:    Die
 	// FullName:  Animal::Die
@@ -144,6 +146,7 @@ public:
 	//************************************
 	bool Die();
 	
+  
 protected:
 	
 	//************************************
@@ -206,6 +209,7 @@ protected:
 
 	// Used to identify an animal
 	const int id;
+
 
 private:
 	
