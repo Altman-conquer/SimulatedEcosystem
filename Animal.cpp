@@ -5,6 +5,11 @@ int Animal::animalCount = 0;
 
 namespace AnimalConstants {
 
+	// The distance of crash
+	const float CHILD_DISTANCE=0.5;
+
+	const float ADULT_DISTANCE=1;
+
 	// Age limits of animals to tell it is adult or not.
 	const int COW_ADULT_AGE = 50;
 
