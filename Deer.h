@@ -14,6 +14,8 @@ protected:
 
 	void Mutate() override;
 
+	Age GetAge() override; 
+
 	void Breed() override;
 
 	bool Eat(Animal& other) override;

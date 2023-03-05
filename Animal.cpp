@@ -92,6 +92,9 @@ namespace AnimalConstants {
 
 	//motionless probability of animals
 	const float DEER_IDLE_PROBABILITY = 1.0;
+
+	//energy max of animals
+	const float DEER_MAX_ENERGY = 10.0;
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):

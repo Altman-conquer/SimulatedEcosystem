@@ -57,7 +57,7 @@ namespace AnimalConstants {
 
 	extern const int COW_ADULT_AGE;
 	
-	extern const int Deer_ADULT_AGE;
+	extern const int DEER_ADULT_AGE;
 	
 	extern const int WOLF_ADULT_AGE;
 
@@ -135,6 +135,12 @@ namespace AnimalConstants {
 	
 	//Idle probability of animals
 	extern const float DEER_IDLE_PROBABILITY;
+
+
+	//energy max of animals
+	extern const float DEER_MAX_ENERGY;
+
+
 
 }
 
