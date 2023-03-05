@@ -15,21 +15,43 @@ namespace AnimalConstants {
 	// Max age of animals
 	const int COW_MAX_AGE = 100;
 
-	const float GRASS_INITIAL_RADIUS = 1.0;
-
-	const float GRASS_GROWTH_SPEED = 1.0; // radius += GRASS_GROWTH_SPEED;
-
 	const int Deer_MAX_AGE = 100;
 
 
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
 
+
+	// Size of picture of the adult and child animal
+	const int SIZE_OF_CHILD = 50;
+	const int SIZE_OF_ADULT = 100;
+  
+	//Max stamina of animals
+	const float DEER_MAX_STAMINA = 1.0;
+
+	//Min stamina of animals
+	extern const float DEER_MIN_STAMINA = 1.0;
+
+	//Max velocity of animals
+	const float DEER_MAX_VELOCITY = 50.0;
+
+	//Min velocity of animals
+	extern const float DEER_MIN_VELOCITY = 1.0;
+
+	//Energy transformation ratio
+	const float DEER_ENERGY_TRANSFORMATION_RATIO = 0.8;
+
 }
 
-Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):id(Animal::animalCount++),age_int(0)
+Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):
+	id(Animal::animalCount++),age_int(0),environment(_environment),energy(0),gender(Gender::Male),stamina(0)
 {
-	this->environment = _environment;
+
+}
+
+Gender Animal::GetGender()
+{
+	return gender;
 }
 
 float Animal::GetEnergy()
@@ -48,19 +70,33 @@ Vector2D Animal::GetDirection() const
 	return velocity/velocity.GetLength();
 }
 
-Animal::Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
-	Vector2D velocity, bool _isMale, map<Gene, float> _genes, float _stamina, float _energy):Animal(_environment)
+bool Animal::Die()
 {
-	this->position = _position;
-	this->velocity = velocity;
-	this->is_male = _isMale;
-	this->genes = _genes;
-	this->stamina = _stamina;
-	this->energy = _energy;
+	// remove self from environment
+	for (auto it = environment->begin(); it != environment->end(); it++)
+	{
+		if ((*it)->GetID() == id)
+		{
+			environment->erase(it);
+			return true;
+		}
+	}
+	return false;
 }
+
+Animal::Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
+	Vector2D _velocity, Gender _gender, map<Gene, float> _genes, float _stamina, float _energy):
+	id(Animal::animalCount++), age_int(0),environment(_environment), position(_position),
+	velocity(_velocity), gender(_gender), genes(_genes), stamina(_stamina), energy(_energy)
+{}
 
 Animal::~Animal(){}
 
+
+int Animal::GetID()
+{
+	return id;
+}
 
 bool Animal::operator==(const Animal& other) const
 {
