@@ -92,6 +92,7 @@ namespace AnimalConstants {
 
 	// The stating energy
 	extern const float TIGER_STATE_ENERGY;
+
 	// Breed radius
 
 	//Max stamina of animals
@@ -290,7 +291,6 @@ protected:
 
 	// Used to identify an animal
 	const int id;
-
 
 private:
 	

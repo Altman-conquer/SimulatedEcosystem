@@ -1,4 +1,5 @@
 #include "Tiger.h"
+#include <memory>
 
 Tiger::Tiger(std::shared_ptr<vector<shared_ptr<Animal>>> _environment) : Animal(_environment)
 {
@@ -56,6 +57,18 @@ void Tiger::Mutate()
 
 void Tiger::Breed()
 {
+	shared_ptr<Animal> female;
+	if (this->gender==Gender::Male)
+	{
+		female = closest;
+	} 
+	else
+	{
+		female=std::make_shared<Animal>(*this);
+	}
+	if (female->GetEnergy()>)
+	{
+	}
 	shared_ptr<Animal> new_animal = std::make_shared<Tiger>(this->environment,
 		RandomPositionVector(position, AnimalConstants::BREED_RADIUS));
 	this->environment->push_back(new_animal);

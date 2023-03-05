@@ -10,6 +10,7 @@ namespace AnimalConstants {
 	const float CHILD_DISTANCE = 0.5;
 
 	const float ADULT_DISTANCE = 1;
+
 	// Age limits of animals to tell it is adult or not.
 	const int GRASS_ADULT_AGE = 10;
 	
@@ -28,6 +29,7 @@ namespace AnimalConstants {
 
 	const int WOLF_MAX_AGE=120;
 
+	const int Tigrt_MAX_AGE = 130;
 
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
@@ -68,6 +70,9 @@ namespace AnimalConstants {
 	const float DEER_MIN_VELOCITY = 1.0;
 
 	const float WOLF_MIN_VELOCITY = 1.0;
+
+	// The stating energy
+	const float TIGER_STATE_ENERGY=100;
 
 	//Energy transformation ratio
 	const float COW_ENERGY_TRANSFORMATION_RATIO = 0.8;
