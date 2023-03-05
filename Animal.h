@@ -96,6 +96,8 @@ public:
 	//************************************
 	virtual Age GetAge() = 0;
 
+	virtual QString GetPicturePath() = 0;
+
 	float GetEnergy();
 
 	Vector2D GetPosition() const;

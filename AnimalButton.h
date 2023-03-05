@@ -5,6 +5,7 @@
 #include "Animal.h"
 #include <memory>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class AnimalButtonClass; };
 QT_END_NAMESPACE 

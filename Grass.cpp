@@ -41,3 +41,8 @@ bool Grass::Eat(Animal& other)
 {
 	return false;
 }
+
+QString Grass::GetPicturePath() {
+	QString s = ":/sourcePicture/grass (2).png";
+	return s;
+}
