@@ -20,7 +20,7 @@ void Deer::Move()
 	{
 		velocity_scalar = AnimalConstants::DEER_MAX_VELOCITY;
 	}
-	else if (this->stamina < AnimalConstants::DEER_MAX_STAMINA / 2 && this->stamina > AnimalConstants::DEER_MAX_STAMINA)
+	else if (this->stamina > AnimalConstants::DEER_MAX_STAMINA)
 	{
 		velocity_scalar = AnimalConstants::DEER_MAX_VELOCITY * (this->stamina * 2 / AnimalConstants::DEER_MAX_STAMINA);
 	}
