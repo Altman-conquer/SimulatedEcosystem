@@ -15,12 +15,12 @@ public:
     SimulatedEcosystem(QWidget *parent = nullptr);
     ~SimulatedEcosystem();
 
-    void resizeEvent(QResizeEvent* event);//处理窗口大小更改
-    void dealUnfold();//处理侧边栏
+    void resizeEvent(QResizeEvent* event);//deal the size of window
+    void dealUnfold();//deal sidebar unfold
 
 
 private:
     Ui::SimulatedEcosystemClass ui;
     AnimalButton* temp = new AnimalButton(this);
-    int move_of_window = 0;//侧边栏
+    int move_of_sidebar = 0;
 };
