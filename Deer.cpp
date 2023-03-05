@@ -82,7 +82,7 @@ void Deer::Move()
 	if (state == MoveState::Idle || state == MoveState::Walk)
 	{
 		this->stamina = std::max(this->stamina + AnimalConstants::DEER_RECOVER_STAMINA_RATIO, AnimalConstants::DEER_MAX_STAMINA);
-		this->energy = std::min(this->energy - AnimalConstants::DEER_CONSUME_ENERGY_RATIO, 0.0);
+		this->energy = std::min(this->energy - AnimalConstants::DEER_CONSUME_ENERGY_RATIO, 0.0f);
 	}
 	else if (state == MoveState::Run)
 	{
