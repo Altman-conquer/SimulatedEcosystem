@@ -8,6 +8,7 @@ Vector2D::Vector2D(float x, float y) :x(x), y(y) {}
 
 Vector2D Vector2D::GetDirectionVector(Direction direction)
 {
+
 	switch (direction)
 	{
 	case Direction::Up:
@@ -23,6 +24,8 @@ Vector2D Vector2D::GetDirectionVector(Direction direction)
 		return Vector2D(0.0, 0.0);
 	}
 }
+
+
 
 float Vector2D::GetDistance(const Vector2D& vector1, const Vector2D& vector2)
 {

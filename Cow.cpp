@@ -52,7 +52,7 @@ void Cow::Move()
 	shared_ptr<Animal> other = Environment::GetClosetPair(environment, *this, Species::NULLSPECIES);
 	Vector2D direction;
 	float distance = (position - other->GetPosition()).GetLength();
-	if (distance > AnimalConstants::COW_PROB_RADIUS)// Idle
+	if (distance > AnimalConstants::COW_PROBE_RADIUS)// Idle
 	{
 		
 	}

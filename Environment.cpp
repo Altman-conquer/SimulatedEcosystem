@@ -1,5 +1,6 @@
 #include "Environment.h"
 #include "Tiger.h"
+#include "Log.h"
 #include "Grass.h"
 
 namespace EnvironmentConstants {
@@ -85,6 +86,8 @@ shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr
 			}
 	}
 
+	if (target == NULL)
+		Log::LogMessage("Return value of Environment::GetClosetPair is NULL", LogLevel::Error);
 	return target;
 }
 
@@ -102,7 +105,8 @@ shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr
 			min_distance = Vector2D::GetDistance(neighbour->GetPosition(), position);
 			target = neighbour;
 		}
-
+	if (target == NULL)
+		Log::LogMessage("Return value of Environment::GetClosetPair is NULL", LogLevel::Error);
 	return target;
 }
 
