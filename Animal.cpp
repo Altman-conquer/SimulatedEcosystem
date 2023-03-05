@@ -65,7 +65,7 @@ namespace AnimalConstants {
 	const float DEER_CONSUME_STAMINA_RATIO = 1.0;
 
 	//probe radius of animals
-	const float DEER_PROBE_Radius = 1.0;
+	const float DEER_PROBE_RADIUS = 1.0;
 
 	const float GRASS_RECOVER_SPEED = 0.5;
 
