@@ -118,7 +118,7 @@ public:
 	//************************************
 	virtual Age GetAge() = 0;
 
-	virtual Gender GetGender();
+	Gender GetGender();
 
 	float GetEnergy();
 
