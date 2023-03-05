@@ -120,6 +120,7 @@ void Cow::Move()
 
 	//update position
 	this->position = this->position + this->velocity;
+	this->position.ClipBound();
 
 	//update stamina and energy
 	if (state == MoveState::Idle || state == MoveState::Walk)

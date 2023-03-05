@@ -39,6 +39,7 @@ Vector2D RandomPositionVector(const Vector2D& center, float radius)
 		RandomFloat(center.GetY() - radius, center.GetY() + radius));
 }
 
+
 void PrintAnimals(Environment environment)
 {
 	for (shared_ptr<Animal>& animal:*environment.GetEnvironment())
