@@ -54,6 +54,25 @@ namespace AnimalConstants {
 	// Breed probability of animals
 	extern const float GRASS_BREED_PROBABILITY;
 
+	extern const float DEER_BREED_PROBABILITY;
+
+	//Max stamina of animals
+	extern const float DEER_MAX_STAMINA;
+
+	//Min stamina of animals
+	extern const float DEER_MIN_STAMINA;
+
+	//Max velocity of animals
+	extern const float DEER_MAX_VELOCITY;
+
+	//Min velocity of animals
+	extern const float DEER_MIN_VELOCITY;
+
+	//Energy transformation ratio
+	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
+
+	
+
 }
 
 class Animal
