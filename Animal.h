@@ -28,6 +28,11 @@ enum class Age {
 	Adult
 };
 
+enum class Gender {
+	Male,
+	Female,
+};
+
 enum class Gene {
 	TestName,
 };
@@ -44,10 +49,6 @@ namespace AnimalConstants {
 	// Max age of animals
 	extern const int COW_MAX_AGE;
 
-	extern const float GRASS_INITIAL_RADIUS;
-	
-	extern const float GRASS_GROWTH_SPEED; // radius += GRASS_GROWTH_SPEED;
-
 	extern const int Deer_MAX_AGE;
 
 	// Breed probability of animals
@@ -62,7 +63,7 @@ public:
 	Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment);
 		
 	Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
-		Vector2D velocity, bool _isMale, map<Gene, float> _genes, float _stamina, float _energy);
+		Vector2D _velocity, Gender _gender, map<Gene, float> _genes, float _stamina, float _energy);
 
 	virtual ~Animal();
 
@@ -75,6 +76,8 @@ public:
 	// Get what kind of animal it is.
 	//************************************
 	virtual Species GetSpecies() = 0;
+
+	int GetID();
 	
 	//************************************
 	// Method:    Update
@@ -95,6 +98,8 @@ public:
 	//************************************
 	virtual Age GetAge() = 0;
 
+	virtual Gender GetGender();
+
 	float GetEnergy();
 
 	Vector2D GetPosition() const;
@@ -109,6 +114,16 @@ public:
 	Vector2D GetDirection() const;
 
 	bool operator==(const Animal& other)const;
+
+	//************************************
+	// Method:    Die
+	// FullName:  Animal::Die
+	// Access:    public 
+	// Returns:   bool
+	// Qualifier:
+	// Kill the animal if it is too old or is being ate.
+	//************************************
+	bool Die();
 	
 protected:
 	
@@ -157,7 +172,7 @@ protected:
 
 	Vector2D velocity;
 	
-	bool is_male;
+	Gender gender;
 
 	shared_ptr<vector<shared_ptr<Animal>>> environment;
 

@@ -34,5 +34,7 @@ bool Cow::Eat(Animal& other)
 {
 	if (other.GetSpecies() != Species::Grass)
 		return false;
+	energy += other.GetEnergy();
+	return true;
 	
 }
