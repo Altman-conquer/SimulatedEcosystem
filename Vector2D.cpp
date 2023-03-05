@@ -39,6 +39,11 @@ float Vector2D::GetLength() const
 	return sqrt(x * x + y * y);
 }
 
+Vector2D Vector2D::GetNormalized() const
+{
+	return *this / GetLength();
+}
+
 float Vector2D::GetX() const
 {
 	return x;
