@@ -95,8 +95,6 @@ namespace AnimalConstants {
 	 const float GRASS_RECOVER_SPEED = 1.0;
 
 
-	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
-
 	//Energy consume ratio
 	 const float COW_CONSUME_ENERGY_RATIO = 1.0;
 
@@ -107,8 +105,6 @@ namespace AnimalConstants {
 	 const float TIGER_CONSUME_ENERGY_RATIO = 1.0;
 
 
-	const float WOLF_CONSUME_ENERGY_RATIO = 0.01;
-
 	//recover stamina ratio
 	 const float COW_RECOVER_STAMINA_RATIO = 1.0;
 
@@ -118,8 +114,6 @@ namespace AnimalConstants {
 
 	 const float TIGER_RECOVER_STAMINA_RATIO = 1.0;
 
-
-	const float WOLF_RECOVER_STAMINA_RATIO = 1.0;
 
 	//consume stamina ratio
 	 const float COW_CONSUME_STAMINA_RATIO = 1.0;
