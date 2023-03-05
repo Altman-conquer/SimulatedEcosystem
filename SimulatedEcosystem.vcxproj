@@ -90,6 +90,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Deer.cpp" />
+    <ClCompile Include="Cow.cpp" />
+    <ClCompile Include="Grass.cpp" />
     <ClCompile Include="AnimalButton.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Tiger.cpp" />
@@ -107,6 +110,8 @@
   <ItemGroup>
     <ClInclude Include="Animal.h" />
     <QtMoc Include="AnimalButton.h" />
+    <ClInclude Include="Deer.h" />
+    <ClInclude Include="Cow.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Grass.h" />
     <ClInclude Include="Log.h" />
