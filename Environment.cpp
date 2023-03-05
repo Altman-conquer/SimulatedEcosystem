@@ -26,6 +26,7 @@ Environment::Environment(map<Species, int> _n)
 			case Species::Cow:
 				this->animals->push_back(std::make_shared<Cow>(this->animals));
 				break;
+				
 			default:
 				break;
 			}
@@ -44,23 +45,28 @@ bool Environment::AddSpecies(shared_ptr<Animal> new_animal)
 	return true;
 }
 
+vector<int> Environment::GetDeadAnimals()
+{
+	vector<int> dead_animals;
+	for (shared_ptr<Animal>& animal : *animals)
+		if (prev_animals.count(animal->GetID()) == 0)
+		{
+			dead_animals.push_back(animal->GetID());
+		}
+	return dead_animals;
+}
+
 void Environment::Update()
 {
 	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
 
-	prev_positions->clear();
-	// Don't call update in this for loop because update might cause the number of animals change.
+	prev_animals.clear();
 	for (shared_ptr<Animal>& animal : *animals)
-		prev_positions->push_back(animal->GetPosition());
+		prev_animals.insert(animal->GetID());
 	
 	for (shared_ptr<Animal>& animal : *animals)
 		animal->Update();
 	
-}
-
-const shared_ptr<vector<Vector2D>> Environment::GetPrevPositions() const
-{
-	return prev_positions;
 }
 
 shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, Species species)

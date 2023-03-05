@@ -55,6 +55,8 @@ public:
 	//************************************
 	bool AddSpecies(shared_ptr<Animal> new_animal);
 
+	vector<int> GetDeadAnimals();
+
 	//************************************
 	// Method:    Update
 	// FullName:  Environment::Update
@@ -66,16 +68,6 @@ public:
 	// You can use GetPrevPositions to get it.
 	//************************************
 	void Update();
-	
-	//************************************
-	// Method:    GetPrevPositions
-	// FullName:  Environment::GetPrevPositions
-	// Access:    public 
-	// Returns:   shared_ptr<vector<Vector2D>>
-	// Qualifier:
-	// Get positions of animals in the t-1 iterations
-	//************************************
-	const shared_ptr<vector<Vector2D>> GetPrevPositions() const;
 	
 	//************************************
 	// Method:    GetClosetPair
@@ -93,7 +85,8 @@ private:
 	// Storing animals
 	shared_ptr<vector<shared_ptr<Animal>>> animals;
 
-	// Positions of animals in the previous iteration
-	shared_ptr<vector<Vector2D>> prev_positions;
+	// id of animals in the previous second
+	std::set<int>prev_animals;
+
 };
 
