@@ -140,7 +140,7 @@ bool Cow::Eat(Animal& other)
 	if ((other.GetPosition() - position).GetLength() <= GetCollisionRadius())
 	{
 		energy += other.GetEnergy();
-		energy = 
+		energy = std::min(AnimalConstants::COW_MAX_ENERGY, energy);
 		other.Die();
 		return true;
 	}
