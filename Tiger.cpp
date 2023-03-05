@@ -1,5 +1,4 @@
 #include "Tiger.h"
-#include "Vector2D.h"
 
 Tiger::Tiger(std::shared_ptr<vector<shared_ptr<Animal>>> _environment) : Animal(_environment)
 {
@@ -25,8 +24,7 @@ void Tiger::Mutate()
 
 void Tiger::Breed()
 {
-	shared_ptr<Animal> closest =Environment:: GetClosetPair(environment,*this,Species::NULLSPECIES);
-	float distance=GetDistance()
+	
 	Log::LogMessage("Tiger breed", LogLevel::Info);
 
 }
