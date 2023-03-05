@@ -2,6 +2,7 @@
 #include "Tiger.h"
 #include "Log.h"
 #include "Grass.h"
+#include "Cow.h"
 
 namespace EnvironmentConstants {
 	// Position limit of every dimension, assuming the environment is rectangular.
@@ -22,6 +23,10 @@ Environment::Environment(map<Species, int> _n)
 			case Species::Grass:
 				this->animals->push_back(std::make_shared<Grass>(this->animals));
 				break;
+			case Species::Cow:
+				this->animals->push_back(std::make_shared<Cow>(this->animals));
+				break;
+				
 			default:
 				break;
 			}
