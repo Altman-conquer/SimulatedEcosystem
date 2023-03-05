@@ -40,12 +40,17 @@ namespace AnimalConstants {
 
 	 const float COW_BREED_PROBABILITY = 1.0;
 
+	 const float TIGER_BREED_PROBABILITY = 0.3;
+
 	 const float DEER_BREED_PROBABILITY = 1.0;
 
 	 const float WOLF_BREED_PROBABILITY = 1.0;
 
-	 const float TIGER_BREED_PROBABILITY = 1.0;
+	// Size of picture of the adult and child animal
+	 const int SIZE_OF_CHILD = 50;
 
+	 const int SIZE_OF_ADULT = 100;
+  
 	//Max stamina of animals
 	 const float COW_MAX_STAMINA = 1.0;
 
@@ -63,6 +68,7 @@ namespace AnimalConstants {
 	 const float WOLF_MIN_STAMINA = 1.0;
 
 	 const float TIGER_MIN_STAMINA = 1.0;
+
 
 
 	//Max velocity of animals
@@ -83,6 +89,17 @@ namespace AnimalConstants {
 
 	 const float TIGER_MIN_VELOCITY = 1.0;
 
+	// The stating energy
+	const float TIGER_STATE_ENERGY=1;
+
+	const float GRASS_INITIAL_ENERGY = 1.0;
+
+	const float COW_INITIAL_ENERGY = 1.0;
+
+	const float DEER_INITIAL_ENERGY = 1.0;
+
+	const float WOLF_INITIAL_ENERGY = 1.0;
+
 	//Energy transformation ratio
 	 const float COW_ENERGY_TRANSFORMATION_RATIO = 1.0;
 
@@ -90,11 +107,10 @@ namespace AnimalConstants {
 
 	 const float WOLF_ENERGY_TRANSFORMATION_RATIO = 1.0;
 
-	 const float TIGER_TRANSFORMATION_RATIO = 1.0;
+	 const float TIGER_ENERGY_TRANSFORMATION_RATIO = 0.8;
 
 	// the energy of grass will increase every tick
 	 const float GRASS_RECOVER_SPEED = 1.0;
-
 
 	//Energy consume ratio
 	 const float COW_CONSUME_ENERGY_RATIO = 1.0;
@@ -105,7 +121,6 @@ namespace AnimalConstants {
 
 	 const float TIGER_CONSUME_ENERGY_RATIO = 1.0;
 
-
 	//recover stamina ratio
 	 const float COW_RECOVER_STAMINA_RATIO = 1.0;
 
@@ -115,7 +130,6 @@ namespace AnimalConstants {
 
 	 const float TIGER_RECOVER_STAMINA_RATIO = 1.0;
 
-
 	//consume stamina ratio
 	 const float COW_CONSUME_STAMINA_RATIO = 1.0;
 
@@ -124,6 +138,7 @@ namespace AnimalConstants {
 	 const float WOLF_CONSUME_STAMINA_RATIO = 1.0;
 
 	 const float TIGER_CONSUME_STAMINA_RATIO = 1.0;
+
 
 	//probe radius of animals
 	 const float PROBE_RADIUS = 1.0;
@@ -146,17 +161,6 @@ namespace AnimalConstants {
 
 	 const float TIGER_MAX_ENERGY = 1.0;
 
-	//Initial energy;
-
-	 const float GRASS_INITIAL_ENERGY = 1.0;
-
-	 const float COW_INITIAL_ENERGY = 1.0;
-
-	 const float DEER_INITIAL_ENERGY = 1.0;
-
-	 const float WOLF_INITIAL_ENERGY = 1.0;
-
-	 const float TIGER_INITIAL_ENERGY = 1.0;
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):
