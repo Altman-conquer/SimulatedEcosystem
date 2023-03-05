@@ -37,6 +37,16 @@ public:
 	float GetLength() const;
 
 	//************************************
+	// Method:    GetNormalized
+	// FullName:  Vector2D::GetNormalized
+	// Access:    public 
+	// Returns:   Normalized Vector2D(unit vector)
+	// Qualifier: const
+	//************************************
+	Vector2D GetNormalized() const;
+
+
+	//************************************
 	// Method:    GetDistance
 	// FullName:  Vector2D::GetDistance
 	// Access:    public static 
