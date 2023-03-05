@@ -1,4 +1,5 @@
 #include "SimulatedEcosystem.h"
+#include "Animal.h"
 
 SimulatedEcosystem::SimulatedEcosystem(QWidget *parent)
     : QMainWindow(parent)
@@ -8,13 +9,15 @@ SimulatedEcosystem::SimulatedEcosystem(QWidget *parent)
     temp->show();
     move_of_sidebar = 0;
 
-    /*map<Species, int> test_species;
+    map<Species, int> test_species;
     test_species[Species::Grass] = 100;
-    Environment environment(test_species);*/
-
+    Environment environment(test_species);
     
+    shared_ptr<vector<shared_ptr<Animal>>> animals = environment.GetEnvironment();
+    for (shared_ptr<Animal>& animal : *animals) {
+        AnimalButton temp = new AnimalButton(this, animal);
+    }
     
-
 
 
 
