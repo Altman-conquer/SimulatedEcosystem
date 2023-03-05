@@ -11,35 +11,19 @@ void Deer::Move()
 {
 
 	MoveState state = MoveState::Walk;
-	Vector2D UnitDirection;
-	float Distance = 1e9;
+	Vector2D unit_direction;
 
-	//probe function
-	auto Nearest = [&](Species species,int sign)
+	shared_ptr<Animal> nearest = Environment::GetClosetPair(environment, *this, { Species::Grass, Species::Wolf, Species::Tiger });
+	
+	if (Vector2D::GetDistance(nearest->GetPosition(), this->GetPosition()) <= AnimalConstants::DEER_PROBE_RADIUS)
 	{
-		shared_ptr<Animal> NearestFood = Environment::GetClosetPair(environment, *this, Species::Grass);
+		if (nearest->GetSpecies() == Species::Grass)
+			unit_direction = (nearest->GetPosition() - this->GetPosition()).GetNormalized();
+		else
+			unit_direction = (this->GetPosition() - nearest->GetPosition()).GetNormalized();
+		state = MoveState::Run;
+	}
 
-		float NearestDistance = Vector2D::GetDistance(NearestFood->GetPosition(), this->GetPosition());
-		Vector2D NearestDirection = (NearestFood->GetPosition() - this->GetPosition()) * sign;
-
-		if (Vector2D::GetDistance(NearestFood->GetPosition(), this->GetPosition()) <= AnimalConstants::DEER_PROBE_RADIUS)
-		{
-			if (Distance > NearestDistance)
-			{
-				Distance = NearestDistance;
-				state = MoveState::Run;
-				UnitDirection = NearestDirection / NearestDistance;
-			}
-		}
-	};
-
-	Nearest(Species::Grass,1);
-
-	Nearest(Species::Wolf,-1);
-
-	Nearest(Species::Tiger,-1);
-
-	//Get velocity
 	float velocity_scalar;
 
 	if (state == MoveState::Run)
@@ -67,13 +51,14 @@ void Deer::Move()
 		}
 		else
 		{
+			unit_direction = RandomUnitVector();
 			velocity_scalar = AnimalConstants::DEER_MIN_VELOCITY;
 			state = MoveState::Walk;
 		}
 	}
 
 	//Get Direction
-	this->velocity = UnitDirection * velocity_scalar;
+	this->velocity = unit_direction * velocity_scalar;
 
 	//update position
 	this->position = this->position + this->velocity;
