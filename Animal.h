@@ -2,11 +2,12 @@
 #include <utility>
 #include <memory>
 #include <map>
-#include "Vector2D.h"
 #include "Environment.h"
 #include "Log.h"
 
+
 class Environment;
+class Vector2D;
 
 using std::shared_ptr;
 using std::vector;
@@ -37,6 +38,9 @@ namespace AnimalConstants {
 	extern const int COW_ADULT_AGE;
 
 	extern const int GRASS_ADULT_AGE;
+	
+	extern const int Deer_ADULT_AGE;
+	
 
 	// Max age of animals
 	extern const int COW_MAX_AGE;
@@ -44,6 +48,8 @@ namespace AnimalConstants {
 	extern const float GRASS_INITIAL_RADIUS;
 
 	extern const float GRASS_GROWTH_SPEED; // radius += GRASS_GROWTH_SPEED;
+
+	extern const int Deer_MAX_AGE;
 
 	// Breed probability of animals
 	extern const float GRASS_BREED_PROBABILITY;
@@ -152,7 +158,7 @@ protected:
 
 	int stamina; 
 	
-	int energy;
+	float energy;
 
 	// Used to identify an animal
 	const int id;

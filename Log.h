@@ -7,8 +7,7 @@ enum class LogLevel {
 	Error
 };
 
-class Log
-{
+class Log{
 public:
 	Log();
 	
@@ -19,6 +18,6 @@ private:
 	//Color for output logs
 	static const int WHITE = 15;
 	static const int YELLOW = 6;
-	static const int RED = 4;
+	static const int RED = 4;	
 };
 
