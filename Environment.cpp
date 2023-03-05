@@ -85,6 +85,7 @@ shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr
 				target = neighbour;
 			}
 	}
+
 	return target;
 }
 
