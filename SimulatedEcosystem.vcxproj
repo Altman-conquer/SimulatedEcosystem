@@ -98,6 +98,7 @@
     <ClCompile Include="Tiger.cpp" />
     <ClCompile Include="Utility.cpp" />
     <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="Wolf.cpp" />
     <QtRcc Include="SimulatedEcosystem.qrc" />
     <QtUic Include="AnimalButton.ui" />
     <QtUic Include="SimulatedEcosystem.ui" />
@@ -118,6 +119,7 @@
     <ClInclude Include="Tiger.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="Wolf.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
