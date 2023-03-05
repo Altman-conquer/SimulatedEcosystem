@@ -10,7 +10,6 @@ namespace AnimalConstants {
 	const float CHILD_DISTANCE = 0.5;
 
 	const float ADULT_DISTANCE = 1;
-
 	// Age limits of animals to tell it is adult or not.
 	const int GRASS_ADULT_AGE = 10;
 	
