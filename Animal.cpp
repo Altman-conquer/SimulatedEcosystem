@@ -10,9 +10,6 @@ namespace AnimalConstants {
 	const float CHILD_DISTANCE = 0.5;
 
 	const float ADULT_DISTANCE = 1;
-	// Age limits of animals to tell it is adult or not.
-	const int COW_ADULT_AGE = 50;
-
 
 	// Age limits of animals to tell it is adult or not.
 	const int GRASS_ADULT_AGE = 10;
@@ -35,16 +32,13 @@ namespace AnimalConstants {
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
 
-	const float BREED_RADIUS = 10.0;
-
 	const float TIGER_BREED_PROBABILITY = 0.3;
-
-
 
 	const float COW_BREED_PROBABILITY = 0.5;
 
 	// Size of picture of the adult and child animal
 	const int SIZE_OF_CHILD = 50;
+
 	const int SIZE_OF_ADULT = 100;
   
 	//Max stamina of animals
