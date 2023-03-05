@@ -32,8 +32,9 @@ int main(int argc, char *argv[])
 	Log::LogMessage("HelloWorld", LogLevel::Error);
     std::shared_ptr<Grass> it = std::dynamic_pointer_cast<Grass>(*environment.GetEnvironment()->begin());*/
     
-    map<Species, int> test_species;
-    test_species[Species::Grass] = 100;
+	map<Species, int> test_species;
+	test_species[Species::Grass] = 100;
+	test_species[Species::Cow] = 100;
     Environment environment(test_species);
 
 #else

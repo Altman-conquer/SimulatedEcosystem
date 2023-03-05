@@ -45,6 +45,7 @@ enum class MoveState {
 };
 
 namespace AnimalConstants {
+	//Breed radius
 	extern const float BREED_RADIUS;
 
 	// The distance of crash
@@ -57,16 +58,20 @@ namespace AnimalConstants {
 
 	extern const int COW_ADULT_AGE;
 	
-	extern const int Deer_ADULT_AGE;
+	extern const int DEER_ADULT_AGE;
 	
 	extern const int WOLF_ADULT_AGE;
+
+	extern const int TIGER_ADULT_AGE;
 
 	// Max age of animals
 	extern const int COW_MAX_AGE;
 
-	extern const int Deer_MAX_AGE;
+	extern const int DEER_MAX_AGE;
 
 	extern const int WOLF_MAX_AGE;
+
+	extern const int TIGER_MAX_AGE;
 
 	// Breed probability of animals
 	extern const float GRASS_BREED_PROBABILITY;
@@ -75,6 +80,10 @@ namespace AnimalConstants {
 
 	extern const float DEER_BREED_PROBABILITY;
 
+	extern const float WOLF_BREED_PROBABILITY;
+
+	extern const float TIGER_BREED_PROBABILITY;
+
 	//Max stamina of animals
 	extern const float COW_MAX_STAMINA;
 	
@@ -82,12 +91,16 @@ namespace AnimalConstants {
 
 	extern const float WOLF_MAX_STAMINA;
 
+	extern const float TIGER_MAX_STAMINA;
+
 	//Min stamina of animals
 	extern const float COW_MIN_STAMINA;
 	
 	extern const float DEER_MIN_STAMINA;
 
 	extern const float WOLF_MIN_STAMINA;
+
+	extern const float TIGER_MIN_STAMINA;
 
 
 	//Max velocity of animals
@@ -97,6 +110,8 @@ namespace AnimalConstants {
 
 	extern const float WOLF_MAX_VELOCITY;
 
+	extern const float TIGER_MAX_VELOCITY;
+
 	//Min velocity of animals
 	extern const float COW_MIN_VELOCITY;
 
@@ -104,34 +119,67 @@ namespace AnimalConstants {
 
 	extern const float WOLF_MIN_VELOCITY;
 
+	extern const float TIGER_MIN_VELOCITY;
+
 	//Energy transformation ratio
 	extern const float COW_ENERGY_TRANSFORMATION_RATIO;
 
 	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
 
 	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
+
+	extern const float TIGER_TRANSFORMATION_RATIO;
 	
 	// the energy of grass will increase every tick
 	extern const float GRASS_RECOVER_SPEED;
 
 
 	//Energy consume ratio
-	extern const float DEER_CONSUME_ENERGY_RATIO;
-
 	extern const float COW_CONSUME_ENERGY_RATIO;
 
+	extern const float DEER_CONSUME_ENERGY_RATIO;
+
+	extern const float WOLF_CONSUME_ENERGY_RATIO;
+
+	extern const float TIGER_CONSUME_ENERGY_RATIO;
+
+
+	extern const float WOLF_CONSUME_ENERGY_RATIO;
 
 	//recover stamina ratio
-	extern const float DEER_RECOVER_STAMINA_RATIO;
-
 	extern const float COW_RECOVER_STAMINA_RATIO;
 
+	extern const float DEER_RECOVER_STAMINA_RATIO;
+
+	extern const float WOLF_RECOVER_STAMINA_RATIO;
+
+	extern const float TIGER_RECOVER_STAMINA_RATIO;
+
+
 	//consume stamina ratio
-	extern const float DEER_CONSUME_STAMINA_RATIO;
-	
 	extern const float COW_CONSUME_STAMINA_RATIO;
+
+	extern const float DEER_CONSUME_STAMINA_RATIO;
+
+	extern const float WOLF_CONSUME_STAMINA_RATIO;
+
+	extern const float TIGER_CONSUME_STAMINA_RATIO;
+
+	extern const float WOLF_CONSUME_STAMINA_RATIO;
+
 	
 
+	//probe radius of animals
+	extern const float DEER_PROBE_RADIUS;
+
+	extern const float COW_PROBE_RADIUS;
+
+	extern const float WOLF_PROBE_RADIUS;
+
+	//maximal energy
+
+	extern const float WOLF_MAXIMA_ENERGY;
+	
 	//probe radius of animals
 	extern const float PROBE_RADIUS;
 
@@ -140,11 +188,30 @@ namespace AnimalConstants {
 
 	extern const float COW_IDLE_PROBABILITY;
 
+	extern const float WOLF_IDLE_PROBABILITY;
+
+	extern const float TIGER_IDLE_PROBABILITY;
+
+	//Max energy of animals
 	extern const float COW_MAX_ENERGY;
 
+	extern const float DEER_MAX_ENERGY;
+
+	extern const float WOLF_MAX_ENERGY;
+
+	extern const float TIGER_MAX_ENERGY;
+
+	//Initial energy;
+
 	extern const float GRASS_INITIAL_ENERGY;
-	
+
 	extern const float COW_INITIAL_ENERGY;
+	
+	extern const float DEER_INITIAL_ENERGY;
+
+	extern const float WOLF_INITIAL_ENERGY;
+
+	extern const float TIGER_INITIAL_ENERGY;
 
 }
 
@@ -212,6 +279,10 @@ public:
 	float GetCollisionRadius();
 
 	bool operator==(const Animal& other)const;
+	
+	bool operator!=(const Animal& other)const;
+
+	Vector2D Interp(float elapsed_time, float period_time);
 
 
 	//************************************
@@ -223,7 +294,6 @@ public:
 	// Kill the animal if it is too old or is being ate.
 	//************************************
 	bool Die();
-	
   
 protected:
 	
@@ -271,6 +341,8 @@ protected:
 	Vector2D position;
 
 	Vector2D velocity;
+
+	Vector2D prev_position;
 	
 	Gender gender;
 

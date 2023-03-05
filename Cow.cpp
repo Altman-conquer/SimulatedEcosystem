@@ -21,6 +21,7 @@ Species Cow::GetSpecies()
 void Cow::Update()
 {
 	age_int += 1;
+	prev_position = position;
 	if (age_int > AnimalConstants::COW_MAX_AGE || energy <= 0.0)
 		Die();
 	Move();
@@ -46,12 +47,12 @@ void Cow::Breed()
 	if (other->GetGender() != gender)
 	{
 		bool is_success = false;
-		if (other->GetGender() == Gender::Female && other->GetEnergy() > AnimalConstants::COW_INITIAL_ENERGY)
+		if (other->GetGender() == Gender::Female && other->GetEnergy() > AnimalConstants::COW_INITIAL_ENERGY * 2.0)
 		{
 			other->DecreaseEnergy(AnimalConstants::COW_INITIAL_ENERGY);
 			is_success = true;
 		}
-		else if (energy > AnimalConstants::COW_INITIAL_ENERGY)
+		else if (energy > AnimalConstants::COW_INITIAL_ENERGY * 2.0)
 		{
 			DecreaseEnergy(AnimalConstants::COW_INITIAL_ENERGY);
 			is_success = true;
@@ -91,7 +92,7 @@ void Cow::Move()
 		{
 			velocity_scalar = AnimalConstants::COW_MAX_VELOCITY;
 		}
-		else if (this->stamina > AnimalConstants::COW_MAX_STAMINA)
+		else if (this->stamina > AnimalConstants::COW_MIN_STAMINA)
 		{
 			velocity_scalar = AnimalConstants::COW_MAX_VELOCITY * (this->stamina * 2 / AnimalConstants::COW_MAX_STAMINA);
 		}
@@ -120,6 +121,7 @@ void Cow::Move()
 
 	//update position
 	this->position = this->position + this->velocity;
+	this->position.ClipBound();
 
 	//update stamina and energy
 	if (state == MoveState::Idle || state == MoveState::Walk)
