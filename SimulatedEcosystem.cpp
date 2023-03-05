@@ -24,7 +24,8 @@ SimulatedEcosystem::SimulatedEcosystem(QWidget *parent)
 
 
     for (shared_ptr<Animal>& animal : *animals) {
-        AnimalButton temp = new AnimalButton(ui.scrollAreaWidgetContents, animal);
+        AnimalButton* temp = new AnimalButton(ui.scrollAreaWidgetContents, animal);
+        my_animals[animal->GetID()] = temp;
     }
 
     connect(ui.unfold, &QPushButton::clicked, this, &SimulatedEcosystem::dealUnfold);
@@ -66,23 +67,25 @@ void SimulatedEcosystem::dealUnfold() {
 
 void SimulatedEcosystem::initChart()
 {
-    chart->setAxis(QString::fromLocal8Bit("X轴"), 0, 100, 11, QString::fromLocal8Bit("Y轴"), 0, 20, 11);
+    chart->setAxis(QString::fromLocal8Bit("X axis"), 0, 100, 11, QString::fromLocal8Bit("Y axis"), 0, 20, 11);
 
     QList<QPointF> pointlist_temp = { QPointF(0,1), QPointF(10,2), QPointF(20,4), QPointF(30,8), QPointF(40,16),
                                 QPointF(50,16), QPointF(60,8), QPointF(70,4), QPointF(80,2), QPointF(90,1), };
     pointlist.append(pointlist_temp);
-    //绘制
+
     chart->buildChart(pointlist);
-    //为MainWindow的centralWidget添加一个布局
-    /*QHBoxLayout* pHLayout = new QHBoxLayout(ui.centralWidget);
-    //将chart添加到布局中
-    pHLayout->addWidget(chart);*/
 }
 
 void SimulatedEcosystem::update_Surface() {
     environment->Update();
 	shared_ptr<vector<shared_ptr<Animal>>> animals = environment->GetEnvironment();
+	vector<int>deadID = environment->GetDeadAnimals();
+    for (int id : deadID) {
+        AnimalButton* temp = my_animals[id];
+        temp->setParent(NULL);
+        delete temp;
+    }
 	for (shared_ptr<Animal>& animal : *animals) {
-		
+		AnimalButton* temp = my_animals[animal->GetID()];
 	}
 }

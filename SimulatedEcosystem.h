@@ -33,7 +33,7 @@ private:
     MyChart* chart;
     QVector<QList<QPointF>> pointlist;
     QTimer* timer = new QTimer(this);
-	map<Species, int> test_species;
+	map<int, AnimalButton*> my_animals;
 
     shared_ptr<Environment> environment;
 };
