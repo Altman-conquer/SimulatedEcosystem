@@ -25,6 +25,12 @@ namespace AnimalConstants {
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
 
+	//Max stamina of animals
+	extern const float DEER_MAX_STAMINA = 1.0; 
+
+	//Max velocity of animals
+	extern const float DEER_MAX_VELOCITY;
+
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):id(Animal::animalCount++),age_int(0)

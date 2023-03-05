@@ -48,10 +48,16 @@ namespace AnimalConstants {
 	
 	extern const float GRASS_GROWTH_SPEED; // radius += GRASS_GROWTH_SPEED;
 
-	extern const int Deer_MAX_AGE;
+	extern const int DEER_MAX_AGE;
 
 	// Breed probability of animals
 	extern const float GRASS_BREED_PROBABILITY;
+
+	//Max stamina of animals
+	extern const float DEER_MAX_STAMINA;
+
+	//Max velocity of animals
+	extern const float DEER_MAX_VELOCITY;
 
 }
 

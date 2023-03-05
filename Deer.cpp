@@ -13,6 +13,12 @@ Species Deer::GetSpecies()
 
 void Deer::Move()
 {
+	if (this->stamina >= AnimalConstants::DEER_MAX_STAMINA / 2)
+	{
+		this->velocity = AnimalConstants::DEER_MAX_VELOCITY;
+	}
+
+		
 }
 
 void Deer::Update()
