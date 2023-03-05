@@ -57,22 +57,27 @@ void Tiger::Mutate()
 
 void Tiger::Breed()
 {
-	shared_ptr<Animal> female;
-	if (this->gender==Gender::Male)
-	{
-		female = closest;
-	} 
-	else
-	{
-		female=std::make_shared<Animal>(*this);
+	if (RandomFloat(0.0, 1.0) > AnimalConstants::TIGER_BREED_PROBABILITY) 
+	{//breed probability
+		shared_ptr<Animal> female;
+		if (this->gender == Gender::Male)
+		{
+			female = closest;
+		}
+		else
+		{
+			female = std::make_shared<Animal>(*this);
+		}
+		if (female->GetEnergy() > AnimalConstants::TIGER_STATE_ENERGY * 2)
+		{//female check
+
+
+			shared_ptr<Animal> new_animal = std::make_shared<Tiger>(this->environment,
+				RandomPositionVector(position, AnimalConstants::BREED_RADIUS));
+			this->environment->push_back(new_animal);
+			Log::LogMessage("Tiger breed", LogLevel::Info);
+		}
 	}
-	if (female->GetEnergy()>)
-	{
-	}
-	shared_ptr<Animal> new_animal = std::make_shared<Tiger>(this->environment,
-		RandomPositionVector(position, AnimalConstants::BREED_RADIUS));
-	this->environment->push_back(new_animal);
-	Log::LogMessage("Tiger breed", LogLevel::Info);
 }
 
 void Tiger::Move()
