@@ -88,10 +88,10 @@ namespace AnimalConstants {
 
 	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
 
-	const float COW_PROB_RADIUS = 50.0;
+	const float COW_PROBE_RADIUS = 50.0;
 
 	//motionless probability of animals
-	const float DEER_Idle_PROBABILITY = 0.7;
+	const float DEER_IDLE_PROBABILITY = 1.0;
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):

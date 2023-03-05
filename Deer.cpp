@@ -20,12 +20,13 @@ void Deer::Move()
 		shared_ptr<Animal> NearestFood = Environment::GetClosetPair(environment, *this, Species::Grass);
 
 		float NearestDistance = Vector2D::GetDistance(NearestFood->GetPosition(), this->GetPosition());
-		Vector2D NearestDirection = NearestFood->GetPosition() - this->GetPosition() * sign;
+		Vector2D NearestDirection = (NearestFood->GetPosition() - this->GetPosition()) * sign;
 
-		if (Vector2D::GetDistance(NearestFood->GetPosition(), this->GetPosition()) <= AnimalConstants::DEER_PROBE_Radius)
+		if (Vector2D::GetDistance(NearestFood->GetPosition(), this->GetPosition()) <= AnimalConstants::DEER_PROBE_RADIUS)
 		{
 			if (Distance > NearestDistance)
 			{
+				Distance = NearestDistance;
 				state = MoveState::Run;
 				UnitDirection = NearestDirection / NearestDistance;
 			}
@@ -59,7 +60,7 @@ void Deer::Move()
 	}
 	else
 	{
-		if (RandomFloat(0.0, 1.0) <= AnimalConstants::DEER_MOTHIONLESS_PROBABILITY)
+		if (RandomFloat(0.0, 1.0) <= AnimalConstants::DEER_IDLE_PROBABILITY)
 		{
 			velocity_scalar = 0;
 			state = MoveState::Idle;
