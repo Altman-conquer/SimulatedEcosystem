@@ -117,20 +117,21 @@ namespace AnimalConstants {
 
 	extern const float COW_PROB_RADIUS;
 
-	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
 	//Energy consume ratio
 	extern const float DEER_CONSUME_ENERGY_RATIO;
+
+	extern const float WOLF_CONSUME_ENERGY_RATIO;
 
 	//recover stamina ratio
 	extern const float DEER_RECOVER_STAMINA_RATIO;
 
+	extern const float WOLF_RECOVER_STAMINA_RATIO;
+
 	//probe radius of animals
 	extern const float DEER_PROBE_Radius;
 
+	extern const float WOLF_PROBE_RADIUS;
 	
-
-	//the probe distance
-	extern const float WOLF_PROBE_DISTANCE;
 	
 }
 

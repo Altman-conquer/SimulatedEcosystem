@@ -72,23 +72,28 @@ namespace AnimalConstants {
 
 	const float DEER_ENERGY_TRANSFORMATION_RATIO = 0.8;
 
+	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
+
 	//Energy consume ratio
 	const float DEER_CONSUME_ENERGY_RATIO = 1.0;
+
+	const float WOLF_CONSUME_ENERGY_RATIO = 1.0;
 
 	//recover stamina ratio
 	const float DEER_RECOVER_STAMINA_RATIO = 1.0;
 
+	const float WOLF_RECOVER_STAMINA_RATIO = 1.0;
+
 	//probe radius of animals
 	const float DEER_PROBE_RADIUS = 1.0;
 
-	const float GRASS_RECOVER_SPEED = 0.5;
+	const float WOLF_PROBE_RADIUS = 100;
 
-	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
+	const float GRASS_RECOVER_SPEED = 0.5;
 
 	const float COW_PROB_RADIUS = 50.0;
 
-	//the probe distance
-	const float WOLF_PROBE_DISTANCE=100;
+
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):
