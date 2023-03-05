@@ -11,6 +11,7 @@ public:
 
 	void Update() override;
 
+	Age GetAge() override;
 
 protected:
 	void Mutate() override;
@@ -23,6 +24,9 @@ protected:
 
 
 	bool Eat(Animal& other) override;
+
+private:
+	shared_ptr<Animal> closest;
 
 };
 

@@ -66,7 +66,6 @@ namespace AnimalConstants {
 	
 	extern const int WOLF_ADULT_AGE;
 
-
 	extern const int Tiger_ADULT_AGE;
 	
 	// Max age of animals

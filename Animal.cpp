@@ -19,6 +19,7 @@ namespace AnimalConstants {
 
 	const int WOLF_ADULT_AGE=60;
 
+	const int Tiger_ADULT_AGE = 60;
 
 	// Max age of animals
 	const int COW_MAX_AGE = 100;

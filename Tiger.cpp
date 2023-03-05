@@ -16,12 +16,37 @@ Species Tiger::GetSpecies()
 	return Species::Tiger;
 }
 
-void Tiger::Update()
+void Tiger::Update()//behavior algorithm 
 {
+	//grow up
 	age_int += 1;
 	Log::LogMessage("Tiger update", LogLevel::Info);
-	if(this->GetAge()==Age::Adult) Breed();
-	
+	//check surrounding
+	closest = Environment::GetClosetPair(environment, *this, Species::NULLSPECIES);
+	float dis = Vector2D::GetDistance(this->GetPosition(), closest->GetPosition());
+
+	if (closest->GetSpecies() == Species::Tiger)//same species
+	{//check run or breed
+		if (this->GetAge() == Age::Adult&&//adult
+			closest->GetGender() != this->GetGender()&&//different gender
+			dis < AnimalConstants::ADULT_DISTANCE * 2)//close to
+		{//breed
+			Breed();
+		}
+		else
+		{//run away
+
+		}
+	} 
+	else 
+	{//check eatable
+
+	}
+}
+
+Age Tiger::GetAge()
+{
+	return Age(this->age_int >= AnimalConstants::Tiger_ADULT_AGE);
 }
 
 void Tiger::Mutate()
@@ -31,22 +56,10 @@ void Tiger::Mutate()
 
 void Tiger::Breed()
 {
-	shared_ptr<Animal> closest = Environment::GetClosetPair(environment, *this, Species::NULLSPECIES);
-	if (closest->GetSpecies()==Species::Tiger//same species
-		&&closest->GetAge()==Age::Adult//adult
-		&&closest->GetGender()!=this->GetGender())//different gender
-	{
-		float dis = Vector2D::GetDistance(this->GetPosition(), closest->GetPosition());
-		if (dis<AnimalConstants::ADULT_DISTANCE*2)//close to
-		{//get broth to 
-			shared_ptr<Animal> new_animal = std::make_shared<Tiger>(this->environment,
-				RandomPositionVector(position, AnimalConstants::BREED_RADIUS));
-			this->environment->push_back(new_animal);
-			Log::LogMessage("Tiger breed", LogLevel::Info);
-		}
-	}
-	
-
+	shared_ptr<Animal> new_animal = std::make_shared<Tiger>(this->environment,
+		RandomPositionVector(position, AnimalConstants::BREED_RADIUS));
+	this->environment->push_back(new_animal);
+	Log::LogMessage("Tiger breed", LogLevel::Info);
 }
 
 void Tiger::Move()
