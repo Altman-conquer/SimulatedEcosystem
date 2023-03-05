@@ -85,7 +85,7 @@ public:
 	// Parameter: const Animal & animal
 	// Parameter: Species species Which species in the compare range. NULL_SPECIES if all species.
 	//************************************
-	shared_ptr<Animal> GetClosetPair(const Animal& animal, Species species);
+	static shared_ptr<Animal> GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals,const Animal& animal, Species species);
 private:
 	
 	// Storing animals

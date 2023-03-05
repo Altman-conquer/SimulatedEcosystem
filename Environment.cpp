@@ -58,7 +58,7 @@ const shared_ptr<vector<Vector2D>> Environment::GetPrevPositions() const
 	return prev_positions;
 }
 
-shared_ptr<Animal> Environment::GetClosetPair(const Animal& animal, Species species)
+shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, Species species)
 {
 	Log::LogMessage("GetClosetPair is called", LogLevel::Info);
 	shared_ptr<Animal> target=NULL;
