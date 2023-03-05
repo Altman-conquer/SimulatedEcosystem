@@ -161,9 +161,9 @@ protected:
 	//Add 1 in every update
 	int age_int;
 
-	int stamina;
+	float stamina;
 	
-	int energy;
+	float energy;
 
 	// Used to identify an animal
 	const int id;

@@ -34,6 +34,18 @@ public:
 	
 	float GetY();
 
+	//************************************
+	// Method:    GetDistance
+	// FullName:  Vector2D::GetDistance
+	// Access:    public static 
+	// Returns:   float
+	// Qualifier:
+	// Parameter: const Vector2D & vector1
+	// Parameter: const Vector2D & vector2
+	// it is used to calculate the Euler distance between two animal 
+	//************************************
+	static float GetDistance(const Vector2D& vector1, const Vector2D& vector2);
+
 	Vector2D operator+(const Vector2D& other)const;
 
 	Vector2D operator-(const Vector2D& other)const;
@@ -42,6 +54,8 @@ public:
 
 	Vector2D operator/(const float& other)const;
 
+
+	
 
 private:
 

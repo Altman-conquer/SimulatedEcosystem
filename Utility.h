@@ -4,6 +4,7 @@
 
 class Vector2D;
 class Animal;
+class Environment;
 
 //************************************
 // Method:    RandomInteger
@@ -45,3 +46,6 @@ Vector2D RandomUnitVector();
 //************************************
 Vector2D RandomPositionVector();
 
+Vector2D RandomVector();
+
+void PrintAnimals(Environment environment);
