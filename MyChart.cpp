@@ -9,10 +9,10 @@ MyChart::MyChart(QWidget* parent, QString _chartname) {
     axisX = new QValueAxis(this);
     axisY = new QValueAxis(this);
     chartview->setParent(this);
-    //在ui里面添加了一个Widget并把曲线图添加进去
 
     /*setStyleSheet("QWidget{background-color: rgba(255, 25, 20,255);}");
     chartview->setStyleSheet("QChartview{background-color: rgba(255, 255, 255, 0);}");*/
+
     resize(QSize(600, 600));
 
     chartview->setRenderHint(QPainter::Antialiasing);
@@ -25,15 +25,7 @@ void MyChart::setAxis(QString _xname, qreal _xmin, qreal _xmax, int _xtickc, \
 
     axisX->setRange(xmin, xmax);    
     axisX->setLabelFormat("%u");   
-    /************************************
-        %u 无符号十进制整数
-        %s 字符串
-        %c 一个字符
-        %d 有符号十进制整数
-        %e 浮点数、e-记数法
-        %f 浮点数、十进制记数法
-        %s 字符串
-    ****************************************/
+   
     axisX->setGridLineVisible(true);   
     axisX->setTickCount(xtickc);       //the number of the grid
     axisX->setMinorTickCount(1);   
