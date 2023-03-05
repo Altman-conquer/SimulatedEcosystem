@@ -140,7 +140,9 @@ void Wolf::Move()
 void Wolf::Update()
 {
 	age_int++;
-	Wolf::Move();
+	Move();
+	if (age_int == AnimalConstants::WOLF_MAX_AGE)
+	Die();
 }
 
 Age Wolf::GetAge()
