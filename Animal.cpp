@@ -26,6 +26,12 @@ namespace AnimalConstants {
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
 
+	const float GRASS_BREED_RADIUS = 10.0;
+
+	// Size of picture of the adult and child animal
+	const int SIZE_OF_CHILD = 50;
+	const int SIZE_OF_ADULT = 100;
+  
 	//Max stamina of animals
 	const float DEER_MAX_STAMINA = 1.0;
 
@@ -49,12 +55,15 @@ namespace AnimalConstants {
 	//Energy transformation ratio
 	const float DEER_ENERGY_TRANSFORMATION_RATIO = 0.8;
 
+	const float GRASS_RECOVER_SPEED = 0.5;
+
 	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):
 	id(Animal::animalCount++),age_int(0),environment(_environment),energy(0),gender(Gender::Male),stamina(0)
 {
+
 }
 
 Gender Animal::GetGender()

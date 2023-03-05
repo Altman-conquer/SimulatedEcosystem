@@ -19,7 +19,7 @@ Environment::Environment(map<Species, int> _n)
 			switch (species)
 			{
 			case Species::Grass:
-				this->animals->push_back(std::make_shared<Grass>(this->animals));
+				//this->animals->push_back(std::make_shared<Grass>(this->animals));
 				break;
 			default:
 				break;
@@ -58,7 +58,7 @@ const shared_ptr<vector<Vector2D>> Environment::GetPrevPositions() const
 	return prev_positions;
 }
 
-shared_ptr<Animal> Environment::GetClosetPair(const Animal& animal, Species species)
+shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, Species species)
 {
 	Log::LogMessage("GetClosetPair is called", LogLevel::Info);
 	shared_ptr<Animal> target=NULL;

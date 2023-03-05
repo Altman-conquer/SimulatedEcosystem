@@ -7,6 +7,8 @@ class Grass :
 public:
 	Grass(shared_ptr<vector<shared_ptr<Animal>>> _environment);
 
+	Grass(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position);
+
 	Species GetSpecies() override;
 	
 	void Update() override;
@@ -21,8 +23,5 @@ protected:
 	void Move() override;
 
 	bool Eat(Animal& other) override;
-private:
-
-	float radius;
 };
 

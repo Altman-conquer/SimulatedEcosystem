@@ -4,6 +4,7 @@
 #include <map>
 #include "Environment.h"
 #include "Log.h"
+#include <QString>
 
 
 class Environment;
@@ -65,6 +66,9 @@ namespace AnimalConstants {
 
 	extern const float DEER_BREED_PROBABILITY;
 
+	// Breed radius of grass
+	extern const float GRASS_BREED_RADIUS;
+
 	//Max stamina of animals
 	extern const float DEER_MAX_STAMINA;
 
@@ -87,6 +91,11 @@ namespace AnimalConstants {
 
 	//Energy transformation ratio
 	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
+
+	// the energy of grass will increase every tick
+	extern const float GRASS_RECOVER_SPEED;
+
+	
 
 	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
 }
@@ -133,7 +142,7 @@ public:
 	//************************************
 	virtual Age GetAge() = 0;
 
-	virtual Gender GetGender();
+	Gender GetGender();
 
 	float GetEnergy();
 
@@ -150,6 +159,7 @@ public:
 
 	bool operator==(const Animal& other)const;
 
+
 	//************************************
 	// Method:    Die
 	// FullName:  Animal::Die
@@ -160,6 +170,7 @@ public:
 	//************************************
 	bool Die();
 	
+  
 protected:
 	
 	//************************************
@@ -222,6 +233,7 @@ protected:
 
 	// Used to identify an animal
 	const int id;
+
 
 private:
 	

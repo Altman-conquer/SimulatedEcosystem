@@ -55,9 +55,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(ProjectDir);$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -86,12 +93,14 @@
     <ClCompile Include="Deer.cpp" />
     <ClCompile Include="Cow.cpp" />
     <ClCompile Include="Grass.cpp" />
+    <ClCompile Include="AnimalButton.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Tiger.cpp" />
     <ClCompile Include="Utility.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Wolf.cpp" />
     <QtRcc Include="SimulatedEcosystem.qrc" />
+    <QtUic Include="AnimalButton.ui" />
     <QtUic Include="SimulatedEcosystem.ui" />
     <QtMoc Include="SimulatedEcosystem.h" />
     <ClCompile Include="Animal.cpp" />
@@ -101,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
+    <QtMoc Include="AnimalButton.h" />
     <ClInclude Include="Deer.h" />
     <ClInclude Include="Cow.h" />
     <ClInclude Include="Environment.h" />

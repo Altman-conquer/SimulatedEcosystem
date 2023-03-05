@@ -30,9 +30,9 @@ public:
 	//************************************
 	static Vector2D GetDirectionVector(Direction direction);
 
-	float GetX();
+	float GetX() const;
 	
-	float GetY();
+	float GetY() const;
 
 	float GetLength() const;
 
