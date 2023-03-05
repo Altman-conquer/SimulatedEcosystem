@@ -70,7 +70,8 @@ void Tiger::Mutate()
 void Tiger::Breed()
 {
 	if (RandomFloat(0.0, 1.0) > AnimalConstants::TIGER_BREED_PROBABILITY) 
-	{//breed probability
+		return;
+	//breed probability
 		shared_ptr<Tiger> female;
 		if (this->gender == Gender::Male)
 		{
@@ -89,7 +90,6 @@ void Tiger::Breed()
 			this->environment->push_back(new_animal);
 			Log::LogMessage("Tiger breed", LogLevel::Info);
 		}
-	}
 }
 
 void Tiger::Move()
@@ -112,7 +112,7 @@ void Tiger::Move()
 	if (if_run_away)//meet same gender tiger
 	{
 		state = MoveState::Run;
-		unit_direction = ((closest->GetPosition() - this->GetPosition()).GetNormalized())*-1;
+		unit_direction = ((closest->GetPosition() - this->GetPosition()).GetNormalized())*(-1);
 	}
 
 	float velocity_scalar;
