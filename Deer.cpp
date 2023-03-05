@@ -9,6 +9,10 @@ Species Deer::GetSpecies()
 
 void Deer::Move()
 {
+	MoveState state;
+
+	
+
 	float velocity_scalar = 0;
 
 	if (this->stamina >= AnimalConstants::DEER_MAX_STAMINA / 2)

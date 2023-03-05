@@ -38,6 +38,12 @@ enum class Gene {
 	TestName,
 };
 
+enum class MoveState {
+	run,
+	walk,
+	motionless
+};
+
 namespace AnimalConstants {
 
 	// Age limits of animals to tell it is adult or not.
@@ -77,6 +83,9 @@ namespace AnimalConstants {
 
 	//recover stamina ratio
 	extern const float DEER_RECOVER_STAMINA_RATIO;
+
+	//probe radius of animals
+	extern const float DEER_PROBE_Radius;
 
 	
 

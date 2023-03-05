@@ -85,6 +85,7 @@ shared_ptr<Animal> Environment::GetClosetPair(const Animal& animal, Species spec
 				target = neighbour;
 			}
 	}
+
 	return target;
 }
 
