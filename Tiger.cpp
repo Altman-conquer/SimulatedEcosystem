@@ -59,18 +59,19 @@ void Tiger::Breed()
 {
 	if (RandomFloat(0.0, 1.0) > AnimalConstants::TIGER_BREED_PROBABILITY) 
 	{//breed probability
-		shared_ptr<Animal> female;
+		//Tiger a = *closest;
+
+		shared_ptr<Tiger> female;
 		if (this->gender == Gender::Male)
 		{
-			female = closest;
+			female = std::dynamic_pointer_cast<Tiger>(closest);
 		}
 		else
 		{
-			female = std::make_shared<Animal>(*this);
+			female = std::make_shared<Tiger>(*this);
 		}
 		if (female->GetEnergy() > AnimalConstants::TIGER_STATE_ENERGY * 2)
 		{//female check
-
 
 			shared_ptr<Animal> new_animal = std::make_shared<Tiger>(this->environment,
 				RandomPositionVector(position, AnimalConstants::BREED_RADIUS));
