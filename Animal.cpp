@@ -36,6 +36,8 @@ namespace AnimalConstants {
 
 	const float COW_BREED_PROBABILITY = 0.5;
 
+	const float WOLF_BREED_PROBABILITY = 0.4;
+
 	// Size of picture of the adult and child animal
 	const int SIZE_OF_CHILD = 50;
 	const int SIZE_OF_ADULT = 100;
@@ -87,23 +89,17 @@ namespace AnimalConstants {
 	
 	const float COW_RECOVER_STAMINA_RATIO = 1.0;
 
-
 	const float WOLF_RECOVER_STAMINA_RATIO = 1.0;
 
 	//consume stamina ratio
 	const float DEER_CONSUME_STAMINA_RATIO = 1.0;
 	
 	const float COW_CONSUME_STAMINA_RATIO = 1.0;
-	
-	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
-
 
 	const float WOLF_CONSUME_STAMINA_RATIO = 1.0;
 
 	//probe radius of animals
 	const float PROBE_RADIUS = 1.0;
-
-	const float WOLF_PROBE_RADIUS = 100;
 
 	const float GRASS_RECOVER_SPEED = 0.5;
 
@@ -113,20 +109,22 @@ namespace AnimalConstants {
 
 	const float COW_IDLE_PROBABILITY = 0.5;
 
+	const float WOLF_IDLE_PROBABILITY = 0.5;
+
 	const float COW_MAX_ENERGY = 100.0;
 	const float COW_PROB_RADIUS = 50.0;
 
 	//Maximal energy
-	const float WOLF_MAXIMAL_ENERGY = 100;
+	const float WOLF_MAX_ENERGY = 100;
 
+	//Initial energy
+	const float WOLF_INITIAL_ENERGY = 30;
 
 	const float GRASS_INITIAL_ENERGY = 2.0;
 
 	const float COW_INITIAL_ENERGY = 10.0;
-	//motionless probability of animals
-	const float DEER_IDLE_PROBABILITY = 1.0;
 
-	const float WOLF_IDLE_PROBABILITY = 0.5;
+
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):

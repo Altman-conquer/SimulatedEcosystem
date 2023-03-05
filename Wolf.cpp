@@ -1,12 +1,18 @@
 #include "Wolf.h"
 
-Wolf::Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
-	Vector2D _velocity, Gender _gender, map<Gene, float> _genes, float _stamina, float _energy) :Animal(_environment, _position,
-		_velocity, _gender, _genes, _stamina, _energy)
+
+Wolf::Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment) :Animal(_environment)
 {
+	position = RandomPositionVector();
+	energy = AnimalConstants::COW_INITIAL_ENERGY;
 }
 
+Wolf::Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Gender _gender) :Animal(_environment)
+{
+	position = _position;
+	energy = AnimalConstants::COW_INITIAL_ENERGY;
 
+}
 Species Wolf::GetSpecies()
 {
 	return Species::Wolf;
@@ -19,7 +25,31 @@ void Wolf::Mutate()
 
 void Wolf::Breed()
 {
-	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
+	if (GetAge() == Age::Child || RandomFloat(0.0, 1.0) > AnimalConstants::WOLF_BREED_PROBABILITY)
+		return;
+
+	shared_ptr<Animal> other = Environment::GetClosetPair(environment, *this, Species::Wolf);
+	if (other->GetGender() != gender)
+	{
+		bool is_success = false;
+		if (other->GetGender() == Gender::Female && other->GetEnergy() > AnimalConstants::WOLF_INITIAL_ENERGY)
+		{
+			other->DecreaseEnergy(AnimalConstants::WOLF_INITIAL_ENERGY);
+			is_success = true;
+		}
+		else if (energy > AnimalConstants::WOLF_INITIAL_ENERGY)
+		{
+			DecreaseEnergy(AnimalConstants::WOLF_INITIAL_ENERGY);
+			is_success = true;
+		}
+
+		if (is_success)
+		{
+			shared_ptr<Animal> new_animal =
+				std::make_shared<Wolf>(this->environment, RandomPositionVector(position, AnimalConstants::BREED_RADIUS), Gender(RandomInteger(0, 1)));
+			this->environment->push_back(new_animal);
+		}
+	}
 }
 
 bool Wolf::Eat(Animal& other) 
@@ -45,8 +75,8 @@ void Wolf::Move()
 	MoveState state;
 	Vector2D unit_direction;
 
-	shared_ptr<Animal> nearest = Environment::GetClosetPair(this->environment, *this, { Species::Cow, Species::Deer });
-	if (Vector2D::GetDistance(nearest->GetPosition(), this->GetPosition()) <= AnimalConstants::DEER_PROBE_RADIUS)
+	shared_ptr<Animal> nearest = Environment::GetClosetPair(environment, *this, { Species::Cow, Species::Deer });
+	if (Vector2D::GetDistance(nearest->GetPosition(), this->GetPosition()) <= AnimalConstants::PROBE_RADIUS)
 	{
 		unit_direction = (nearest->GetPosition() - this->GetPosition()).GetNormalized();
 		state = MoveState::Run;

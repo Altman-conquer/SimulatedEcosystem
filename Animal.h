@@ -75,6 +75,8 @@ namespace AnimalConstants {
 
 	extern const float DEER_BREED_PROBABILITY;
 
+	extern const float WOLF_BREED_PROBABILITY;
+
 	//Max stamina of animals
 	extern const float COW_MAX_STAMINA;
 	
@@ -159,13 +161,15 @@ namespace AnimalConstants {
 
 	extern const float COW_IDLE_PROBABILITY;
 
+	extern const float WOLF_IDLE_PROBABILITY;
+
 	extern const float COW_MAX_ENERGY;
 
 	extern const float GRASS_INITIAL_ENERGY;
 	
 	extern const float COW_INITIAL_ENERGY;
-
-	extern const float WOLF_IDLE_PROBABILITY;
+	
+	extern const float WOLF_INITIAL_ENERGY;
 
 }
 
