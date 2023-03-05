@@ -12,7 +12,7 @@ void Deer::Move()
 
 	MoveState state = MoveState::Walk;
 	Vector2D UnitDirection;
-	float Distance;
+	float Distance = 1e9;
 
 	//probe function
 	auto Nearest = [&](Species species,int sign)
@@ -82,7 +82,7 @@ void Deer::Move()
 	if (state == MoveState::Idle || state == MoveState::Walk)
 	{
 		this->stamina = std::max(this->stamina + AnimalConstants::DEER_RECOVER_STAMINA_RATIO, AnimalConstants::DEER_MAX_STAMINA);
-		this->energy = std::min(this->energy - AnimalConstants::DEER_CONSUME_ENERGY_RATIO, (float)0);
+		this->energy = std::min(this->energy - AnimalConstants::DEER_CONSUME_ENERGY_RATIO, 0.0);
 	}
 	else if (state == MoveState::Run)
 	{
