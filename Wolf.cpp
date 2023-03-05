@@ -124,6 +124,7 @@ void Wolf::Move()
 
 	//update position
 	this->position = this->position + this->velocity;
+	this->position.ClipBound();
 
 	if (state == MoveState::Idle || state == MoveState::Walk)
 	{
@@ -139,10 +140,12 @@ void Wolf::Move()
 
 void Wolf::Update()
 {
-	age_int++;
+	age_int += 1;
+	prev_position = position;
+	if (age_int > AnimalConstants::COW_MAX_AGE || energy <= 0.0)
+		Die();
 	Move();
-	if (age_int == AnimalConstants::WOLF_MAX_AGE)
-	Die();
+	Breed();
 }
 
 Age Wolf::GetAge()
