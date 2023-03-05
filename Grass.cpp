@@ -40,7 +40,7 @@ void Grass::Breed()
 		return;
 	if (RandomFloat(0.0, 1.0) < AnimalConstants::GRASS_BREED_PROBABILITY)
 	{
-		shared_ptr<Animal> new_animal = std::make_shared<Grass>(this->environment, RandomPositionVector(position, AnimalConstants::GRASS_BREED_RADIUS));
+		shared_ptr<Animal> new_animal = std::make_shared<Grass>(this->environment, RandomPositionVector(position, AnimalConstants::BREED_RADIUS));
 		this->environment->push_back(new_animal);
 	}
 }

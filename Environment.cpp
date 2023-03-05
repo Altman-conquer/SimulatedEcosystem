@@ -19,7 +19,7 @@ Environment::Environment(map<Species, int> _n)
 			switch (species)
 			{
 			case Species::Grass:
-				//this->animals->push_back(std::make_shared<Grass>(this->animals));
+				this->animals->push_back(std::make_shared<Grass>(this->animals));
 				break;
 			default:
 				break;
