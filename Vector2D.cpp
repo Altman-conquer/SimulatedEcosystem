@@ -29,7 +29,7 @@ float Vector2D::GetDistance(const Vector2D& vector1, const Vector2D& vector2)
 	return sqrt(pow(vector1.x - vector2.x,2) + pow(vector1.y - vector2.y, 2));
 }
 
-float Vector2D::GetY()
+float Vector2D::GetY() const
 {
 	return y;
 }
@@ -39,7 +39,7 @@ float Vector2D::GetLength() const
 	return sqrt(x * x + y * y);
 }
 
-float Vector2D::GetX()
+float Vector2D::GetX() const
 {
 	return x;
 }

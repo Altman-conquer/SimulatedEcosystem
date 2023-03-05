@@ -21,6 +21,7 @@ namespace AnimalConstants {
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
 
+	const float GRASS_BREED_RADIUS = 10.0;
 
 	// Size of picture of the adult and child animal
 	const int SIZE_OF_CHILD = 50;
@@ -40,6 +41,8 @@ namespace AnimalConstants {
 
 	//Energy transformation ratio
 	const float DEER_ENERGY_TRANSFORMATION_RATIO = 0.8;
+
+	const float GRASS_RECOVER_SPEED = 0.5;
 
 }
 

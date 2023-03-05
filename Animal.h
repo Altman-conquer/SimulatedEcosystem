@@ -57,6 +57,9 @@ namespace AnimalConstants {
 
 	extern const float DEER_BREED_PROBABILITY;
 
+	// Breed radius of grass
+	extern const float GRASS_BREED_RADIUS;
+
 	//Max stamina of animals
 	extern const float DEER_MAX_STAMINA;
 
@@ -71,6 +74,9 @@ namespace AnimalConstants {
 
 	//Energy transformation ratio
 	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
+
+	// the energy of grass will increase every tick
+	extern const float GRASS_RECOVER_SPEED;
 
 	
 
