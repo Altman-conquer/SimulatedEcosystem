@@ -42,17 +42,26 @@ namespace AnimalConstants {
 
 	// Age limits of animals to tell it is adult or not.
 	extern const int COW_ADULT_AGE;
-	
+
 	extern const int GRASS_ADULT_AGE;
 	
 	extern const int Deer_ADULT_AGE;
+	
+	extern const int WOLF_ADULT_AGE;
+
 
 	extern const int Tiger_ADULT_AGE;
 	
 	// Max age of animals
 	extern const int COW_MAX_AGE;
 
+	extern const float GRASS_INITIAL_RADIUS;
+
+	extern const float GRASS_GROWTH_SPEED; // radius += GRASS_GROWTH_SPEED;
+
 	extern const int Deer_MAX_AGE;
+
+	extern const int WOLF_MAX_AGE;
 
 	extern const int Tigrt_MAX_AGE;
 
@@ -63,26 +72,41 @@ namespace AnimalConstants {
 
 	extern const float DEER_BREED_PROBABILITY;
 
+	// Breed radius of grass
+	extern const float GRASS_BREED_RADIUS;
+
 	// The stating energy
 	extern const float TIGER_STATE_ENERGY;
 
 	//Max stamina of animals
 	extern const float DEER_MAX_STAMINA;
 
+	extern const float WOLF_MAX_STAMINA;
+
 	//Min stamina of animals
 	extern const float DEER_MIN_STAMINA;
+
+	extern const float WOLF_MIN_STAMINA;
 
 	//Max velocity of animals
 	extern const float DEER_MAX_VELOCITY;
 
+	extern const float WOLF_MAX_VELOCITY;
+
 	//Min velocity of animals
 	extern const float DEER_MIN_VELOCITY;
+
+	extern const float WOLF_MIN_VELOCITY;
 
 	//Energy transformation ratio
 	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
 
+	// the energy of grass will increase every tick
+	extern const float GRASS_RECOVER_SPEED;
+
 	
 
+	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
 }
 
 class Animal
@@ -127,7 +151,7 @@ public:
 	//************************************
 	virtual Age GetAge() = 0;
 
-	virtual Gender GetGender();
+	Gender GetGender();
 
 	float GetEnergy();
 
@@ -212,7 +236,7 @@ protected:
 	//Add 1 in every update
 	int age_int;
 
-	float stamina;
+	float stamina; 
 	
 	float energy;
 

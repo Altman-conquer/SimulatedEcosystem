@@ -12,14 +12,21 @@ namespace AnimalConstants {
 
 	const int Deer_ADULT_AGE = 50;
 
+	const int WOLF_ADULT_AGE=60;
+
+
 	// Max age of animals
 	const int COW_MAX_AGE = 100;
 
 	const int Deer_MAX_AGE = 100;
 
+	const int WOLF_MAX_AGE=120;
+
 
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
+
+	const float GRASS_BREED_RADIUS = 10.0;
 
 	// The stating energy
 	const float TIGER_STATE_ENERGY=100;
@@ -31,18 +38,29 @@ namespace AnimalConstants {
 	//Max stamina of animals
 	const float DEER_MAX_STAMINA = 1.0;
 
+	const float WOLF_MAX_STAMINA = 100;
+
 	//Min stamina of animals
-	extern const float DEER_MIN_STAMINA = 1.0;
+	const float DEER_MIN_STAMINA = 1.0;
+
+	const float WOLF_MIN_STAMINA = 1.0;
 
 	//Max velocity of animals
 	const float DEER_MAX_VELOCITY = 50.0;
 
+	const float WOLF_MAX_VELOCITY = 60;
+
 	//Min velocity of animals
-	extern const float DEER_MIN_VELOCITY = 1.0;
+	const float DEER_MIN_VELOCITY = 1.0;
+
+	const float WOLF_MIN_VELOCITY = 1.0;
 
 	//Energy transformation ratio
 	const float DEER_ENERGY_TRANSFORMATION_RATIO = 0.8;
 
+	const float GRASS_RECOVER_SPEED = 0.5;
+
+	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):

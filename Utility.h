@@ -46,6 +46,15 @@ Vector2D RandomUnitVector();
 //************************************
 Vector2D RandomPositionVector();
 
+//************************************
+// Method:    RandomPositionVector
+// FullName:  RandomPositionVector
+// Access:    public 
+// Returns:   Random position vector in the environment
+// Qualifier:
+//************************************
+Vector2D RandomPositionVector(const Vector2D& center, float radius);
+
 Vector2D RandomVector();
 
 void PrintAnimals(Environment environment);
