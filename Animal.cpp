@@ -1,6 +1,7 @@
 #include "Animal.h"
 #include "Vector2D.h"
 #include <utility>
+#include "Log.h"
 
 int Animal::animalCount = 0;
 
@@ -201,6 +202,13 @@ float Animal::GetCollisionRadius()
 		return AnimalConstants::ADULT_DISTANCE;
 }
 
+Vector2D Animal::Interp(float elapsed_time, float period_time)
+{
+	if (elapsed_time > period_time)
+		Log::LogMessage("Animal::Interp, elapsed_time is greater than period_time", LogLevel::Info);
+	return prev_position + (position - prev_position) * (elapsed_time / period_time);
+}
+
 bool Animal::Die()
 {
 	// remove self from environment
@@ -217,7 +225,7 @@ bool Animal::Die()
 
 Animal::Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
 	Vector2D _velocity, Gender _gender, map<Gene, float> _genes, float _stamina, float _energy):
-	id(Animal::animalCount++), age_int(0),environment(_environment), position(_position),
+	id(Animal::animalCount++), age_int(0),environment(_environment), position(_position), prev_position(_position),
 	velocity(_velocity), gender(_gender), genes(_genes), stamina(_stamina), energy(_energy)
 {}
 

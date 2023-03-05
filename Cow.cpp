@@ -21,6 +21,7 @@ Species Cow::GetSpecies()
 void Cow::Update()
 {
 	age_int += 1;
+	prev_position = position;
 	if (age_int > AnimalConstants::COW_MAX_AGE || energy <= 0.0)
 		Die();
 	Move();

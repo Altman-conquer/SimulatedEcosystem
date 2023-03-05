@@ -261,6 +261,8 @@ public:
 
 	bool operator==(const Animal& other)const;
 
+	Vector2D Interp(float elapsed_time, float period_time);
+
 
 	//************************************
 	// Method:    Die
@@ -319,6 +321,8 @@ protected:
 	Vector2D position;
 
 	Vector2D velocity;
+
+	Vector2D prev_position;
 	
 	Gender gender;
 
