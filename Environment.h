@@ -68,16 +68,6 @@ public:
 	void Update();
 	
 	//************************************
-	// Method:    GetPrevPositions
-	// FullName:  Environment::GetPrevPositions
-	// Access:    public 
-	// Returns:   shared_ptr<vector<Vector2D>>
-	// Qualifier:
-	// Get positions of animals in the t-1 iterations
-	//************************************
-	const shared_ptr<vector<Vector2D>> GetPrevPositions() const;
-	
-	//************************************
 	// Method:    GetClosetPair
 	// FullName:  Environment::GetClosetPair
 	// Access:    public 
@@ -92,8 +82,5 @@ private:
 	
 	// Storing animals
 	shared_ptr<vector<shared_ptr<Animal>>> animals;
-
-	// Positions of animals in the previous iteration
-	shared_ptr<vector<Vector2D>> prev_positions;
 };
 
