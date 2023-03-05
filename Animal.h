@@ -103,7 +103,18 @@ public:
 	//************************************
 	virtual Age GetAge() = 0;
 
+	float GetEnergy();
+
 	Vector2D GetPosition() const;
+
+	//************************************
+	// Method:    GetDirection
+	// FullName:  Animal::GetDirection
+	// Access:    public 
+	// Returns:   A unit vector of the moving direction of this animal.
+	// Qualifier: const
+	//************************************
+	Vector2D GetDirection() const;
 
 	bool operator==(const Animal& other)const;
 	

@@ -38,11 +38,21 @@ Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):id(Anim
 	this->environment = _environment;
 }
 
+float Animal::GetEnergy()
+{
+	return energy;
+}
+
 Vector2D Animal::GetPosition() const
 {
 	return position;
 }
 
+
+Vector2D Animal::GetDirection() const
+{
+	return velocity/velocity.GetLength();
+}
 
 Animal::Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
 	Vector2D velocity, bool _isMale, map<Gene, float> _genes, float _stamina, float _energy):Animal(_environment)
