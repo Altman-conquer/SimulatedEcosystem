@@ -9,13 +9,16 @@ AnimalButton::AnimalButton(QWidget *parent, shared_ptr<Animal>animal)
 
 
 	int animalSize = 0;
-	//if (animal->GetAge() > AnimalConstants::GRASS_ADULT_AGE) {
+	if (animal->GetAge() == Age::Child) {
+		animalSize = CHILD_SIZE;
+	}
+	else if (animal->GetAge() == Age::Adult) {
+		animalSize = ADULT_SIZE;
+	}
 
-	//}
 
 
-
-	setGeometry(animal->GetPosition().GetX(), animal->GetPosition().GetY(), , 500);
+	//setGeometry(animal->GetPosition().GetX(), animal->GetPosition().GetY(), , 500);
 	//setStyleSheet("QPushButton{background-image:" + animal->GetPicturePath() + ";}");
 	
 	if (animal != NULL)
