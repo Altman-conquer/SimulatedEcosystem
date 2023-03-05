@@ -71,13 +71,12 @@ namespace AnimalConstants {
 
 	extern const int WOLF_MAX_AGE;
 
-	extern const int Tigrt_MAX_AGE;
+	extern const int Tiger_MAX_AGE;
 
 	// Breed probability of animals
 	extern const float GRASS_BREED_PROBABILITY;
 
 	extern const float TIGER_BREED_PROBABILITY;
-
 	
 	extern const float COW_BREED_PROBABILITY;
 
@@ -98,6 +97,8 @@ namespace AnimalConstants {
 
 	extern const float WOLF_MAX_STAMINA;
 
+	extern const float TIGER_MAX_STAMINA;
+
 	//Min stamina of animals
 	extern const float COW_MIN_STAMINA;
 	
@@ -105,6 +106,7 @@ namespace AnimalConstants {
 
 	extern const float WOLF_MIN_STAMINA;
 
+	extern const float TIGER_MIN_STAMINA;
 
 	//Max velocity of animals
 	extern const float COW_MAX_VELOCITY;
@@ -113,6 +115,8 @@ namespace AnimalConstants {
 
 	extern const float WOLF_MAX_VELOCITY;
 
+	extern const float TIGER_MAX_VELOCITY;
+
 	//Min velocity of animals
 	extern const float COW_MIN_VELOCITY;
 
@@ -120,12 +124,16 @@ namespace AnimalConstants {
 
 	extern const float WOLF_MIN_VELOCITY;
 
+	extern const float TIGER_MIN_VELOCITY;
+
 	//Energy transformation ratio
 	extern const float COW_ENERGY_TRANSFORMATION_RATIO;
 
 	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
 
 	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
+
+	extern const float TIGER_ENERGY_TRANSFORMATION_RATIO;
 	
 	// the energy of grass will increase every tick
 	extern const float GRASS_RECOVER_SPEED;
@@ -136,17 +144,21 @@ namespace AnimalConstants {
 
 	extern const float COW_CONSUME_ENERGY_RATIO;
 
+	extern const float TIGER_CONSUME_ENERGY_RATIO;
 
 	//recover stamina ratio
 	extern const float DEER_RECOVER_STAMINA_RATIO;
 
 	extern const float COW_RECOVER_STAMINA_RATIO;
 
+	extern const float TIGER_RECOVER_STAMINA_RATIO;
+
 	//consume stamina ratio
 	extern const float DEER_CONSUME_STAMINA_RATIO;
 	
 	extern const float COW_CONSUME_STAMINA_RATIO;
 	
+	extern const float TIGER_CONSUME_STAMINA_RATIO;
 
 	//probe radius of animals
 	extern const float PROBE_RADIUS;
@@ -156,7 +168,11 @@ namespace AnimalConstants {
 
 	extern const float COW_IDLE_PROBABILITY;
 
+	extern const float TIGER_IDLE_PROBABILITY;
+
 	extern const float COW_MAX_ENERGY;
+
+	extern const float TIGER_MAX_ENERGY;
 
 	extern const float GRASS_INITIAL_ENERGY;
 	

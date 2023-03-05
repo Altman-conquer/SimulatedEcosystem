@@ -30,7 +30,7 @@ namespace AnimalConstants {
 
 	const int WOLF_MAX_AGE=120;
 
-	const int Tigrt_MAX_AGE = 130;
+	const int Tiger_MAX_AGE = 130;
 
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
@@ -47,9 +47,11 @@ namespace AnimalConstants {
 	//Max stamina of animals
 	const float COW_MAX_STAMINA = 100.0;
 	
-	const float DEER_MAX_STAMINA = 1.0;
+	const float DEER_MAX_STAMINA = 100.0;
 
 	const float WOLF_MAX_STAMINA = 100;
+
+	const float TIGER_MAX_STAMINA = 100;
 
 	//Min stamina of animals
 	const float COW_MIN_STAMINA = 0.0;
@@ -58,6 +60,8 @@ namespace AnimalConstants {
 
 	const float WOLF_MIN_STAMINA = 1.0;
 
+	const float TIGER_MIN_STAMINA = 1.0;
+
 	//Max velocity of animals
 	const float COW_MAX_VELOCITY = 50.0;
 
@@ -65,12 +69,16 @@ namespace AnimalConstants {
 
 	const float WOLF_MAX_VELOCITY = 60;
 
+	const float TIGER_MAX_VELOCITY = 60;
+
 	//Min velocity of animals
 	const float COW_MIN_VELOCITY = 1.0;
 
 	const float DEER_MIN_VELOCITY = 1.0;
 
 	const float WOLF_MIN_VELOCITY = 1.0;
+
+	const float TIGER_MIN_VELOCITY = 1.0;
 
 	// The stating energy
 	const float TIGER_STATE_ENERGY=100;
@@ -80,22 +88,32 @@ namespace AnimalConstants {
 
 	const float DEER_ENERGY_TRANSFORMATION_RATIO = 0.8;
 
+	const float TIGER_ENERGY_TRANSFORMATION_RATIO = 0.8;
+
+	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.8;
+
 	//Energy consume ratio
 	const float DEER_CONSUME_ENERGY_RATIO = 1.0;
 
 	const float COW_CONSUME_ENERGY_RATIO = 1.0;
+
+	const float TIGER_CONSUME_ENERGY_RATIO = 1.0;
 
 	//recover stamina ratio
 	const float DEER_RECOVER_STAMINA_RATIO = 1.0;
 	
 	const float COW_RECOVER_STAMINA_RATIO = 1.0;
 
+	const float TIGER_RECOVER_STAMINA_RATIO = 1.0;
+
 	//consume stamina ratio
 	const float DEER_CONSUME_STAMINA_RATIO = 1.0;
 	
 	const float COW_CONSUME_STAMINA_RATIO = 1.0;
 	
-	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
+	const float WOLF_CONSUME_STAMINA_RATIO = 0.3;
+
+	const float TIGER_CONSUME_STAMINA_RATIO = 0.3;
 
 	//probe radius of animals
 	const float PROBE_RADIUS = 1.0;
@@ -108,7 +126,11 @@ namespace AnimalConstants {
 
 	const float COW_IDLE_PROBABILITY = 0.5;
 
+	const float TIGER_IDLE_PROBABILITY = 0.5;
+
 	const float COW_MAX_ENERGY = 100.0;
+
+	const float TIGER_MAX_ENERGY = 100.0;
 
 	const float GRASS_INITIAL_ENERGY = 2.0;
 
