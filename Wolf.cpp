@@ -32,9 +32,38 @@ bool Wolf::Eat(Animal& other)
 	else return false;
 }
 
-void Wolf::Move() {
+void Wolf::Move()
+{
+	State state;
+	Vector2D presentPosition = this->position;
 
+	shared_ptr<Animal> target1 = Environment::GetClosetPair(this->environment, *this, Species::Cow);
+	Vector2D position1 = target1->GetPosition();
+	int d1 = Vector2D::GetDistance(position1, presentPosition);
 	
+	shared_ptr<Animal> target2 = Environment::GetClosetPair(this->environment, *this, Species::Deer);
+	Vector2D position2 = target2->GetPosition();
+	int d2 = Vector2D::GetDistance(position2,presentPosition);
+
+	//move toward cow
+	if (d1 < d2&&d1<= AnimalConstants::WOLF_PROBE_DISTANCE)
+	{
+		if (stamina >= AnimalConstants::WOLF_MIN_STAMINA)
+		{
+			state = State::Run;
+			this->velocity=AnimalConstants
+		}
+	}
+
+	//move toward deer
+	else if(d1 >= d2 && d2 <= AnimalConstants::WOLF_PROBE_DISTANCE)
+	{
+
+	}
+	else 
+	{
+
+	}
 }
 
 void Wolf::Update()

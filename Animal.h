@@ -38,6 +38,11 @@ enum class Gene {
 	TestName,
 };
 
+enum class State {
+	Run,
+	Walk,
+	Stay
+};
 
 namespace AnimalConstants {
 
@@ -92,12 +97,14 @@ namespace AnimalConstants {
 	//Energy transformation ratio
 	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
 
+	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
+
 	// the energy of grass will increase every tick
 	extern const float GRASS_RECOVER_SPEED;
 
+	//the probe distance
+	extern const float WOLF_PROBE_DISTANCE;
 	
-
-	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
 }
 
 class Animal

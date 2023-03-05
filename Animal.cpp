@@ -58,6 +58,9 @@ namespace AnimalConstants {
 	const float GRASS_RECOVER_SPEED = 0.5;
 
 	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
+
+	//the probe distance
+	const float WOLF_PROBE_DISTANCE=100;
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):
