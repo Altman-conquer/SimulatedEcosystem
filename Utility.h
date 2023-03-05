@@ -57,4 +57,5 @@ Vector2D RandomPositionVector(const Vector2D& center, float radius);
 
 Vector2D RandomVector();
 
+
 void PrintAnimals(Environment environment);

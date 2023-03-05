@@ -45,6 +45,7 @@ enum class MoveState {
 };
 
 namespace AnimalConstants {
+	//Breed radius
 
 	extern const float BREED_RADIUS;
 
@@ -58,20 +59,20 @@ namespace AnimalConstants {
 
 	extern const int COW_ADULT_AGE;
 	
-	extern const int Deer_ADULT_AGE;
+	extern const int DEER_ADULT_AGE;
 	
 	extern const int WOLF_ADULT_AGE;
 
-	extern const int Tiger_ADULT_AGE;
+	extern const int TIGER_ADULT_AGE;
 	
 	// Max age of animals
 	extern const int COW_MAX_AGE;
 
-	extern const int Deer_MAX_AGE;
+	extern const int DEER_MAX_AGE;
 
 	extern const int WOLF_MAX_AGE;
 
-	extern const int Tiger_MAX_AGE;
+	extern const int TIGER_MAX_AGE;
 
 	// Breed probability of animals
 	extern const float GRASS_BREED_PROBABILITY;
@@ -82,11 +83,17 @@ namespace AnimalConstants {
 
 	extern const float DEER_BREED_PROBABILITY;
 
+	extern const float WOLF_BREED_PROBABILITY;
+
 	// Breed radius of grass
 	extern const float BREED_RADIUS;
 
 	// The stating energy
 	extern const float TIGER_STATE_ENERGY;
+	extern const float WOLF_INITIAL_ENERGY;
+	extern const float DEER_INITIAL_ENERGY;
+	extern const float COW_INITIAL_ENERGY; 
+	extern const float GRASS_INITIAL_ENERGY;
 
 	// Breed radius
 
@@ -107,6 +114,7 @@ namespace AnimalConstants {
 	extern const float WOLF_MIN_STAMINA;
 
 	extern const float TIGER_MIN_STAMINA;
+
 
 	//Max velocity of animals
 	extern const float COW_MAX_VELOCITY;
@@ -132,6 +140,7 @@ namespace AnimalConstants {
 	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
 
 	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
+	
 
 	extern const float TIGER_ENERGY_TRANSFORMATION_RATIO;
 	
@@ -140,21 +149,35 @@ namespace AnimalConstants {
 
 
 	//Energy consume ratio
+	extern const float COW_CONSUME_ENERGY_RATIO;
+
 	extern const float DEER_CONSUME_ENERGY_RATIO;
 
-	extern const float COW_CONSUME_ENERGY_RATIO;
+	extern const float WOLF_CONSUME_ENERGY_RATIO;
 
 	extern const float TIGER_CONSUME_ENERGY_RATIO;
 
+
 	//recover stamina ratio
+	extern const float COW_RECOVER_STAMINA_RATIO;
+
 	extern const float DEER_RECOVER_STAMINA_RATIO;
 
-	extern const float COW_RECOVER_STAMINA_RATIO;
+	extern const float WOLF_RECOVER_STAMINA_RATIO;
+
+	extern const float TIGER_RECOVER_STAMINA_RATIO;
+
 
 	extern const float TIGER_RECOVER_STAMINA_RATIO;
 
 	//consume stamina ratio
+	extern const float COW_CONSUME_STAMINA_RATIO;
+
 	extern const float DEER_CONSUME_STAMINA_RATIO;
+
+	extern const float WOLF_CONSUME_STAMINA_RATIO;
+
+	extern const float TIGER_CONSUME_STAMINA_RATIO;
 	
 	extern const float COW_CONSUME_STAMINA_RATIO;
 	
@@ -168,15 +191,26 @@ namespace AnimalConstants {
 
 	extern const float COW_IDLE_PROBABILITY;
 
+	extern const float WOLF_IDLE_PROBABILITY;
+
+	extern const float TIGER_IDLE_PROBABILITY;
+
+	//Max energy of animals
 	extern const float TIGER_IDLE_PROBABILITY;
 
 	extern const float COW_MAX_ENERGY;
 
+	extern const float DEER_MAX_ENERGY;
+
+	extern const float WOLF_MAX_ENERGY;
+
 	extern const float TIGER_MAX_ENERGY;
 
-	extern const float GRASS_INITIAL_ENERGY;
+	//Initial energy;
+
+	extern const float TIGER_MAX_ENERGY;
 	
-	extern const float COW_INITIAL_ENERGY;
+	
 
 }
 
