@@ -4,6 +4,7 @@
 #include <vector>
 #include "Vector2D.h"
 #include "Animal.h"
+#include <set>
 
 class Animal;
 enum class Species;
@@ -85,7 +86,8 @@ public:
 	// Parameter: const Animal & animal
 	// Parameter: Species species Which species in the compare range. NULL_SPECIES if all species.
 	//************************************
-	shared_ptr<Animal> GetClosetPair(const Animal& animal, Species species);
+	static shared_ptr<Animal> GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, Species species);
+	static shared_ptr<Animal> GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, std::set<Species> species);
 private:
 	
 	// Storing animals

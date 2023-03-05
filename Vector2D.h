@@ -30,11 +30,21 @@ public:
 	//************************************
 	static Vector2D GetDirectionVector(Direction direction);
 
-	float GetX();
+	float GetX() const;
 	
-	float GetY();
+	float GetY() const;
 
 	float GetLength() const;
+
+	//************************************
+	// Method:    GetNormalized
+	// FullName:  Vector2D::GetNormalized
+	// Access:    public 
+	// Returns:   Normalized Vector2D(unit vector)
+	// Qualifier: const
+	//************************************
+	Vector2D GetNormalized() const;
+
 
 	//************************************
 	// Method:    GetDistance

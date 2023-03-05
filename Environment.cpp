@@ -1,5 +1,6 @@
 #include "Environment.h"
 #include "Tiger.h"
+#include "Log.h"
 #include "Grass.h"
 
 namespace EnvironmentConstants {
@@ -19,7 +20,7 @@ Environment::Environment(map<Species, int> _n)
 			switch (species)
 			{
 			case Species::Grass:
-				//this->animals->push_back(std::make_shared<Grass>(this->animals));
+				this->animals->push_back(std::make_shared<Grass>(this->animals));
 				break;
 			default:
 				break;
@@ -58,9 +59,8 @@ const shared_ptr<vector<Vector2D>> Environment::GetPrevPositions() const
 	return prev_positions;
 }
 
-shared_ptr<Animal> Environment::GetClosetPair(const Animal& animal, Species species)
+shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, Species species)
 {
-	Log::LogMessage("GetClosetPair is called", LogLevel::Info);
 	shared_ptr<Animal> target=NULL;
 	float min_distance=1e9;
 	Vector2D position = animal.GetPosition();
@@ -85,6 +85,28 @@ shared_ptr<Animal> Environment::GetClosetPair(const Animal& animal, Species spec
 				target = neighbour;
 			}
 	}
+
+	if (target == NULL)
+		Log::LogMessage("Return value of Environment::GetClosetPair is NULL", LogLevel::Error);
+	return target;
+}
+
+shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, std::set<Species> species)
+{
+	shared_ptr<Animal> target = NULL;
+	float min_distance = 1e9;
+	Vector2D position = animal.GetPosition();
+
+	for (shared_ptr<Animal>& neighbour : *animals)
+		if (species.count(neighbour->GetSpecies()) != 0 &&//belong to
+			min_distance > Vector2D::GetDistance(neighbour->GetPosition(), position) &&//closest
+			!(*neighbour == animal))//do not itself
+		{//update
+			min_distance = Vector2D::GetDistance(neighbour->GetPosition(), position);
+			target = neighbour;
+		}
+	if (target == NULL)
+		Log::LogMessage("Return value of Environment::GetClosetPair is NULL", LogLevel::Error);
 	return target;
 }
 

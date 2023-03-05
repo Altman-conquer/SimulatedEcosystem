@@ -73,6 +73,9 @@
     <ClCompile Include="MyChart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Wolf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h">
@@ -97,6 +100,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Wolf.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Deer.h">

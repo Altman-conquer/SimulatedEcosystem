@@ -8,6 +8,7 @@ Vector2D::Vector2D(float x, float y) :x(x), y(y) {}
 
 Vector2D Vector2D::GetDirectionVector(Direction direction)
 {
+
 	switch (direction)
 	{
 	case Direction::Up:
@@ -24,12 +25,14 @@ Vector2D Vector2D::GetDirectionVector(Direction direction)
 	}
 }
 
+
+
 float Vector2D::GetDistance(const Vector2D& vector1, const Vector2D& vector2)
 {
 	return sqrt(pow(vector1.x - vector2.x,2) + pow(vector1.y - vector2.y, 2));
 }
 
-float Vector2D::GetY()
+float Vector2D::GetY() const
 {
 	return y;
 }
@@ -39,7 +42,12 @@ float Vector2D::GetLength() const
 	return sqrt(x * x + y * y);
 }
 
-float Vector2D::GetX()
+Vector2D Vector2D::GetNormalized() const
+{
+	return *this / GetLength();
+}
+
+float Vector2D::GetX() const
 {
 	return x;
 }
