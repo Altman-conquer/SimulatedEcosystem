@@ -10,6 +10,8 @@ namespace AnimalConstants {
 
 	const int GRASS_ADULT_AGE = 10;
 
+	const int Deer_ADULT_AGE = 50;
+
 	// Max age of animals
 	const int COW_MAX_AGE = 100;
 
@@ -17,8 +19,12 @@ namespace AnimalConstants {
 
 	const float GRASS_GROWTH_SPEED = 1.0; // radius += GRASS_GROWTH_SPEED;
 
+	const int Deer_MAX_AGE = 100;
+
+
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
+
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):id(Animal::animalCount++),age_int(0)

@@ -83,6 +83,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Deer.cpp" />
     <ClCompile Include="Cow.cpp" />
     <ClCompile Include="Grass.cpp" />
     <ClCompile Include="Log.cpp" />
@@ -99,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
+    <ClInclude Include="Deer.h" />
     <ClInclude Include="Cow.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Grass.h" />
