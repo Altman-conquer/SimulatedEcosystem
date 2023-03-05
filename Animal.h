@@ -59,6 +59,8 @@ namespace AnimalConstants {
 	//Max velocity of animals
 	extern const float DEER_MAX_VELOCITY;
 
+	
+
 }
 
 class Animal

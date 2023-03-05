@@ -14,9 +14,17 @@ Species Deer::GetSpecies()
 
 void Deer::Move()
 {
+	float velocity_scalar = 0;
+
+	if()
+
 	if (this->stamina >= AnimalConstants::DEER_MAX_STAMINA / 2)
 	{
 		this->velocity = AnimalConstants::DEER_MAX_VELOCITY;
+	}
+	else if (this->stamina < AnimalConstants::DEER_MAX_STAMINA / 2)
+	{
+		this->velocity = 
 	}
 
 		
@@ -41,6 +49,7 @@ bool Deer::Eat(Animal& other)
 {
 	if (Species::Grass == other.GetSpecies())
 	{
+
 		return true;
 	}
 	else
