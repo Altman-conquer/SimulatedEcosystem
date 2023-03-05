@@ -5,6 +5,8 @@ class Tiger :public Animal
 public:
 	Tiger(std::shared_ptr<vector<shared_ptr<Animal>>> _environment);
 
+	Tiger(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position);
+
 	Species GetSpecies() override;
 
 	void Update() override;

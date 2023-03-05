@@ -77,7 +77,7 @@ namespace AnimalConstants {
 	extern const float DEER_BREED_PROBABILITY;
 
 	// Breed radius of grass
-	extern const float GRASS_BREED_RADIUS;
+	extern const float BREED_RADIUS;
 
 	// The stating energy
 	extern const float TIGER_STATE_ENERGY;

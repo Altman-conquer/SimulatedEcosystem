@@ -31,7 +31,9 @@ namespace AnimalConstants {
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
 
-	const float GRASS_BREED_RADIUS = 10.0;
+	const float BREED_RADIUS = 10.0;
+
+	const float TIGER_BREED_PROBABILITY = 0.3;
 
 	// The stating energy
 	const float TIGER_STATE_ENERGY=100;
