@@ -89,10 +89,10 @@ void Deer::Move()
 void Deer::Update()
 {
 	this->age_int += 1;
+	if (age_int > AnimalConstants::COW_MAX_AGE || energy <= 0.0)
+		Die();
 	Move();
 	Breed();
-	if (energy <= 0.0)
-		Die();
 }
 
 Age Deer::GetAge()
