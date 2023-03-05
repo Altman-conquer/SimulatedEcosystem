@@ -5,12 +5,14 @@ Tiger::Tiger(std::shared_ptr<vector<shared_ptr<Animal>>> _environment) : Animal(
 {
 	position = RandomPositionVector();
 	energy = AnimalConstants::TIGER_STATE_ENERGY;
+	if_run_away = false;
 }
 
 Tiger::Tiger(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position) :Animal(_environment)
 {
 	position = _position;
 	energy = AnimalConstants::TIGER_STATE_ENERGY;
+	if_run_away = false;
 }
 
 
@@ -22,7 +24,7 @@ Species Tiger::GetSpecies()
 void Tiger::Update()//behavior algorithm 
 {
 	//die
-	if (age_int > AnimalConstants::Tiger_MAX_AGE || energy <= 0.0)
+	if (age_int > AnimalConstants::TIGER_MAX_AGE || energy <= 0.0)
 		Die();
 
 	//grow up
@@ -43,18 +45,21 @@ void Tiger::Update()//behavior algorithm
 		}
 		else
 		{//run away
-
+			if_run_away = true;
 		}
 	} 
 	else 
 	{//check eatable
-
+		if (closest->GetSpecies() == Species::Cow || closest->GetSpecies() == Species::Deer)
+			Eat(*closest);
 	}
+
+	Move();
 }
 
 Age Tiger::GetAge()
 {
-	return Age(this->age_int >= AnimalConstants::Tiger_ADULT_AGE);
+	return Age(this->age_int >= AnimalConstants::TIGER_ADULT_AGE);
 }
 
 void Tiger::Mutate()
@@ -89,9 +94,9 @@ void Tiger::Breed()
 
 void Tiger::Move()
 {
-	MoveState state = MoveState::Walk;
 	//move direction
 	Vector2D unit_direction;
+	MoveState state = MoveState::Walk;
 
 	shared_ptr<Animal> nearest = Environment::GetClosetPair(environment, *this, { Species::Cow, Species::Deer, Species::Tiger });
 
@@ -99,9 +104,15 @@ void Tiger::Move()
 	{//in the horizon
 		if (nearest->GetSpecies() == Species::Cow|| nearest->GetSpecies() == Species::Deer)
 			unit_direction = (nearest->GetPosition() - this->GetPosition()).GetNormalized();
-		else//changeable
+		else
 			unit_direction = (this->GetPosition() - nearest->GetPosition()).GetNormalized();
 		state = MoveState::Run;
+	}
+
+	if (if_run_away)//meet same gender tiger
+	{
+		state = MoveState::Run;
+		unit_direction = ((closest->GetPosition() - this->GetPosition()).GetNormalized())*-1;
 	}
 
 	float velocity_scalar;
@@ -157,8 +168,6 @@ void Tiger::Move()
 
 bool Tiger::Eat(Animal& other)
 {
-	if (other.GetSpecies() != Species::Cow|| other.GetSpecies() != Species::Deer)
-		return false;
 	if ((other.GetPosition() - position).GetLength() <= GetCollisionRadius())
 	{
 		energy += other.GetEnergy();

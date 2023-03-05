@@ -104,15 +104,10 @@ namespace AnimalConstants {
 
 	 const float WOLF_ENERGY_TRANSFORMATION_RATIO = 1.0;
 
-	 const float TIGER_TRANSFORMATION_RATIO = 1.0;
+	 const float TIGER_ENERGY_TRANSFORMATION_RATIO = 0.8;
 
 	// the energy of grass will increase every tick
 	 const float GRASS_RECOVER_SPEED = 1.0;
-
-
-	const float TIGER_ENERGY_TRANSFORMATION_RATIO = 0.8;
-
-	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.8;
 
 	//Energy consume ratio
 	 const float COW_CONSUME_ENERGY_RATIO = 1.0;
@@ -122,9 +117,6 @@ namespace AnimalConstants {
 	 const float WOLF_CONSUME_ENERGY_RATIO = 1.0;
 
 	 const float TIGER_CONSUME_ENERGY_RATIO = 1.0;
-
-
-	const float TIGER_CONSUME_ENERGY_RATIO = 1.0;
 
 	//recover stamina ratio
 	 const float COW_RECOVER_STAMINA_RATIO = 1.0;
@@ -165,20 +157,6 @@ namespace AnimalConstants {
 	 const float WOLF_MAX_ENERGY = 1.0;
 
 	 const float TIGER_MAX_ENERGY = 1.0;
-
-	//Initial energy;
-
-	 
-
-	const float TIGER_IDLE_PROBABILITY = 0.5;
-
-	const float COW_MAX_ENERGY = 100.0;
-
-	
-
-	const float TIGER_MAX_ENERGY = 100.0;
-
-	
 
 }
 

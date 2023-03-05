@@ -27,6 +27,7 @@ protected:
 
 private:
 	shared_ptr<Animal> closest;
+	bool if_run_away;
 
 };
 
