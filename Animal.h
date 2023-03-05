@@ -63,6 +63,9 @@ namespace AnimalConstants {
 
 	extern const float DEER_BREED_PROBABILITY;
 
+	// The stating energy
+	extern const float TIGER_STATE_ENERGY;
+
 	//Max stamina of animals
 	extern const float DEER_MAX_STAMINA;
 

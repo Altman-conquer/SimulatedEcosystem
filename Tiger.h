@@ -9,5 +9,18 @@ public:
 
 	void Update() override;
 
+
+protected:
+	void Mutate() override;
+
+
+	void Breed() override;
+
+
+	void Move() override;
+
+
+	bool Eat(Animal& other) override;
+
 };
 

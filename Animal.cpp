@@ -21,6 +21,8 @@ namespace AnimalConstants {
 	// Breed probability of animals
 	const float GRASS_BREED_PROBABILITY = 0.1;
 
+	// The stating energy
+	const float TIGER_STATE_ENERGY=100;
 
 	// Size of picture of the adult and child animal
 	const int SIZE_OF_CHILD = 50;
