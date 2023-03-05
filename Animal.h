@@ -95,6 +95,8 @@ public:
 	//************************************
 	virtual Age GetAge() = 0;
 
+	float GetEnergy();
+
 	Vector2D GetPosition() const;
 
 	bool operator==(const Animal& other)const;

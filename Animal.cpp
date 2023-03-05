@@ -32,6 +32,11 @@ Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):id(Anim
 	this->environment = _environment;
 }
 
+float Animal::GetEnergy()
+{
+	return energy;
+}
+
 Vector2D Animal::GetPosition() const
 {
 	return position;
