@@ -41,7 +41,7 @@ enum class Gene {
 enum class MoveState {
 	Run,
 	Walk,
-	Idle
+	Idle,
 };
 
 namespace AnimalConstants {
