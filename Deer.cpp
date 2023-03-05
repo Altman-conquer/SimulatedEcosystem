@@ -9,25 +9,70 @@ Species Deer::GetSpecies()
 
 void Deer::Move()
 {
-	MoveState state;
 
+	MoveState state = MoveState::Walk;
+	Vector2D unit_direction;
+
+	shared_ptr<Animal> nearest = Environment::GetClosetPair(environment, *this, { Species::Grass, Species::Wolf, Species::Tiger });
 	
-
-	float velocity_scalar = 0;
-
-	if (this->stamina >= AnimalConstants::DEER_MAX_STAMINA / 2)
+	if (Vector2D::GetDistance(nearest->GetPosition(), this->GetPosition()) <= AnimalConstants::DEER_PROBE_RADIUS)
 	{
-		velocity_scalar = AnimalConstants::DEER_MAX_VELOCITY;
+		if (nearest->GetSpecies() == Species::Grass)
+			unit_direction = (nearest->GetPosition() - this->GetPosition()).GetNormalized();
+		else
+			unit_direction = (this->GetPosition() - nearest->GetPosition()).GetNormalized();
+		state = MoveState::Run;
 	}
-	else if (this->stamina > AnimalConstants::DEER_MAX_STAMINA)
+
+	float velocity_scalar;
+
+	if (state == MoveState::Run)
 	{
-		velocity_scalar = AnimalConstants::DEER_MAX_VELOCITY * (this->stamina * 2 / AnimalConstants::DEER_MAX_STAMINA);
+
+		if (this->stamina >= AnimalConstants::DEER_MAX_STAMINA / 2)
+		{
+			velocity_scalar = AnimalConstants::DEER_MAX_VELOCITY;
+		}
+		else if (this->stamina > AnimalConstants::DEER_MAX_STAMINA)
+		{
+			velocity_scalar = AnimalConstants::DEER_MAX_VELOCITY * (this->stamina * 2 / AnimalConstants::DEER_MAX_STAMINA);
+		}
+		else
+		{
+			velocity_scalar = AnimalConstants::DEER_MIN_VELOCITY;
+		}
 	}
 	else
 	{
-		velocity_scalar = AnimalConstants::DEER_MIN_VELOCITY;
+		if (RandomFloat(0.0, 1.0) <= AnimalConstants::DEER_IDLE_PROBABILITY)
+		{
+			velocity_scalar = 0;
+			state = MoveState::Idle;
+		}
+		else
+		{
+			unit_direction = RandomUnitVector();
+			velocity_scalar = AnimalConstants::DEER_MIN_VELOCITY;
+			state = MoveState::Walk;
+		}
 	}
 
+	//Get Direction
+	this->velocity = unit_direction * velocity_scalar;
+
+	//update position
+	this->position = this->position + this->velocity;
+
+	//update stamina and energy
+	if (state == MoveState::Idle || state == MoveState::Walk)
+	{
+		this->stamina = std::max(this->stamina + AnimalConstants::DEER_RECOVER_STAMINA_RATIO, AnimalConstants::DEER_MAX_STAMINA);
+		this->energy = std::min(this->energy - AnimalConstants::DEER_CONSUME_ENERGY_RATIO, 0.0f);
+	}
+	else if (state == MoveState::Run)
+	{
+		this->stamina = std::min(this->stamina - AnimalConstants::DEER_CONSUME_STAMINA_RATIO, AnimalConstants::DEER_MIN_STAMINA);
+	}
 
 }
 
@@ -35,6 +80,7 @@ void Deer::Update()
 {
 	this->age_int += 1;
 
+	Deer::Move();
 }
 
 void Deer::Mutate()

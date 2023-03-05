@@ -91,6 +91,7 @@ namespace AnimalConstants {
 
 	extern const float WOLF_MIN_STAMINA;
 
+
 	//Max velocity of animals
 	extern const float COW_MAX_VELOCITY;
 	
@@ -115,7 +116,7 @@ namespace AnimalConstants {
 	// the energy of grass will increase every tick
 	extern const float GRASS_RECOVER_SPEED;
 
-	extern const float COW_PROB_RADIUS;
+	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
 
 	//Energy consume ratio
 	extern const float DEER_CONSUME_ENERGY_RATIO;
@@ -125,10 +126,15 @@ namespace AnimalConstants {
 	//recover stamina ratio
 	extern const float DEER_RECOVER_STAMINA_RATIO;
 
+	//consume stamina ratio
+	extern const float DEER_CONSUME_STAMINA_RATIO;
+
 	extern const float WOLF_RECOVER_STAMINA_RATIO;
 
 	//probe radius of animals
-	extern const float DEER_PROBE_Radius;
+	extern const float DEER_PROBE_RADIUS;
+
+	extern const float COW_PROBE_RADIUS;
 
 	extern const float WOLF_PROBE_RADIUS;
 
@@ -136,7 +142,9 @@ namespace AnimalConstants {
 
 	extern const float WOLF_MAXIMA_ENERGY;
 	
-	
+	//Idle probability of animals
+	extern const float DEER_IDLE_PROBABILITY;
+
 }
 
 class Animal
