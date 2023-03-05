@@ -34,6 +34,8 @@ public:
 	
 	float GetY();
 
+	float GetLength() const;
+
 	//************************************
 	// Method:    GetDistance
 	// FullName:  Vector2D::GetDistance
