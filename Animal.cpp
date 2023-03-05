@@ -1,5 +1,6 @@
 #include "Animal.h"
 #include "Vector2D.h"
+#include <utility>
 
 int Animal::animalCount = 0;
 
@@ -77,33 +78,51 @@ namespace AnimalConstants {
 	//Energy consume ratio
 	const float DEER_CONSUME_ENERGY_RATIO = 1.0;
 
+	const float COW_CONSUME_ENERGY_RATIO = 1.0;
+
 	const float WOLF_CONSUME_ENERGY_RATIO = 0.01;
 
 	//recover stamina ratio
 	const float DEER_RECOVER_STAMINA_RATIO = 1.0;
+	
+	const float COW_RECOVER_STAMINA_RATIO = 1.0;
+
 
 	const float WOLF_RECOVER_STAMINA_RATIO = 1.0;
 
 	//consume stamina ratio
 	const float DEER_CONSUME_STAMINA_RATIO = 1.0;
+	
+	const float COW_CONSUME_STAMINA_RATIO = 1.0;
+	
+	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
+
 
 	const float WOLF_CONSUME_STAMINA_RATIO = 1.0;
 
 	//probe radius of animals
-	const float DEER_PROBE_RADIUS = 1.0;
+	const float PROBE_RADIUS = 1.0;
 
 	const float WOLF_PROBE_RADIUS = 100;
 
 	const float GRASS_RECOVER_SPEED = 0.5;
 
+
+	//motionless probability of animals
+	const float DEER_IDLE_PROBABILITY = 0.5;
+
+	const float COW_IDLE_PROBABILITY = 0.5;
+
+	const float COW_MAX_ENERGY = 100.0;
 	const float COW_PROB_RADIUS = 50.0;
 
 	//Maximal energy
 	const float WOLF_MAXIMAL_ENERGY = 100;
 
 
-	const float COW_PROBE_RADIUS = 50.0;
+	const float GRASS_INITIAL_ENERGY = 2.0;
 
+	const float COW_INITIAL_ENERGY = 10.0;
 	//motionless probability of animals
 	const float DEER_IDLE_PROBABILITY = 1.0;
 
@@ -111,7 +130,7 @@ namespace AnimalConstants {
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):
-	id(Animal::animalCount++),age_int(0),environment(_environment),energy(0),gender(Gender::Male),stamina(0)
+	id(Animal::animalCount++),age_int(0),environment(_environment),energy(0),gender(Gender(RandomInteger(0,1))),stamina(0)
 {
 
 }
@@ -124,6 +143,14 @@ Gender Animal::GetGender()
 float Animal::GetEnergy()
 {
 	return energy;
+}
+
+
+bool Animal::DecreaseEnergy(float value)
+{
+	energy -= value;
+	energy = std::max(energy, 0.0f);
+	return true;
 }
 
 Vector2D Animal::GetPosition() const

@@ -6,7 +6,7 @@ class Cow :
 public:
 	Cow(shared_ptr<vector<shared_ptr<Animal>>> _environment);
 
-	Cow(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position);
+	Cow(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Gender _gender);
 
 	Species GetSpecies() override;
 	
