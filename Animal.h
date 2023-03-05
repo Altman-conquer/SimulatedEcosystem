@@ -37,6 +37,7 @@ enum class Gene {
 	TestName,
 };
 
+
 namespace AnimalConstants {
 
 	// Age limits of animals to tell it is adult or not.

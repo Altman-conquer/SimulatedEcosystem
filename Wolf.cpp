@@ -33,6 +33,7 @@ bool Wolf::Eat(Animal& other)
 }
 
 void Wolf::Move() {
+
 	
 }
 
