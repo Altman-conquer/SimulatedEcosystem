@@ -55,6 +55,8 @@ public:
 	//************************************
 	bool AddSpecies(shared_ptr<Animal> new_animal);
 
+	vector<int> GetDeadAnimals();
+
 	//************************************
 	// Method:    Update
 	// FullName:  Environment::Update
@@ -82,5 +84,9 @@ private:
 	
 	// Storing animals
 	shared_ptr<vector<shared_ptr<Animal>>> animals;
+
+	// id of animals in the previous second
+	std::set<int>prev_animals;
+
 };
 

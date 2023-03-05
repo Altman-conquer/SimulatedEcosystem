@@ -45,9 +45,24 @@ bool Environment::AddSpecies(shared_ptr<Animal> new_animal)
 	return true;
 }
 
+vector<int> Environment::GetDeadAnimals()
+{
+	vector<int> dead_animals;
+	for (shared_ptr<Animal>& animal : *animals)
+		if (prev_animals.count(animal->GetID()) == 0)
+		{
+			dead_animals.push_back(animal->GetID());
+		}
+	return dead_animals;
+}
+
 void Environment::Update()
 {
 	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
+
+	prev_animals.clear();
+	for (shared_ptr<Animal>& animal : *animals)
+		prev_animals.insert(animal->GetID());
 	
 	for (shared_ptr<Animal>& animal : *animals)
 		animal->Update();
