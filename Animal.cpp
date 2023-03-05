@@ -61,12 +61,18 @@ namespace AnimalConstants {
 	//recover stamina ratio
 	const float DEER_RECOVER_STAMINA_RATIO = 1.0;
 
+	//consume stamina ratio
+	const float DEER_CONSUME_STAMINA_RATIO = 1.0;
+
 	//probe radius of animals
 	const float DEER_PROBE_Radius = 1.0;
 
 	const float GRASS_RECOVER_SPEED = 0.5;
 
 	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
+
+	//motionless probability of animals
+	extern const float DEER_MOTHIONLESS_PROBABILITY = 0.7;
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):
