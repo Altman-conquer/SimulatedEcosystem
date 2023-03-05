@@ -51,7 +51,7 @@ namespace AnimalConstants {
 
 	const float DEER_MIN_STAMINA = 1.0;
 
-	const float WOLF_MIN_STAMINA = 1.0;
+	const float WOLF_MIN_STAMINA = 0.0;
 
 	//Max velocity of animals
 	const float COW_MAX_VELOCITY = 50.0;
@@ -77,12 +77,12 @@ namespace AnimalConstants {
 	//Energy consume ratio
 	const float DEER_CONSUME_ENERGY_RATIO = 1.0;
 
-	const float WOLF_CONSUME_ENERGY_RATIO = 1.0;
+	const float WOLF_CONSUME_ENERGY_RATIO = 0.01;
 
 	//recover stamina ratio
 	const float DEER_RECOVER_STAMINA_RATIO = 1.0;
 
-	const float WOLF_RECOVER_STAMINA_RATIO = 1.0;
+	const float WOLF_RECOVER_STAMINA_RATIO = 0.1;
 
 	//probe radius of animals
 	const float DEER_PROBE_RADIUS = 1.0;
@@ -92,6 +92,9 @@ namespace AnimalConstants {
 	const float GRASS_RECOVER_SPEED = 0.5;
 
 	const float COW_PROB_RADIUS = 50.0;
+
+	//Maximal energy
+	const float WOLF_MAXIMAL_ENERGY = 100;
 
 
 }

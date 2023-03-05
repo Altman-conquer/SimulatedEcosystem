@@ -131,6 +131,10 @@ namespace AnimalConstants {
 	extern const float DEER_PROBE_Radius;
 
 	extern const float WOLF_PROBE_RADIUS;
+
+	//maximal energy
+
+	extern const float WOLF_MAXIMA_ENERGY;
 	
 	
 }
