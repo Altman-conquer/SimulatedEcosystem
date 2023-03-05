@@ -9,6 +9,10 @@ Species Deer::GetSpecies()
 
 void Deer::Move()
 {
+	MoveState state;
+
+	
+
 	float velocity_scalar = 0;
 
 	if (this->stamina >= AnimalConstants::DEER_MAX_STAMINA / 2)
@@ -30,6 +34,7 @@ void Deer::Move()
 void Deer::Update()
 {
 	this->age_int += 1;
+
 }
 
 void Deer::Mutate()

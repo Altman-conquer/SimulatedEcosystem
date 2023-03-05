@@ -72,6 +72,15 @@ namespace AnimalConstants {
 
 	const float DEER_ENERGY_TRANSFORMATION_RATIO = 0.8;
 
+	//Energy consume ratio
+	const float DEER_CONSUME_ENERGY_RATIO = 1.0;
+
+	//recover stamina ratio
+	const float DEER_RECOVER_STAMINA_RATIO = 1.0;
+
+	//probe radius of animals
+	const float DEER_PROBE_RADIUS = 1.0;
+
 	const float GRASS_RECOVER_SPEED = 0.5;
 
 	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;

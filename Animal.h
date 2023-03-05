@@ -38,6 +38,12 @@ enum class Gene {
 	TestName,
 };
 
+enum class MoveState {
+	run,
+	walk,
+	motionless
+};
+
 namespace AnimalConstants {
 	extern const float BREED_RADIUS;
 
@@ -110,6 +116,18 @@ namespace AnimalConstants {
 	extern const float GRASS_RECOVER_SPEED;
 
 	extern const float COW_PROB_RADIUS;
+
+	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
+	//Energy consume ratio
+	extern const float DEER_CONSUME_ENERGY_RATIO;
+
+	//recover stamina ratio
+	extern const float DEER_RECOVER_STAMINA_RATIO;
+
+	//probe radius of animals
+	extern const float DEER_PROBE_Radius;
+
+	
 
 }
 
