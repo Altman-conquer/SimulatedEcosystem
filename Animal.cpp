@@ -98,6 +98,8 @@ namespace AnimalConstants {
 
 	const float DEER_INITIAL_ENERGY = 1.0;
 
+	const float WOLF_INITIAL_ENERGY = 1.0;
+
 	//Energy transformation ratio
 	 const float COW_ENERGY_TRANSFORMATION_RATIO = 1.0;
 
