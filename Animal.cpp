@@ -29,18 +29,27 @@ namespace AnimalConstants {
 	//Max stamina of animals
 	const float DEER_MAX_STAMINA = 1.0;
 
+	const float WOLF_MAX_STAMINA = 100;
+
 	//Min stamina of animals
-	extern const float DEER_MIN_STAMINA = 1.0;
+	const float DEER_MIN_STAMINA = 1.0;
+
+	const float WOLF_MIN_STAMINA = 1.0;
 
 	//Max velocity of animals
 	const float DEER_MAX_VELOCITY = 50.0;
 
+	const float WOLF_MAX_VELOCITY = 60;
+
 	//Min velocity of animals
-	extern const float DEER_MIN_VELOCITY = 1.0;
+	const float DEER_MIN_VELOCITY = 1.0;
+
+	const float WOLF_MIN_VELOCITY = 1.0;
 
 	//Energy transformation ratio
 	const float DEER_ENERGY_TRANSFORMATION_RATIO = 0.8;
 
+	const float WOLF_ENERGY_TRANSFORMATION_RATIO = 0.3;
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):

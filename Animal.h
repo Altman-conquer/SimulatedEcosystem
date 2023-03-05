@@ -67,33 +67,27 @@ namespace AnimalConstants {
 	//Max stamina of animals
 	extern const float DEER_MAX_STAMINA;
 
+	extern const float WOLF_MAX_STAMINA;
+
 	//Min stamina of animals
 	extern const float DEER_MIN_STAMINA;
+
+	extern const float WOLF_MIN_STAMINA;
 
 	//Max velocity of animals
 	extern const float DEER_MAX_VELOCITY;
 
+	extern const float WOLF_MAX_VELOCITY;
+
 	//Min velocity of animals
 	extern const float DEER_MIN_VELOCITY;
+
+	extern const float WOLF_MIN_VELOCITY;
 
 	//Energy transformation ratio
 	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
 
-	
-
-
-	//energy_conversion_rate
-	extern const float WOLF_ENERGY_CONVERSION_RATE;
-
-	//maximal stamina of animals
-	extern const float WOLF_MAX_STAMINA;
-
-	//maximal speed of animals
-	extern const float WOLF_MAX_SPEED;
-
-	//minimal speed of animals
-	extern const float WOLF_MIN_SPEED;
-
+	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
 }
 
 class Animal

@@ -1,8 +1,9 @@
 #include "Wolf.h"
 
-Wolf::Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Vector2D velocity, bool _isMale, map<Gene, float> _genes, float _stamina, float _energy) :Animal(_environment,  _position,velocity, _isMale,_genes, _stamina, _energy)
+Wolf::Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
+	Vector2D _velocity, Gender _gender, map<Gene, float> _genes, float _stamina, float _energy) :Animal(_environment, _position,
+		_velocity, _gender, _genes, _stamina, _energy)
 {
-
 }
 
 
@@ -25,7 +26,7 @@ bool Wolf::Eat(Animal& other)
 {
 	if (other.GetSpecies() == Species::Cow || other.GetSpecies() == Species::Deer)
 	{	
-		energy += AnimalConstants::WOLF_ENERGY_CONVERSION_RATE * other.GetEnergy();
+		energy += AnimalConstants::WOLF_ENERGY_TRANSFORMATION_RATIO* other.GetEnergy();
 		return true;
 	}
 	else return false;
