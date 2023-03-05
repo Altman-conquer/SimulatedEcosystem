@@ -4,13 +4,13 @@
 Deer::Deer(shared_ptr<vector<shared_ptr<Animal>>> _environment) :Animal(_environment)
 {
 	position = RandomPositionVector();
-	energy = AnimalConstants::COW_INITIAL_ENERGY;
+	energy = AnimalConstants::DEER_INITIAL_ENERGY;
 }
 
 Deer::Deer(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Gender _gender) :Animal(_environment)
 {
 	position = _position;
-	energy = AnimalConstants::COW_INITIAL_ENERGY;
+	energy = AnimalConstants::DEER_INITIAL_ENERGY;
 }
 
 
@@ -89,8 +89,11 @@ void Deer::Move()
 void Deer::Update()
 {
 	this->age_int += 1;
+	prev_position = position;
+
 	if (age_int > AnimalConstants::DEER_MAX_AGE || energy <= 0.0)
 		Die();
+
 	Move();
 	Breed();
 }

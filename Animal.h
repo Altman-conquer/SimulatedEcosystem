@@ -158,6 +158,8 @@ namespace AnimalConstants {
 	extern const float TIGER_CONSUME_ENERGY_RATIO;
 
 
+	extern const float WOLF_CONSUME_ENERGY_RATIO;
+
 	//recover stamina ratio
 	extern const float COW_RECOVER_STAMINA_RATIO;
 
@@ -183,6 +185,21 @@ namespace AnimalConstants {
 	
 	extern const float TIGER_CONSUME_STAMINA_RATIO;
 
+	extern const float WOLF_CONSUME_STAMINA_RATIO;
+
+	
+
+	//probe radius of animals
+	extern const float DEER_PROBE_RADIUS;
+
+	extern const float COW_PROBE_RADIUS;
+
+	extern const float WOLF_PROBE_RADIUS;
+
+	//maximal energy
+
+	extern const float WOLF_MAXIMA_ENERGY;
+	
 	//probe radius of animals
 	extern const float PROBE_RADIUS;
 
@@ -277,6 +294,8 @@ public:
 
 	bool operator==(const Animal& other)const;
 
+	Vector2D Interp(float elapsed_time, float period_time);
+
 
 	//************************************
 	// Method:    Die
@@ -287,6 +306,7 @@ public:
 	// Kill the animal if it is too old or is being ate.
 	//************************************
 	bool Die();
+
 	
   
 protected:
@@ -335,6 +355,8 @@ protected:
 	Vector2D position;
 
 	Vector2D velocity;
+
+	Vector2D prev_position;
 	
 	Gender gender;
 
