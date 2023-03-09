@@ -58,15 +58,13 @@ vector<int> Environment::GetDeadAnimals()
 
 void Environment::Update()
 {
-	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
+	Log::LogMessage("Environment Update", LogLevel::Info);
 
-	prev_animals.clear();
 	for (shared_ptr<Animal>& animal : *animals)
 		prev_animals.insert(animal->GetID());
 	
 	for (shared_ptr<Animal>& animal : *animals)
 		animal->Update();
-	
 }
 
 shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, Species species)

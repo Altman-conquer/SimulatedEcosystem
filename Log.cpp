@@ -9,6 +9,8 @@ Log::Log()
 
 void Log::LogMessage(const std::string message, LogLevel level)
 {
+
+
 	int log_color = WHITE;
 	switch (level)
 	{
@@ -25,7 +27,7 @@ void Log::LogMessage(const std::string message, LogLevel level)
 	
 	// change color of output text
 	SetConsoleTextAttribute(std_handle, log_color);
-	
+
 	std::cout << message << std::endl;
 	
 	// set it to the initial state

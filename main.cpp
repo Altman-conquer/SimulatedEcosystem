@@ -7,6 +7,8 @@
 #include "Environment.h"
 #include "Grass.h"
 #include <memory>
+#include <thread>
+#include <chrono>
 
 /*
 * 
@@ -34,8 +36,15 @@ int main(int argc, char *argv[])
     
 	map<Species, int> test_species;
 	test_species[Species::Grass] = 100;
-	test_species[Species::Cow] = 100;
+    //test_species[Species::Cow] = 100;
     Environment environment(test_species);
+
+    for (int i = 0; i < 100; i++)
+    {
+        environment.Update();
+        std::cout << i << std::endl;
+        //std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
 
 #else
 
