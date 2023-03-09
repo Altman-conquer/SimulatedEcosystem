@@ -26,6 +26,14 @@ public:
     
     void initChart();
     void update_Surface();
+
+
+    void delete_Animal(int id);
+    void add_NewAnimal(shared_ptr<Animal> animal);
+    void move_Animal(shared_ptr<Animal> animal);
+
+    void reGame();
+    void curveFigure();
 private:
     Ui::SimulatedEcosystemClass ui;
     AnimalButton* temp = new AnimalButton(this);
@@ -34,6 +42,6 @@ private:
     QVector<QList<QPointF>> pointlist;
     QTimer* timer = new QTimer(this);
 	map<int, AnimalButton*> my_animals;
-
+	map<Species, int> test_species;
     shared_ptr<Environment> environment;
 };

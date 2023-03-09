@@ -1,5 +1,7 @@
 #include "Deer.h"
 #include "Utility.h"
+#include <memory>
+
 
 Deer::Deer(shared_ptr<vector<shared_ptr<Animal>>> _environment) :Animal(_environment)
 {
@@ -149,5 +151,10 @@ bool Deer::Eat(Animal& other)
 		return true;
 	}
 	return false;
+}
+
+QString Deer::GetPicturePath()
+{
+	return ":/sourcePicture/deer.png";
 }
 

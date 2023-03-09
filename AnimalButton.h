@@ -20,6 +20,9 @@ public:
 	AnimalButton(QWidget *parent = NULL, shared_ptr<Animal> animal = shared_ptr<Animal>(nullptr));
 	~AnimalButton();
 
+	void setAnimal(shared_ptr<Animal> animal);
+
 private:
 	Ui::AnimalButtonClass *ui;
+	shared_ptr<Animal>animal;
 };

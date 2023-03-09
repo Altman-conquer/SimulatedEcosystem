@@ -7,14 +7,20 @@ AnimalButton::AnimalButton(QWidget *parent, shared_ptr<Animal>animal)
 {
 	ui->setupUi(this);
 
+	setAnimal(animal);
+}
 
+AnimalButton::~AnimalButton()
+{
+	delete ui;
+}
+
+void AnimalButton::setAnimal(shared_ptr<Animal> animal) {
+	this->animal = animal;
 	int animalSize = 0;
 	int x = 0;
 	int y = 0;
-	
-	//setGeometry(animal->GetPosition().GetX(), animal->GetPosition().GetY(), , 500);
-	//setStyleSheet("QPushButton{background-image:" + animal->GetPicturePath() + ";}");
-	
+
 	if (animal != NULL) {
 		if (animal->GetAge() == Age::Child) {
 			animalSize = AnimalConstants::CHILD_DISTANCE;
@@ -29,7 +35,3 @@ AnimalButton::AnimalButton(QWidget *parent, shared_ptr<Animal>animal)
 	this->setGeometry(x, y, animalSize, animalSize);
 }
 
-AnimalButton::~AnimalButton()
-{
-	delete ui;
-}
