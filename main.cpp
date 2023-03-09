@@ -9,7 +9,6 @@
 #include <memory>
 #include <thread>
 #include <chrono>
-
 /*
 * 
 在构造函数里面，参数名使用一个下划线开头，例如_n，这样可以避免出现n=n的错误
@@ -38,12 +37,13 @@ int main(int argc, char *argv[])
 	test_species[Species::Grass] = 100;
     //test_species[Species::Cow] = 100;
     Environment environment(test_species);
-
-    for (int i = 0; i < 100; i++)
+    
+    /*PRINT_FUNCTION_NAME(LogLevel::Error)
+    Log::LogMessage(GET_FUNCTION_NAME, LogLevel::Warning);*/
+    
+    for (int i = 0; i < 5; i++)
     {
         environment.Update();
-        std::cout << i << std::endl;
-        //std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 
 #else
