@@ -227,7 +227,10 @@ namespace AnimalConstants {
 
 	extern const float TIGER_MAX_ENERGY;
 	
-	
+	// Size of picture of the adult and child animal
+	extern const int SIZE_OF_CHILD = 50;
+
+	extern const int SIZE_OF_ADULT = 100;
 
 }
 

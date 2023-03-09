@@ -8,7 +8,7 @@ int Animal::animalCount = 0;
 namespace AnimalConstants { 
 
 	//Breed radius
-	 const float BREED_RADIUS = 1.0;
+	 const float BREED_RADIUS = 10.0;
 
 	// The distance of crash
 	const float CHILD_DISTANCE = 10;
@@ -16,24 +16,24 @@ namespace AnimalConstants {
 	const float ADULT_DISTANCE = 100;
 
 	// Age limits of animals to tell it is adult or not.
-	 const int GRASS_ADULT_AGE = 1.0;
+	 const int GRASS_ADULT_AGE = 10.0;
 
-	 const int COW_ADULT_AGE = 1.0;
+	 const int COW_ADULT_AGE = 10.0;
 
-	 const int DEER_ADULT_AGE = 1.0;
+	 const int DEER_ADULT_AGE = 10.0;
 
-	 const int WOLF_ADULT_AGE = 1.0;
+	 const int WOLF_ADULT_AGE = 10.0;
 
-	 const int TIGER_ADULT_AGE = 1.0;
+	 const int TIGER_ADULT_AGE = 10.0;
 
 	// Max age of animals
-	 const int COW_MAX_AGE = 1.0;
+	 const int COW_MAX_AGE = 60.0;
 
-	 const int DEER_MAX_AGE = 1.0;
+	 const int DEER_MAX_AGE = 60.0;
 
-	 const int WOLF_MAX_AGE = 1.0;
+	 const int WOLF_MAX_AGE = 60.0;
 
-	 const int TIGER_MAX_AGE = 1.0;
+	 const int TIGER_MAX_AGE = 60.0;
 
 	// Breed probability of animals
 	 const float GRASS_BREED_PROBABILITY = 1.0;

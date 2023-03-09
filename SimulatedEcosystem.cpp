@@ -16,8 +16,8 @@ SimulatedEcosystem::SimulatedEcosystem(QWidget *parent)
     connect(ui.regame, &QPushButton::clicked, this, &SimulatedEcosystem::reGame);
     connect(ui.curveFigure, &QPushButton::clicked, this, &SimulatedEcosystem::curveFigure);
 
-    test_species[Species::Grass] = 1000;
-	test_species[Species::Cow] = 100;
+    test_species[Species::Grass] = 100;
+	//test_species[Species::Cow] = 100;
     environment = std::make_shared<Environment>(test_species);
     
     shared_ptr<vector<shared_ptr<Animal>>> animals = environment->GetEnvironment();
@@ -108,7 +108,7 @@ void SimulatedEcosystem::move_Animal(shared_ptr<Animal> animal) {
 }
 
 void SimulatedEcosystem::reGame() {
-    timer->start(10);
+    timer->start(1000);
 }
 
 void SimulatedEcosystem::curveFigure() {
