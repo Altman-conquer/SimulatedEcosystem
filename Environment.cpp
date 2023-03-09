@@ -59,7 +59,7 @@ vector<int> Environment::GetDeadAnimals()
 void Environment::Update()
 {
 	//PRINT_FUNCTION_NAME(LogLevel::Info);
-	DETAIL_LOG("123", LogLevel::Info);
+	DETAIL_LOG("Update Environment", LogLevel::Info);
 
 	for (shared_ptr<Animal>& animal : *animals)
 		prev_animals.insert(animal->GetID());
