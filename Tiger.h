@@ -9,5 +9,6 @@ public:
 
 	void Update() override;
 
+	QString GetPicturePath() override;
 };
 

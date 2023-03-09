@@ -14,3 +14,7 @@ void Tiger::Update()
 {
 	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
 }
+
+QString Tiger::GetPicturePath() {
+	return ":/sourcePicture/tiger (2).png";
+}
