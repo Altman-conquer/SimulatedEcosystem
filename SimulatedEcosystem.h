@@ -44,4 +44,5 @@ private:
 	map<int, AnimalButton*> my_animals;
 	map<Species, int> test_species;
     shared_ptr<Environment> environment;
+    int time = 0;
 };

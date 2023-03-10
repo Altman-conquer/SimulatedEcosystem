@@ -16,8 +16,9 @@ SimulatedEcosystem::SimulatedEcosystem(QWidget *parent)
     connect(ui.regame, &QPushButton::clicked, this, &SimulatedEcosystem::reGame);
     connect(ui.curveFigure, &QPushButton::clicked, this, &SimulatedEcosystem::curveFigure);
 
-    test_species[Species::Grass] = 100;
-	//test_species[Species::Cow] = 100;
+	test_species[Species::Wolf] = 100;
+
+
     environment = std::make_shared<Environment>(test_species);
     
     shared_ptr<vector<shared_ptr<Animal>>> animals = environment->GetEnvironment();
@@ -73,6 +74,8 @@ void SimulatedEcosystem::initChart()
 }
 
 void SimulatedEcosystem::update_Surface() {
+    time++;
+    ui.time->setText(QString::fromLocal8Bit("Ê±¼ä£º") + QString::number(time) + QString::fromLocal8Bit(" Ìì"));
     environment->Update();
 	shared_ptr<vector<shared_ptr<Animal>>> animals = environment->GetEnvironment();
 	vector<int>deadID = environment->GetDeadAnimals();

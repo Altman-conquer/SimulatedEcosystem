@@ -89,7 +89,7 @@ namespace AnimalConstants {
 	extern const float BREED_RADIUS;
 
 	// The stating energy
-	extern const float TIGER_STATE_ENERGY;
+	extern const float TIGER_INITIAL_ENERGY;
 	extern const float WOLF_INITIAL_ENERGY;
 	extern const float DEER_INITIAL_ENERGY;
 	extern const float COW_INITIAL_ENERGY; 
@@ -228,9 +228,9 @@ namespace AnimalConstants {
 	extern const float TIGER_MAX_ENERGY;
 	
 	// Size of picture of the adult and child animal
-	extern const int SIZE_OF_CHILD = 50;
+	//extern const int SIZE_OF_CHILD = 50;
 
-	extern const int SIZE_OF_ADULT = 100;
+	//extern const int SIZE_OF_ADULT = 100;
 
 }
 

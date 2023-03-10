@@ -3,6 +3,7 @@
 #include "Log.h"
 #include "Grass.h"
 #include "Cow.h"
+#include "Wolf.h"
 
 namespace EnvironmentConstants {
 	// Position limit of every dimension, assuming the environment is rectangular.
@@ -25,6 +26,9 @@ Environment::Environment(map<Species, int> _n)
 				break;
 			case Species::Cow:
 				this->animals->push_back(std::make_shared<Cow>(this->animals));
+				break;
+			case Species::Wolf:
+				this->animals->push_back(std::make_shared<Wolf>(this->animals));
 				break;
 				
 			default:
@@ -58,7 +62,6 @@ vector<int> Environment::GetDeadAnimals()
 
 void Environment::Update()
 {
-	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
 
 	prev_animals.clear();
 	for (shared_ptr<Animal>& animal : *animals)

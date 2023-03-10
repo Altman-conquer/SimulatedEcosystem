@@ -4,14 +4,14 @@
 Tiger::Tiger(std::shared_ptr<vector<shared_ptr<Animal>>> _environment) : Animal(_environment)
 {
 	position = RandomPositionVector();
-	energy = AnimalConstants::TIGER_STATE_ENERGY;
+	energy = AnimalConstants::TIGER_INITIAL_ENERGY;
 	if_run_away = false;
 }
 
 Tiger::Tiger(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position) :Animal(_environment)
 {
 	position = _position;
-	energy = AnimalConstants::TIGER_STATE_ENERGY;
+	energy = AnimalConstants::TIGER_INITIAL_ENERGY;
 	if_run_away = false;
 }
 
@@ -81,9 +81,9 @@ void Tiger::Breed()
 		{
 			female = std::make_shared<Tiger>(*this);
 		}
-		if (female->GetEnergy() > AnimalConstants::TIGER_STATE_ENERGY * 2)
+		if (female->GetEnergy() > AnimalConstants::TIGER_INITIAL_ENERGY * 2)
 		{//female check
-			female->DecreaseEnergy(AnimalConstants::TIGER_STATE_ENERGY);
+			female->DecreaseEnergy(AnimalConstants::TIGER_INITIAL_ENERGY);
 			//give broth
 			shared_ptr<Animal> new_animal = std::make_shared<Tiger>(this->environment,
 				RandomPositionVector(position, AnimalConstants::BREED_RADIUS));

@@ -23,10 +23,10 @@ void AnimalButton::setAnimal(shared_ptr<Animal> animal) {
 
 	if (animal != NULL) {
 		if (animal->GetAge() == Age::Child) {
-			//animalSize = AnimalConstants::SIZE_OF_CHILD;
+			animalSize = AnimalConstants::CHILD_DISTANCE;
 		}
 		else if (animal->GetAge() == Age::Adult) {
-			animalSize = AnimalConstants::SIZE_OF_ADULT;
+			animalSize = AnimalConstants::ADULT_DISTANCE;
 		}
 		setStyleSheet("QWidget{image:url(" + animal->GetPicturePath() + ");border:dashed; }");
 		x = animal->GetPosition().GetX();

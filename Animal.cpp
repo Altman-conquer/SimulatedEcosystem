@@ -13,7 +13,7 @@ namespace AnimalConstants {
 	// The distance of crash
 	const float CHILD_DISTANCE = 10;
 
-	const float ADULT_DISTANCE = 100;
+	const float ADULT_DISTANCE = 30;
 
 	// Age limits of animals to tell it is adult or not.
 	 const int GRASS_ADULT_AGE = 10.0;
@@ -90,15 +90,15 @@ namespace AnimalConstants {
 	 const float TIGER_MIN_VELOCITY = 1.0;
 
 	// The stating energy
-	const float TIGER_STATE_ENERGY=1;
+	const float TIGER_INITIAL_ENERGY=100.0;
 
-	const float GRASS_INITIAL_ENERGY = 1.0;
+	const float GRASS_INITIAL_ENERGY = 100.0;
 
-	const float COW_INITIAL_ENERGY = 1.0;
+	const float COW_INITIAL_ENERGY = 100.0;
 
-	const float DEER_INITIAL_ENERGY = 1.0;
+	const float DEER_INITIAL_ENERGY = 100.0;
 
-	const float WOLF_INITIAL_ENERGY = 1.0;
+	const float WOLF_INITIAL_ENERGY = 100.0;
 
 	//Energy transformation ratio
 	 const float COW_ENERGY_TRANSFORMATION_RATIO = 1.0;
