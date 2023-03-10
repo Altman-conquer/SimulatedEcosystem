@@ -62,14 +62,14 @@ vector<int> Environment::GetDeadAnimals()
 
 void Environment::Update()
 {
+	//PRINT_FUNCTION_NAME(LogLevel::Info);
+	DETAIL_LOG("Update Environment", LogLevel::Info);
 
-	prev_animals.clear();
 	for (shared_ptr<Animal>& animal : *animals)
 		prev_animals.insert(animal->GetID());
 	
 	for (shared_ptr<Animal>& animal : *animals)
 		animal->Update();
-	
 }
 
 shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, Species species)

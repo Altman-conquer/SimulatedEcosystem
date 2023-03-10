@@ -52,7 +52,7 @@ namespace AnimalConstants {
 	// The distance of crash
 	extern const float CHILD_DISTANCE;
 
-	extern const float ADULT_DISTANCE;
+	extern const float ADULT_DISTANCE; 
 
 	// Age limits of animals to tell it is adult or not.
 	extern const int GRASS_ADULT_AGE;

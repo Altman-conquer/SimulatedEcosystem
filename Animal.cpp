@@ -45,11 +45,6 @@ namespace AnimalConstants {
 	 const float DEER_BREED_PROBABILITY = 1.0;
 
 	 const float WOLF_BREED_PROBABILITY = 1.0;
-
-	// Size of picture of the adult and child animal
-	 const int SIZE_OF_CHILD = 50;
-
-	 const int SIZE_OF_ADULT = 100;
   
 	//Max stamina of animals
 	 const float COW_MAX_STAMINA = 1.0;
