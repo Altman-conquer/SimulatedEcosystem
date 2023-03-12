@@ -5,6 +5,7 @@
 #include "Animal.h"
 #include <memory>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class AnimalButtonClass; };
 QT_END_NAMESPACE 
@@ -19,6 +20,9 @@ public:
 	AnimalButton(QWidget *parent = NULL, shared_ptr<Animal> animal = shared_ptr<Animal>(nullptr));
 	~AnimalButton();
 
+	void setAnimal(shared_ptr<Animal> animal);
+
 private:
 	Ui::AnimalButtonClass *ui;
+	shared_ptr<Animal>animal;
 };

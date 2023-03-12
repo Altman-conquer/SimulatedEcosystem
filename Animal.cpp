@@ -8,32 +8,32 @@ int Animal::animalCount = 0;
 namespace AnimalConstants { 
 
 	//Breed radius
-	 const float BREED_RADIUS = 1.0;
+	 const float BREED_RADIUS = 10.0;
 
 	// The distance of crash
-	 const float CHILD_DISTANCE = 1.0;
+	const float CHILD_DISTANCE = 10;
 
-	 const float ADULT_DISTANCE = 1.0;
+	const float ADULT_DISTANCE = 30;
 
 	// Age limits of animals to tell it is adult or not.
-	 const int GRASS_ADULT_AGE = 1.0;
+	 const int GRASS_ADULT_AGE = 10.0;
 
-	 const int COW_ADULT_AGE = 1.0;
+	 const int COW_ADULT_AGE = 10.0;
 
-	 const int DEER_ADULT_AGE = 1.0;
+	 const int DEER_ADULT_AGE = 10.0;
 
-	 const int WOLF_ADULT_AGE = 1.0;
+	 const int WOLF_ADULT_AGE = 10.0;
 
-	 const int TIGER_ADULT_AGE = 1.0;
+	 const int TIGER_ADULT_AGE = 10.0;
 
 	// Max age of animals
-	 const int COW_MAX_AGE = 1.0;
+	 const int COW_MAX_AGE = 60.0;
 
-	 const int DEER_MAX_AGE = 1.0;
+	 const int DEER_MAX_AGE = 60.0;
 
-	 const int WOLF_MAX_AGE = 1.0;
+	 const int WOLF_MAX_AGE = 60.0;
 
-	 const int TIGER_MAX_AGE = 1.0;
+	 const int TIGER_MAX_AGE = 60.0;
 
 	// Breed probability of animals
 	 const float GRASS_BREED_PROBABILITY = 1.0;
@@ -85,15 +85,15 @@ namespace AnimalConstants {
 	 const float TIGER_MIN_VELOCITY = 1.0;
 
 	// The stating energy
-	const float TIGER_STATE_ENERGY=1;
+	const float TIGER_INITIAL_ENERGY=100.0;
 
-	const float GRASS_INITIAL_ENERGY = 1.0;
+	const float GRASS_INITIAL_ENERGY = 100.0;
 
-	const float COW_INITIAL_ENERGY = 1.0;
+	const float COW_INITIAL_ENERGY = 100.0;
 
-	const float DEER_INITIAL_ENERGY = 1.0;
+	const float DEER_INITIAL_ENERGY = 100.0;
 
-	const float WOLF_INITIAL_ENERGY = 1.0;
+	const float WOLF_INITIAL_ENERGY = 100.0;
 
 	//Energy transformation ratio
 	 const float COW_ENERGY_TRANSFORMATION_RATIO = 1.0;

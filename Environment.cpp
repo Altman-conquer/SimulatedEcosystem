@@ -3,11 +3,12 @@
 #include "Log.h"
 #include "Grass.h"
 #include "Cow.h"
+#include "Wolf.h"
 
 namespace EnvironmentConstants {
 	// Position limit of every dimension, assuming the environment is rectangular.
-	const float UPPER_BOUND = 100.0;
-	const float LOWER_BOUND = 0.0;
+	const float UPPER_BOUND = 800;
+	const float LOWER_BOUND = 0;
 }
 
 
@@ -25,6 +26,9 @@ Environment::Environment(map<Species, int> _n)
 				break;
 			case Species::Cow:
 				this->animals->push_back(std::make_shared<Cow>(this->animals));
+				break;
+			case Species::Wolf:
+				this->animals->push_back(std::make_shared<Wolf>(this->animals));
 				break;
 				
 			default:

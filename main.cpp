@@ -18,7 +18,7 @@
 函数名使用大写开头，例如GetNumber();
 变量名使用小写开头，下划线连接，例如number_hello;
 */
-#define DEBUG
+//#define DEBUG
 
 int main(int argc, char *argv[])
 {

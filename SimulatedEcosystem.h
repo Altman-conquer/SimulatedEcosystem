@@ -1,26 +1,48 @@
 #pragma once
-
+#include <QtCharts>
+#include <qchar.h>
 #include <QtWidgets/QMainWindow>
 #include "ui_SimulatedEcosystem.h"
 #include "AnimalButton.h"
 #include <memory>
+#include <qchartview.h>
+#include"MyChart.h"
+#include <QTimer>
 
+using std::map;
 using std::shared_ptr;
 
 class SimulatedEcosystem : public QMainWindow
 {
     Q_OBJECT
-
 public:
     SimulatedEcosystem(QWidget *parent = nullptr);
     ~SimulatedEcosystem();
+    //deal the size of window
+    void resizeEvent(QResizeEvent* event);
 
-    void resizeEvent(QResizeEvent* event);//deal the size of window
-    void dealUnfold();//deal sidebar unfold
+    //deal sidebar unfold
+    void dealUnfold();
+    
+    void initChart();
+    void update_Surface();
 
 
+    void delete_Animal(int id);
+    void add_NewAnimal(shared_ptr<Animal> animal);
+    void move_Animal(shared_ptr<Animal> animal);
+
+    void reGame();
+    void curveFigure();
 private:
     Ui::SimulatedEcosystemClass ui;
     AnimalButton* temp = new AnimalButton(this);
     int move_of_sidebar = 0;
+    MyChart* chart;
+    QVector<QList<QPointF>> pointlist;
+    QTimer* timer = new QTimer(this);
+	map<int, AnimalButton*> my_animals;
+	map<Species, int> test_species;
+    shared_ptr<Environment> environment;
+    int time = 0;
 };

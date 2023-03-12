@@ -152,3 +152,8 @@ Age Wolf::GetAge()
 {
 	return Age(this->age_int >= AnimalConstants::WOLF_ADULT_AGE);
 }
+
+QString Wolf::GetPicturePath()
+{
+	return ":/sourcePicture/wolf.png";
+}
