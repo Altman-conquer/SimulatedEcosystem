@@ -98,9 +98,9 @@ shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr
 				target = neighbour;
 			}
 	}
-
+	
 	if (target == NULL)
-		Log::LogMessage("Return value of Environment::GetClosetPair is NULL", LogLevel::Error);
+		Log::LogMessage("Return value of Environment::GetClosetPair is NULL", LogLevel::Warning);
 	return target;
 }
 
