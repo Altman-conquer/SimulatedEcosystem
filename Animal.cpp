@@ -139,13 +139,13 @@ namespace AnimalConstants {
 	 const float PROBE_RADIUS = 1.0;
 
 	//Idle probability of animals
-	 const float DEER_IDLE_PROBABILITY = 1.0;
+	 const float DEER_IDLE_PROBABILITY = 0.5;
 
-	 const float COW_IDLE_PROBABILITY = 1.0;
+	 const float COW_IDLE_PROBABILITY = 0.5;
 
-	 const float WOLF_IDLE_PROBABILITY = 1.0;
+	 const float WOLF_IDLE_PROBABILITY = 0.5;
 
-	 const float TIGER_IDLE_PROBABILITY = 1.0;
+	 const float TIGER_IDLE_PROBABILITY = 0.5;
 
 	//Max energy of animals
 	 const float COW_MAX_ENERGY = 1.0;
