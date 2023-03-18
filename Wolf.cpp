@@ -29,7 +29,7 @@ void Wolf::Breed()
 		return;
 
 	shared_ptr<Animal> other = Environment::GetClosetPair(environment, *this, Species::Wolf);
-	if (other->GetGender() != gender)
+	if (other && other->GetGender() != gender)
 	{
 		bool is_success = false;
 		if (other->GetGender() == Gender::Female && other->GetEnergy() > AnimalConstants::WOLF_INITIAL_ENERGY)
@@ -62,9 +62,11 @@ bool Wolf::Eat(Animal& other)
 			return true;
 			other.Die();
 		}
-		else return false;
+		else 
+			return false;
 	}
-	else return false;
+	else 
+		return false;
 }
 
 
@@ -76,7 +78,7 @@ void Wolf::Move()
 	Vector2D unit_direction;
 
 	shared_ptr<Animal> nearest = Environment::GetClosetPair(environment, *this, { Species::Cow, Species::Deer });
-	if (Vector2D::GetDistance(nearest->GetPosition(), this->GetPosition()) <= AnimalConstants::PROBE_RADIUS)
+	if (nearest && Vector2D::GetDistance(nearest->GetPosition(), this->GetPosition()) <= AnimalConstants::PROBE_RADIUS)
 	{
 		unit_direction = (nearest->GetPosition() - this->GetPosition()).GetNormalized();
 		state = MoveState::Run;
@@ -102,12 +104,12 @@ void Wolf::Move()
 			speed = AnimalConstants::WOLF_MIN_VELOCITY;
 		}
 	}
-
 	else
 	{
 		if (RandomFloat(0.0, 1.0) <= AnimalConstants::WOLF_IDLE_PROBABILITY)
 		{
 			speed = 0;
+			unit_direction = Vector2D(0, 0);
 			state = MoveState::Idle;
 		}
 		else
@@ -151,4 +153,9 @@ void Wolf::Update()
 Age Wolf::GetAge()
 {
 	return Age(this->age_int >= AnimalConstants::WOLF_ADULT_AGE);
+}
+
+QString Wolf::GetPicturePath()
+{
+	return ":/sourcePicture/wolf.png";
 }

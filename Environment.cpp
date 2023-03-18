@@ -3,11 +3,12 @@
 #include "Log.h"
 #include "Grass.h"
 #include "Cow.h"
+#include "Wolf.h"
 
 namespace EnvironmentConstants {
 	// Position limit of every dimension, assuming the environment is rectangular.
-	const float UPPER_BOUND = 100.0;
-	const float LOWER_BOUND = 0.0;
+	const float UPPER_BOUND = 800;
+	const float LOWER_BOUND = 0;
 }
 
 
@@ -25,6 +26,9 @@ Environment::Environment(map<Species, int> _n)
 				break;
 			case Species::Cow:
 				this->animals->push_back(std::make_shared<Cow>(this->animals));
+				break;
+			case Species::Wolf:
+				this->animals->push_back(std::make_shared<Wolf>(this->animals));
 				break;
 				
 			default:
@@ -58,15 +62,14 @@ vector<int> Environment::GetDeadAnimals()
 
 void Environment::Update()
 {
-	Log::LogMessage("The method or operation is not implemented.", LogLevel::Error);
+	//PRINT_FUNCTION_NAME(LogLevel::Info);
+	DETAIL_LOG("Update Environment", LogLevel::Info);
 
-	prev_animals.clear();
 	for (shared_ptr<Animal>& animal : *animals)
 		prev_animals.insert(animal->GetID());
 	
 	for (shared_ptr<Animal>& animal : *animals)
 		animal->Update();
-	
 }
 
 shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, Species species)
@@ -95,9 +98,9 @@ shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr
 				target = neighbour;
 			}
 	}
-
+	
 	if (target == NULL)
-		Log::LogMessage("Return value of Environment::GetClosetPair is NULL", LogLevel::Error);
+		Log::LogMessage("Return value of Environment::GetClosetPair is NULL", LogLevel::Warning);
 	return target;
 }
 
@@ -116,7 +119,7 @@ shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr
 			target = neighbour;
 		}
 	if (target == NULL)
-		Log::LogMessage("Return value of Environment::GetClosetPair is NULL", LogLevel::Error);
+		Log::LogMessage("Return value of Environment::GetClosetPair is NULL", LogLevel::Warning);
 	return target;
 }
 

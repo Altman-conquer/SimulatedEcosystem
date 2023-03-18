@@ -1,4 +1,5 @@
 #pragma once
+#include "Utility.h"
 #include "Animal.h"
 
 class Deer:
@@ -13,6 +14,8 @@ public:
 	Species GetSpecies() override;
 
 	void Update() override;
+
+	QString GetPicturePath() override;
 
 protected:
 	void Move() override;

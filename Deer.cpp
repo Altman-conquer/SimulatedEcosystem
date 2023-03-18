@@ -1,5 +1,7 @@
 #include "Deer.h"
 #include "Utility.h"
+#include <memory>
+
 
 Deer::Deer(shared_ptr<vector<shared_ptr<Animal>>> _environment) :Animal(_environment)
 {
@@ -26,7 +28,7 @@ void Deer::Move()
 
 	shared_ptr<Animal> nearest = Environment::GetClosetPair(environment, *this, { Species::Grass, Species::Wolf, Species::Tiger });
 	
-	if (Vector2D::GetDistance(nearest->GetPosition(), this->GetPosition()) <= AnimalConstants::PROBE_RADIUS)
+	if (nearest && Vector2D::GetDistance(nearest->GetPosition(), this->GetPosition()) <= AnimalConstants::PROBE_RADIUS)
 	{
 		if (nearest->GetSpecies() == Species::Grass)
 			unit_direction = (nearest->GetPosition() - this->GetPosition()).GetNormalized();
@@ -57,7 +59,8 @@ void Deer::Move()
 	{
 		if (RandomFloat(0.0, 1.0) <= AnimalConstants::DEER_IDLE_PROBABILITY)
 		{
-			velocity_scalar = 0;
+			velocity_scalar = 0.0f;
+			unit_direction = Vector2D(0, 0);
 			state = MoveState::Idle;
 		}
 		else
@@ -149,5 +152,10 @@ bool Deer::Eat(Animal& other)
 		return true;
 	}
 	return false;
+}
+
+QString Deer::GetPicturePath()
+{
+	return ":/sourcePicture/deer.png";
 }
 

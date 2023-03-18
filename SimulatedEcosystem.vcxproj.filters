@@ -64,6 +64,15 @@
     <ClCompile Include="Cow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Deer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyChart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Wolf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -96,9 +105,15 @@
     <ClInclude Include="Wolf.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Deer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="AnimalButton.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MyChart.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -14,6 +14,9 @@ public:
 	
 	Age GetAge() override;
 
+
+	QString GetPicturePath() override;
+
 protected:
 	void Mutate() override;
 

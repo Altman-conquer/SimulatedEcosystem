@@ -23,5 +23,10 @@ protected:
 	void Move() override;
 
 	bool Eat(Animal& other) override;
+
+	QString GetPicturePath() override;
+private:
+
+	float radius;
 };
 
