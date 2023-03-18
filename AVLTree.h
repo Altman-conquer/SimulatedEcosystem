@@ -41,15 +41,6 @@ public:
 
 	AVLTreeNode* GetLeft() { return left; }
 
-	int GetBalanceFactor() const
-	{
-		auto dfs = [&](AVLTreeNode* current)  -> int
-		{
-			if (current == nullptr)
-				return 0;
-		};
-	}
-
 	pair<K, V> data;
 
 	AVLTreeNode* left;
