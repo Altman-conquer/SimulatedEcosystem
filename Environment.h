@@ -19,6 +19,7 @@ namespace EnvironmentConstants{
 	// Position limit of every dimension, assuming the environment is rectangular.
 	extern const float UPPER_BOUND;
 	extern const float LOWER_BOUND;
+	extern const float UPDATE_FREQUENCY_MS; // Eg. Set to 1000ms if update every second
 }
 
 

@@ -113,7 +113,7 @@ void SimulatedEcosystem::move_Animal(shared_ptr<Animal> animal) {
 }
 
 void SimulatedEcosystem::reGame() {
-    timer->start(1000);
+    timer->start(EnvironmentConstants::UPDATE_FREQUENCY_MS);
 }
 
 void SimulatedEcosystem::curveFigure() {

@@ -9,6 +9,7 @@ namespace EnvironmentConstants {
 	// Position limit of every dimension, assuming the environment is rectangular.
 	const float UPPER_BOUND = 800;
 	const float LOWER_BOUND = 0;
+	const float UPDATE_FREQUENCY_MS = 500;
 }
 
 
