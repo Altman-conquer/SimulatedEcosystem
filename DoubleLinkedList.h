@@ -22,11 +22,11 @@ public:
 
 
 template <class T>
-class List
+class DoubleLinkedList
 {
 public:
-	List();
-	~List();
+	DoubleLinkedList();
+	~DoubleLinkedList();
 
 	int size() const;
 	bool isEmpty() const;
@@ -49,13 +49,13 @@ private:
 };
 
 template<class T>
- List<T>::List() :count(0) {
+DoubleLinkedListT>::DoubleLinkedList() :count(0) {
 	head = new Link<T>();
 	head->prev = head->next = head;
 }
 
 template<class T>
-List<T>::~List() {
+DoubleLinkedList<T>::~DoubleLinkedList() {
 	{
 		// delete all
 		Link<T>* temp;
@@ -74,19 +74,19 @@ List<T>::~List() {
 }
 
 template<class T>
-int List<T>::size() const
+int DoubleLinkedList<T>::size() const
 {
 	return count;
 }
 
 template<class T>
-bool List<T>::isEmpty() const 
+bool DoubleLinkedList<T>::isEmpty() const
 {
 	return count == 0;
 }
 
 template<class T>
-Link<T>* List<T>::getLinkNode(int index) const
+Link<T>* DoubleLinkedList<T>::getLinkNode(int index) const
 {
 	if (index < 0 || index >= count)
 	{
@@ -116,21 +116,21 @@ Link<T>* List<T>::getLinkNode(int index) const
 
 
 template<class T>
-T List<T>::get(int index) const
+T DoubleLinkedList<T>::get(int index) const
 {
 	return getLinkNode(index)->value;
 }
 
 
 template<class T>
-T List<T>::get_first() const
+T DoubleLinkedList<T>::get_first() const
 {
 	return getLinkNode(0)->value;
 }
 
 
 template<class T>
-T List<T>::get_last() const
+T DoubleLinkedList<T>::get_last() const
 {
 	return getLinkNode(count - 1)->value;
 }
@@ -138,7 +138,7 @@ T List<T>::get_last() const
 
 
 template<class T>
-bool List<T>::insert(int index, T t)
+bool DoubleLinkedList<T>::insert(int index, T t)
 {
 	if (index < 0 || index >= count) return false;
 	if (index == 0)
@@ -153,7 +153,7 @@ bool List<T>::insert(int index, T t)
 
 
 template<class T>
-bool List<T>::insert_first(T t)
+bool DoubleLinkedList<T>::insert_first(T t)
 {
 	Link<T>* TEMP = new Link<T>(t, head, head->next);
 	head->next->prev = TEMP;
@@ -163,7 +163,7 @@ bool List<T>::insert_first(T t)
 }
 
 template<class T>
-bool List<T>::append_last(T t)
+bool DoubleLinkedList<T>::append_last(T t)
 {
 	Link<T>* temp = new Link<T>(t, head->prev, head);
 	head->prev->next = temp;
@@ -173,7 +173,7 @@ bool List<T>::append_last(T t)
 }
 
 template<class T>
-bool List<T>::erase(int index)
+bool DoubleLinkedList<T>::erase(int index)
 {
 	if (index < 0 || index >= count) return false;
 	Link<T>* temp = getLinkNode(index);
