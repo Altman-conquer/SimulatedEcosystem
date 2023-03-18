@@ -5,6 +5,7 @@
 #include "Environment.h"
 #include "Log.h"
 #include <QString>
+#include "D:/Qt/6.2.4/msvc2019_64/include/QtCore/qmetatype.h"
 
 
 class Environment;
