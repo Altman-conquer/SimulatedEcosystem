@@ -33,12 +33,12 @@ public:
 	List();
 	~List();
 
-	int size();
-	bool isEmpty();
+	int size() const;
+	bool isEmpty() const;
 
-	T get(int index);
-	T get_first();
-	T get_last();
+	T get(int index) const;
+	T get_first() const;
+	T get_last() const;
 
 	bool insert(int index, T t);
 	bool insert_first(T t);
@@ -50,7 +50,7 @@ private:
 	Link<T>* head;
 
 private:
-	Link<T>* getLinkNode(int index);
+	Link<T>* getLinkNode(int index) const;
 };
 
 template<class T>
@@ -79,19 +79,19 @@ List<T>::~List() {
 }
 
 template<class T>
-int List<T>::size()
+int List<T>::size() const
 {
 	return count;
 }
 
 template<class T>
-bool List<T>::isEmpty()
+bool List<T>::isEmpty() const 
 {
 	return count == 0;
 }
 
 template<class T>
-Link<T>* List<T>::getLinkNode(int index)
+Link<T>* List<T>::getLinkNode(int index) const
 {
 	if (index < 0 || index >= count)
 	{
@@ -121,21 +121,21 @@ Link<T>* List<T>::getLinkNode(int index)
 
 
 template<class T>
-T List<T>::get(int index)
+T List<T>::get(int index) const
 {
 	return getLinkNode(index)->value;
 }
 
 
 template<class T>
-T List<T>::get_first()
+T List<T>::get_first() const
 {
 	return getLinkNode(0)->value;
 }
 
 
 template<class T>
-T List<T>::get_last()
+T List<T>::get_last() const
 {
 	return getLinkNode(count - 1)->value;
 }
