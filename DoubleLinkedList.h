@@ -1,8 +1,4 @@
 #pragma once
-#ifndef  DOUBLELINKEDLIST_H
-#define DOUBLELINKEDLIST_H
-#include <iostream>
-#endif
 
 template <class Elem>
 class Link {

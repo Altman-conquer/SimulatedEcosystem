@@ -301,9 +301,8 @@ public:
 	
 	bool operator!=(const Animal& other)const;
 
-	Vector2D Interp(float elapsed_time, float period_time);
-
-
+	Vector2D GetPrevPosition() const;
+	
 	//************************************
 	// Method:    Die
 	// FullName:  Animal::Die

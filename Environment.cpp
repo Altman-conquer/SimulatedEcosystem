@@ -9,6 +9,7 @@ namespace EnvironmentConstants {
 	// Position limit of every dimension, assuming the environment is rectangular.
 	const float UPPER_BOUND = 800;
 	const float LOWER_BOUND = 0;
+	const float UPDATE_FREQUENCY_MS = 500;
 }
 
 
@@ -27,10 +28,48 @@ Environment::Environment(map<Species, int> _n)
 			case Species::Cow:
 				this->animals->push_back(std::make_shared<Cow>(this->animals));
 				break;
+			case Species::Deer:
+				this->animals->push_back(std::make_shared<Cow>(this->animals));
+				break;
 			case Species::Wolf:
 				this->animals->push_back(std::make_shared<Wolf>(this->animals));
 				break;
-				
+			case Species::Tiger:
+				this->animals->push_back(std::make_shared<Tiger>(this->animals));
+				break;
+			default:
+				break;
+			}
+		}
+	}
+}
+
+Environment::Environment(AVLTree<Species, int> _n)
+{
+	this->animals = std::make_shared<vector<shared_ptr<Animal>>>();
+	for (auto& data: _n)
+	{
+		Species& species = data.data.first;
+		int& num = data.data.second;
+		for (int i = 0; i < num; i++)
+		{
+			switch (species)
+			{
+			case Species::Grass:
+				this->animals->push_back(std::make_shared<Grass>(this->animals));
+				break;
+			case Species::Cow:
+				this->animals->push_back(std::make_shared<Cow>(this->animals));
+				break;
+			case Species::Deer:
+				this->animals->push_back(std::make_shared<Cow>(this->animals));
+				break;
+			case Species::Wolf:
+				this->animals->push_back(std::make_shared<Wolf>(this->animals));
+				break;
+			case Species::Tiger:
+				this->animals->push_back(std::make_shared<Tiger>(this->animals));
+				break;
 			default:
 				break;
 			}

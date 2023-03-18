@@ -57,5 +57,6 @@ Vector2D RandomPositionVector(const Vector2D& center, float radius);
 
 Vector2D RandomVector();
 
+void PrintAnimals(const Environment& environment);
 
-void PrintAnimals(Environment environment);
+void* MemoryCopy(void* destination, const void* source, size_t num);

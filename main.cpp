@@ -8,6 +8,7 @@
 #include "Grass.h"
 #include <memory>
 #include <thread>
+#include "List.h"
 #include <chrono>
 /*
 * 
@@ -18,7 +19,8 @@
 函数名使用大写开头，例如GetNumber();
 变量名使用小写开头，下划线连接，例如number_hello;
 */
-//#define DEBUG
+
+#define DEBUG
 
 int main(int argc, char *argv[])
 {
@@ -33,7 +35,7 @@ int main(int argc, char *argv[])
 	Log::LogMessage("HelloWorld", LogLevel::Error);
     std::shared_ptr<Grass> it = std::dynamic_pointer_cast<Grass>(*environment.GetEnvironment()->begin());*/
     
-	map<Species, int> test_species;
+	AVLTree<Species, int> test_species;
 	test_species[Species::Grass] = 100;
     //test_species[Species::Cow] = 100;
     Environment environment(test_species);
