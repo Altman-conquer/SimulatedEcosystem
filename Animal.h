@@ -301,18 +301,7 @@ public:
 	
 	bool operator!=(const Animal& other)const;
 
-	
-	//************************************
-	// Method:    Interp
-	// FullName:  Animal::Interp
-	// Access:    public 
-	// Returns:   Vector2D - the position of this animal 
-	// at the time of elapsed_time (prev_position + (elapsed_time/period_time) * (postion - prev_position))
-	// Qualifier: 
-	// Parameter: float elapsed_time
-	// Parameter: float period_time
-	//************************************
-	Vector2D Interp(float elapsed_time, float period_time);
+	Vector2D GetPrevPosition() const;
 	
 	//************************************
 	// Method:    Die

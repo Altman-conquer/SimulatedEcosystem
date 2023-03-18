@@ -206,11 +206,10 @@ bool Animal::operator!=(const Animal& other) const
 	return this->id != other.id;
 }
 
-Vector2D Animal::Interp(float elapsed_time, float period_time)
+
+Vector2D Animal::GetPrevPosition() const
 {
-	if (elapsed_time > period_time)
-		Log::LogMessage("Animal::Interp, elapsed_time is greater than period_time", LogLevel::Info);
-	return prev_position + (position - prev_position) * (elapsed_time / period_time);
+	return prev_position;
 }
 
 bool Animal::Die()
