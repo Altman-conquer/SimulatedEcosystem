@@ -118,6 +118,7 @@
     <ClInclude Include="DynamicArrayList.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Grass.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="Log.h" />
     <QtMoc Include="MyChart.h" />
     <ClInclude Include="Tiger.h" />

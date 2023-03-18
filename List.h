@@ -1,9 +1,4 @@
 #pragma once
-#ifndef  LIST_H
-#define LIST_H
-#include <iostream>
-#endif
-using namespace std;
 
 template <class Elem>
 class Link {
