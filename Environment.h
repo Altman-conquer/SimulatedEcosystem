@@ -1,10 +1,12 @@
 #pragma once
 #include <map>
 #include <memory>
-#include <vector>
+#include "AVLTree.h"
+#include "DynamicArrayList.h"
 #include "Vector2D.h"
 #include "Animal.h"
 #include <set>
+#include <vector>
 
 class Animal;
 enum class Species;
@@ -34,7 +36,8 @@ public:
 	// The number of species in the environment
 	// And _n.size() is the type of species
 	//************************************
-	explicit Environment(map<Species,int> _n);
+	explicit Environment(map<Species, int> _n);
+	explicit Environment(AVLTree<Species, int> _n);
 
 	//************************************
 	// Method:    GetEnvironment

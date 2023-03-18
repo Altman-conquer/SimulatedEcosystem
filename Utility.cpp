@@ -47,3 +47,14 @@ void PrintAnimals(Environment environment)
 		Log::LogMessage(std::to_string(animal->GetPosition().GetX()) + "  " + std::to_string(animal->GetPosition().GetY()), LogLevel::Info);
 	}
 }
+
+void* MemoryCopy(void* destination, const void* source, size_t num)
+{
+	if (destination == nullptr || source == nullptr)
+		return destination;
+	char* des = static_cast<char*>(destination);
+	const char* src = static_cast<const char*>(source);
+	while (num--) // No considering memory overlap
+		*des++ = *src++;
+	return destination;
+}
