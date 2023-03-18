@@ -27,10 +27,15 @@ Environment::Environment(map<Species, int> _n)
 			case Species::Cow:
 				this->animals->push_back(std::make_shared<Cow>(this->animals));
 				break;
+			case Species::Deer:
+				this->animals->push_back(std::make_shared<Cow>(this->animals));
+				break;
 			case Species::Wolf:
 				this->animals->push_back(std::make_shared<Wolf>(this->animals));
 				break;
-				
+			case Species::Tiger:
+				this->animals->push_back(std::make_shared<Tiger>(this->animals));
+				break;
 			default:
 				break;
 			}
@@ -55,10 +60,15 @@ Environment::Environment(AVLTree<Species, int> _n)
 			case Species::Cow:
 				this->animals->push_back(std::make_shared<Cow>(this->animals));
 				break;
+			case Species::Deer:
+				this->animals->push_back(std::make_shared<Cow>(this->animals));
+				break;
 			case Species::Wolf:
 				this->animals->push_back(std::make_shared<Wolf>(this->animals));
 				break;
-
+			case Species::Tiger:
+				this->animals->push_back(std::make_shared<Tiger>(this->animals));
+				break;
 			default:
 				break;
 			}
