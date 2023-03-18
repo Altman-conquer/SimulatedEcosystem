@@ -307,7 +307,7 @@ public:
 	// FullName:  Animal::Interp
 	// Access:    public 
 	// Returns:   Vector2D - the position of this animal 
-	// at the time of elapsed_time (prev_position + (elapsed_time/period_time) * (postion - prev_position)
+	// at the time of elapsed_time (prev_position + (elapsed_time/period_time) * (postion - prev_position))
 	// Qualifier: 
 	// Parameter: float elapsed_time
 	// Parameter: float period_time
