@@ -23,7 +23,7 @@ void Cow::Update()
 {
 	age_int += 1;
 	prev_position = position;
-	if (age_int > AnimalConstants::COW_MAX_AGE || energy <= 0.0)
+	if (age_int > AnimalConstants::COW_MAX_AGE || energy <= AnimalConstants::COW_MIN_ENERGY)
 		Die();
 	Move();
 	Breed();
@@ -140,6 +140,8 @@ void Cow::Move()
 	{
 		this->stamina = std::max(this->stamina - AnimalConstants::COW_CONSUME_STAMINA_RATIO, AnimalConstants::COW_MIN_STAMINA);
 	}
+
+	Eat(*nearest);
 }
 
 bool Cow::Eat(Animal& other)
@@ -148,7 +150,8 @@ bool Cow::Eat(Animal& other)
 		return false;
 	if ((other.GetPosition() - position).GetLength() <= GetCollisionRadius())
 	{
-		energy += other.GetEnergy();
+		other.Hurt(AnimalConstants::COW_DAMAGE);
+		energy += AnimalConstants::COW_DAMAGE;
 		energy = std::min(AnimalConstants::COW_MAX_ENERGY, energy);
 		other.Die();
 		return true;

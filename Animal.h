@@ -159,6 +159,11 @@ namespace AnimalConstants {
 	extern const float DEER_MIN_ENERGY;
 	extern const float WOLF_MIN_ENERGY;
 	extern const float TIGER_MIN_ENERGY;
+
+	extern const float COW_DAMAGE;
+	extern const float DEER_DAMAGE;
+	extern const float WOLF_DAMAGE;
+	extern const float TIGER_DAMAGE;
 	
 }
 

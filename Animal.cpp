@@ -115,6 +115,12 @@ namespace AnimalConstants {
 	 const float WOLF_MIN_ENERGY = 10.0;
 	 const float TIGER_MIN_ENERGY = 10.0;
 
+	 
+	 const float COW_DAMAGE = 1.0;
+	 const float DEER_DAMAGE = 1.0;
+	 const float WOLF_DAMAGE = 1.0;
+	 const float TIGER_DAMAGE = 1.0;
+
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):
