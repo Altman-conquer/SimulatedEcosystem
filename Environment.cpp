@@ -9,6 +9,7 @@ namespace EnvironmentConstants {
 	// Position limit of every dimension, assuming the environment is rectangular.
 	const float UPPER_BOUND = 800;
 	const float LOWER_BOUND = 0;
+	const float UPDATE_FREQUENCY_MS = 500;
 }
 
 
@@ -106,8 +107,11 @@ void Environment::Update()
 	for (shared_ptr<Animal>& animal : *animals)
 		prev_animals.insert(animal->GetID());
 	
-	for (shared_ptr<Animal>& animal : *animals)
-		animal->Update();
+	for (size_t i = 0; i < animals->size(); i++)
+	{
+		animals->at(i)->Update();
+	}
+	
 }
 
 shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, Species species)

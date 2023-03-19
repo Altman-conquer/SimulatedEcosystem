@@ -120,6 +120,9 @@
     <ClInclude Include="DynamicArrayList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DoubleLinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="QuadTree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
