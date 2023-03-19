@@ -49,97 +49,62 @@ namespace AnimalConstants {
 
 	// The distance of crash
 	extern const float CHILD_DISTANCE;
-
 	extern const float ADULT_DISTANCE; 
 
 	// Age limits of animals to tell it is adult or not.
 	extern const int GRASS_ADULT_AGE;
-
 	extern const int COW_ADULT_AGE;
-	
 	extern const int DEER_ADULT_AGE;
-	
 	extern const int WOLF_ADULT_AGE;
-
 	extern const int TIGER_ADULT_AGE;
 	
 	// Max age of animals
 	extern const int COW_MAX_AGE;
-
 	extern const int DEER_MAX_AGE;
-
 	extern const int WOLF_MAX_AGE;
-
 	extern const int TIGER_MAX_AGE;
 
 	// Breed probability of animals
 	extern const float GRASS_BREED_PROBABILITY;
-
 	extern const float TIGER_BREED_PROBABILITY;
-	
 	extern const float COW_BREED_PROBABILITY;
-
 	extern const float DEER_BREED_PROBABILITY;
-
 	extern const float WOLF_BREED_PROBABILITY;
 
 	// Breed radius of grass
 	extern const float BREED_RADIUS;
 
-	// The stating energy
-	extern const float TIGER_INITIAL_ENERGY;
-	extern const float WOLF_INITIAL_ENERGY;
-	extern const float DEER_INITIAL_ENERGY;
-	extern const float COW_INITIAL_ENERGY; 
-	extern const float GRASS_INITIAL_ENERGY;
-
 	// Breed radius
 
 	//Max stamina of animals
 	extern const float COW_MAX_STAMINA;
-	
 	extern const float DEER_MAX_STAMINA;
-
 	extern const float WOLF_MAX_STAMINA;
-
 	extern const float TIGER_MAX_STAMINA;
 
 	//Min stamina of animals
 	extern const float COW_MIN_STAMINA;
-	
 	extern const float DEER_MIN_STAMINA;
-
 	extern const float WOLF_MIN_STAMINA;
-
 	extern const float TIGER_MIN_STAMINA;
 
 
 	//Max velocity of animals
 	extern const float COW_MAX_VELOCITY;
-	
 	extern const float DEER_MAX_VELOCITY;
-
 	extern const float WOLF_MAX_VELOCITY;
-
 	extern const float TIGER_MAX_VELOCITY;
 
 	//Min velocity of animals
 	extern const float COW_MIN_VELOCITY;
-
 	extern const float DEER_MIN_VELOCITY;
-
 	extern const float WOLF_MIN_VELOCITY;
-
 	extern const float TIGER_MIN_VELOCITY;
 
 	//Energy transformation ratio
 	extern const float COW_ENERGY_TRANSFORMATION_RATIO;
-
 	extern const float DEER_ENERGY_TRANSFORMATION_RATIO;
-
 	extern const float WOLF_ENERGY_TRANSFORMATION_RATIO;
-	
-
 	extern const float TIGER_ENERGY_TRANSFORMATION_RATIO;
 	
 	// the energy of grass will increase every tick
@@ -148,88 +113,56 @@ namespace AnimalConstants {
 
 	//Energy consume ratio
 	extern const float COW_CONSUME_ENERGY_RATIO;
-
 	extern const float DEER_CONSUME_ENERGY_RATIO;
-
 	extern const float WOLF_CONSUME_ENERGY_RATIO;
-
 	extern const float TIGER_CONSUME_ENERGY_RATIO;
-
-
 	extern const float WOLF_CONSUME_ENERGY_RATIO;
 
 	//recover stamina ratio
 	extern const float COW_RECOVER_STAMINA_RATIO;
-
 	extern const float DEER_RECOVER_STAMINA_RATIO;
-
 	extern const float WOLF_RECOVER_STAMINA_RATIO;
-
-	extern const float TIGER_RECOVER_STAMINA_RATIO;
-
-
 	extern const float TIGER_RECOVER_STAMINA_RATIO;
 
 	//consume stamina ratio
 	extern const float COW_CONSUME_STAMINA_RATIO;
-
 	extern const float DEER_CONSUME_STAMINA_RATIO;
-
 	extern const float WOLF_CONSUME_STAMINA_RATIO;
-
 	extern const float TIGER_CONSUME_STAMINA_RATIO;
-	
-	extern const float COW_CONSUME_STAMINA_RATIO;
-	
-	extern const float TIGER_CONSUME_STAMINA_RATIO;
-
-	extern const float WOLF_CONSUME_STAMINA_RATIO;
-
-	
-
-	//probe radius of animals
-	extern const float DEER_PROBE_RADIUS;
-
-	extern const float COW_PROBE_RADIUS;
-
-	extern const float WOLF_PROBE_RADIUS;
-
-	//maximal energy
-
-	extern const float WOLF_MAXIMA_ENERGY;
 	
 	//probe radius of animals
 	extern const float PROBE_RADIUS;
 
 	//Idle probability of animals
 	extern const float DEER_IDLE_PROBABILITY;
-
 	extern const float COW_IDLE_PROBABILITY;
-
 	extern const float WOLF_IDLE_PROBABILITY;
-
 	extern const float TIGER_IDLE_PROBABILITY;
 
-	//Max energy of animals
-	extern const float TIGER_IDLE_PROBABILITY;
+	// The stating energy
+	extern const float TIGER_INITIAL_ENERGY;
+	extern const float WOLF_INITIAL_ENERGY;
+	extern const float DEER_INITIAL_ENERGY;
+	extern const float COW_INITIAL_ENERGY;
+	extern const float GRASS_INITIAL_ENERGY;
 
+	//maximal energy
 	extern const float COW_MAX_ENERGY;
-
 	extern const float DEER_MAX_ENERGY;
-
 	extern const float WOLF_MAX_ENERGY;
-
 	extern const float TIGER_MAX_ENERGY;
 
-	//Initial energy;
+	//minimal energy
+	extern const float COW_MIN_ENERGY;
+	extern const float DEER_MIN_ENERGY;
+	extern const float WOLF_MIN_ENERGY;
+	extern const float TIGER_MIN_ENERGY;
 
-	extern const float TIGER_MAX_ENERGY;
+	extern const float COW_DAMAGE;
+	extern const float DEER_DAMAGE;
+	extern const float WOLF_DAMAGE;
+	extern const float TIGER_DAMAGE;
 	
-	// Size of picture of the adult and child animal
-	//extern const int SIZE_OF_CHILD = 50;
-
-	//extern const int SIZE_OF_ADULT = 100;
-
 }
 
 class Animal
@@ -244,18 +177,6 @@ public:
 	virtual ~Animal();
 
 	//************************************
-	// Method:    GetSpecies
-	// FullName:  Animal::GetSpecies
-	// Access:    virtual public 
-	// Returns:   Species
-	// Qualifier:
-	// Get what kind of animal it is.
-	//************************************
-	virtual Species GetSpecies() = 0;
-
-	int GetID();
-	
-	//************************************
 	// Method:    Update
 	// FullName:  Animal::Update
 	// Access:    virtual public 
@@ -266,16 +187,25 @@ public:
 	virtual void Update() = 0;
 
 	//************************************
-	// Method:    GetAge
-	// FullName:  Animal::GetAge
+	// Method:    GetSpecies
+	// FullName:  Animal::GetSpecies
 	// Access:    virtual public 
-	// Returns:   Age of this animal, if it is adult, it can call breed new animal.
+	// Returns:   Species
 	// Qualifier:
+	// Get what kind of animal it is.
 	//************************************
+	virtual Species GetSpecies() = 0;
+
+	// Get unique ID of this animal
+	int GetID();
+
+	// Get age of this animal, return Age::Adult if it is adult. And it can breed new animal when it is adult. 
 	virtual Age GetAge() = 0;
 
+	// Get whether Male or Female this animal is.
 	Gender GetGender();
 
+	// Get the displaying picture path of this animal
 	virtual QString GetPicturePath() = 0;
 
 	float GetEnergy();
@@ -310,6 +240,16 @@ public:
 	// Kill the animal if it is too old or is being ate.
 	//************************************
 	bool Die();
+
+	//************************************
+	// Method:    Hurt
+	// FullName:  Animal::Hurt
+	// Access:    public 
+	// Returns:   bool - Whether the health is greater than 0.  If false, should kill this anmial
+	// Qualifier:
+	// Parameter: float damage
+	//************************************
+	bool Hurt(float damage);
   
 protected:
 	
@@ -362,6 +302,7 @@ protected:
 	
 	Gender gender;
 
+	// Used to store all animals
 	shared_ptr<vector<shared_ptr<Animal>>> environment;
 
 	AVLTree<Gene, float> genes;
@@ -372,6 +313,8 @@ protected:
 	float stamina; 
 	
 	float energy;
+
+	float health;
 
 	// Used to identify an animal
 	const int id;
