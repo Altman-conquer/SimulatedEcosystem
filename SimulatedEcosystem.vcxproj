@@ -112,8 +112,10 @@
   <ItemGroup>
     <ClInclude Include="Animal.h" />
     <QtMoc Include="AnimalButton.h" />
+    <ClInclude Include="AVLTree.h" />
     <ClInclude Include="Deer.h" />
     <ClInclude Include="Cow.h" />
+    <ClInclude Include="DynamicArrayList.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Grass.h" />
     <ClInclude Include="Log.h" />
