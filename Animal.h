@@ -238,8 +238,15 @@ public:
 	//************************************
 	bool Die();
 
-	// Hurt this animal with some damage
-	int Hurt(float damage);
+	//************************************
+	// Method:    Hurt
+	// FullName:  Animal::Hurt
+	// Access:    public 
+	// Returns:   bool - Whether the health is greater than 0.  If false, should kill this anmial
+	// Qualifier:
+	// Parameter: float damage
+	//************************************
+	bool Hurt(float damage);
   
 protected:
 	
