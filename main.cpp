@@ -8,7 +8,6 @@
 #include "Grass.h"
 #include <memory>
 #include <thread>
-#include "List.h"
 #include <chrono>
 /*
 * 
@@ -20,7 +19,7 @@
 变量名使用小写开头，下划线连接，例如number_hello;
 */
 
-#define DEBUG
+//#define DEBUG
 
 int main(int argc, char *argv[])
 {

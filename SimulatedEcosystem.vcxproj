@@ -115,10 +115,10 @@
     <ClInclude Include="AVLTree.h" />
     <ClInclude Include="Deer.h" />
     <ClInclude Include="Cow.h" />
+    <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="DynamicArrayList.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Grass.h" />
-    <ClInclude Include="List.h" />
     <ClInclude Include="Log.h" />
     <QtMoc Include="MyChart.h" />
     <ClInclude Include="Tiger.h" />

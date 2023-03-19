@@ -1,5 +1,4 @@
 #pragma once
-#include <map>
 #include <memory>
 #include "AVLTree.h"
 #include "DynamicArrayList.h"
@@ -11,7 +10,6 @@
 class Animal;
 enum class Species;
 
-using std::map;
 using std::vector;
 using std::shared_ptr;
 
@@ -37,7 +35,6 @@ public:
 	// The number of species in the environment
 	// And _n.size() is the type of species
 	//************************************
-	explicit Environment(map<Species, int> _n);
 	explicit Environment(AVLTree<Species, int> _n);
 
 	//************************************

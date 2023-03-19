@@ -2,6 +2,8 @@
 #include "Vector2D.h"
 #include <utility>
 #include "Log.h"
+#include"AVLTree.h"
+
 
 int Animal::animalCount = 0;
 
@@ -227,7 +229,7 @@ bool Animal::Die()
 }
 
 Animal::Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
-	Vector2D _velocity, Gender _gender, map<Gene, float> _genes, float _stamina, float _energy):
+	Vector2D _velocity, Gender _gender, AVLTree<Gene, float> _genes, float _stamina, float _energy):
 	id(Animal::animalCount++), age_int(0),environment(_environment), position(_position), prev_position(_position),
 	velocity(_velocity), gender(_gender), genes(_genes), stamina(_stamina), energy(_energy)
 {}
