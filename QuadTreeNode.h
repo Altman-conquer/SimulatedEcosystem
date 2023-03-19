@@ -1,5 +1,5 @@
 #pragma once
-#include <QuadAABB.h>
+#include "QuadAABB.h"
 #include <list>
 #include <memory>
 #include <utility>
@@ -8,7 +8,8 @@
 using std::shared_ptr;
 using std::vector;
 
-template<typename T>class QuadTreeNode
+template<typename T>
+class QuadTreeNode
 {
 public:
 	//иообвСср
@@ -23,8 +24,12 @@ public:
 
 	QuadAABB aabb;
 
-	QuadTreeNode(QuadAABB aabb) : childList(std::make_shared<vector<shared_ptr<QuadTreeNode<T>>>>()){ this->aabb = aabb; }
-		
+	QuadTreeNode(QuadAABB aabb) : childList(nullptr) { this->aabb = aabb; }
 
-	shared_ptr <vector<shared_ptr<QuadTreeNode<T>>>> childList;
+	QuadTreeNode<T>** childList;
+
+	~QuadTreeNode()
+	{
+		delete childList;
+	}
 };

@@ -1,24 +1,25 @@
 #pragma once
+#include <Animal.h>
 
 class QuadAABB
 {
 public:
-	int left;
-	int right;
-	int top;
-	int bottom;
-	int width;
-	int height;
+	float left;
+	float right;
+	float top;
+	float bottom;
+	float width;
+	float height;
 
 
-	QuadAABB(int left, int right, int top, int bottom)
+	QuadAABB(float left, float right, float top, float bottom)
 	{
 		this->left = left;
 		this->right = right;
 		this->top = top;
 		this->bottom = bottom;
 		this->width = right - left;
-		this->height = top - bottom;
+		this->height = bottom - top;
 	}
 
 	QuadAABB()
@@ -33,17 +34,18 @@ public:
 
 	bool IsEqual(QuadAABB aabb)
 	{
-		return (aabb.left == this->left && aabb.right == this->rigth && aabb.bottom == this->bottom && aabb.top == this->top);
+		return (aabb.left == this->left && aabb.right == this->right && aabb.bottom == this->bottom && aabb.top == this->top);
 	}
 	
 	bool isIntersect(QuadAABB aabb)
 	{
-		int flag = 0;
-		if (aabb.left <= this->right && aabb.bottom >= this->top) flag = 1;
-		if (aabb.right >= this->left && aabb.bottom >= this->top) flag = 1;
-		if (aabb.left <= this->right && aabb.top >= this->bottom) flag = 1;
-		if (aabb.right <= this->left && aabb.top >= this->bottom) flag = 1;
-		if (flag) return true;
-		else return false;
+		int nleft = std::max(this->left, aabb.left);
+		int nright = std::min(this->right, aabb.right);
+		int ntop = std::max(this->top, aabb.top);
+		int nbottom = std::min(this->bottom, aabb.bottom);
+
+		if (nleft > nright || ntop > nbottom) return false;
+		else return true;
 	}
+
 };

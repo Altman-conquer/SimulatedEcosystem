@@ -2,103 +2,55 @@
 #include <memory>
 #include <utility>
 #include <vector>
-#include <QuadTreeNode.h>
+#include "QuadTreeNode.h"
+#include <algorithm>
+#include<cmath>
+#include "QuadAABB.h"
 #include <Animal.h>
+#include <Vector2D.h>
 
-using std::make_shared;
 using std::vector;
+
 
 template<typename T>class QuadTree
 {
-private:
-	void add(shared_ptr<QuadTreeNode<T>> node,T data,QuadAABB aabb,int deep)
-	{
-		QuadAABB naabb = node->aabb;
-		if (deep < max_deep)
-		{
-			if (node->childList == nullptr)
-			{
-				//参数没有调好
-				int nwidth = naabb.width / 2;
-				int nheight = naabb.height / 2;
-				node->childList->push_back(make_shared<QuadTreeNode<T>>(new QuadTreeNode<T>(QuadAABB(naabb.left, naabb.left + nwidth, naabb.top, naabb.bottom))));
-				node->childList->push_back(make_shared<QuadTreeNode<T>>(new QuadTreeNode<T>(QuadAABB(naabb.left, naabb.left + nwidth, naabb.top, naabb.bottom))));
-				node->childList->push_back(make_shared<QuadTreeNode<T>>(new QuadTreeNode<T>(QuadAABB(naabb.left, naabb.left + nwidth, naabb.top, naabb.bottom))));
-				node->childList->push_back(make_shared<QuadTreeNode<T>>(new QuadTreeNode<T>(QuadAABB(naabb.left, naabb.left + nwidth, naabb.top, naabb.bottom))));
-			}
-
-			for (int i = 0; i < 4; i++)
-			{
-				shared_ptr<QuadTreeNode<T>> child = node->childList[i];
-				if (child->aabb.IsContain(aabb))
-				{
-					add(child, data, aabb, deep + 1);
-					return;
-				}
-			}
-		}
-		node->dataList.push_back(data);
-		node->aabbList.push_back(aabb);
-	}
-
-	void find(shared_ptr<QuadTreeNode<T>> node, QuadAABB aabb, vector<T>& list, vector<QuadAABB>& aabbList)
-	{
-		if (node->addList.size() > 0)
-		{
-			list.insert(list.end(), node->dataList.begin(), node->dataList->addList.end());
-			aabbList.insert(aabbList.end(), node->aabbList.begin(), node->aabbList.end());
-		}
-		if (node->childList == nullptr)
-		{
-			return;
-		}
-
-		for (int i = 0; i < 4; i++)
-		{
-			shared_ptr<QuadTreeNode<T>> child = node->childList[i];
-			if (child->aabb.IsContain(aabb))
-			{
-				find(child, aabb, list, aabbList);
-			}
-		}
-	}
-
 public:
+
+
 	QuadTree(int max_deep = 31)
 	{
 		this->max_deep = max_deep;
-		int size = 2;
-		for (int i = 2; i < max_deep; i++)
-			size *= 2;
-		this->_root = make_shared<QuadTreeNode<T>>(new QuadAABB(-size / 2, size / 2, size / 2, -size / 2));
+
+		QuadAABB aabb(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND, EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND);
+
+		this->_root = new QuadTreeNode<T>(aabb);
 	}
 
-	QuadTree(shared_ptr<vector<shared_ptr<Animal>>> animals)
+	QuadTree(shared_ptr<vector<shared_ptr<Animal>>> animals, int max_deep = 31)
 	{
-		QuadTree();
+		this->max_deep = max_deep;
 
-		
-		for (shared_ptr<Animal>& animal : *animals)
-		{
-			int radius = AnimalConstants::PROBE_RADIUS;
-			int nleft = max(0.0, animal->GetPosition().GetX() - radius);
-			int nright = min(UPPER_BOUND, animal->GetPosition().GetX() + radius);
-			int ntop = max(0.0, animal->GetPosition().GetY() - radius);
-			int nbottom = min(UPPER_BOUND, animal->GetPosition().GetY() + radius);
-			
-			add(*animal, QuadAABB(nleft, nright, ntop, nbottom));
-		}
+		QuadAABB aabb(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND, EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND);
+
+		this->_root = new QuadTreeNode<T>(aabb);
+
+		//身体半径
+		for (auto& animal : *animals)
+			add(animal,QuadAABB(animal->GetPosition().GetX() - animal->GetCollisionRadius(), animal->GetPosition().GetX() + animal->GetCollisionRadius(),
+							    animal->GetPosition().GetY() - animal->GetCollisionRadius(), animal->GetPosition().GetY() + animal->GetCollisionRadius()));
+
 	}
+	
 
 	void add(T data,QuadAABB aabb)
 	{
-		add(_root, data, aabb, 1);
+		add(this->_root, data, aabb, 1);
 	}
 
 	void find(QuadAABB aabb, vector<T>& list,bool accuracy = false)
 	{
 		vector<QuadAABB> aabbList;
-		find(_root, aabb, list, aabbList);
+		find(this->_root, aabb, list, aabbList);
 		if (accuracy)
 		{
 			for (int i = list.size() - 1; i >= 0; i--)
@@ -107,24 +59,115 @@ public:
 				{
 					list.erase(list.begin() + i);
 				}
+				if (aabb.IsEqual(aabbList[i]))
+				{
+					list.erase(list.begin() + i);
+				}
+			}
+		}
+	}
+	 
+	//输入的是Probe radius 
+	shared_ptr<Animal> ProbedNearestAnimal (shared_ptr<Animal> data)
+	{
+		vector<shared_ptr<Animal>>list;
+		int radius = AnimalConstants::PROBE_RADIUS;
+		find((QuadAABB(data->GetPosition().GetX() - radius, data->GetPosition().GetX() + radius,
+			data->GetPosition().GetY() - radius, data->GetPosition().GetY() + radius)), list, false);
+
+		shared_ptr<Animal> NearestData = nullptr;
+		float Distance = 1e9;
+		
+		for(int i = 0; i < list.size(); i++)
+		{
+			if (list[i] == data) 
+				continue;
+			
+			if (Distance > Vector2D::GetDistance(data->GetPosition(), list[i]->GetPosition()))
+			{
+				NearestData = list[i];
+				Distance = Vector2D::GetDistance(data->GetPosition(), list[i]->GetPosition());
+			}
+		}
+
+		return NearestData;
+	}
+
+	//输入的是身体半径
+	vector<shared_ptr<Animal>> GetCollision(shared_ptr<Animal> data)
+	{
+		vector<shared_ptr<Animal>>list;
+		find(QuadAABB(data->GetPosition().GetX() - data->GetCollisionRadius(), data->GetPosition().GetX() + data->GetCollisionRadius(),
+			data->GetPosition().GetY() - data->GetCollisionRadius(), data->GetPosition().GetY() + data->GetCollisionRadius()), list, true);
+
+		return list;
+	}
+
+
+	~QuadTree()
+	{
+		delete _root;
+	}
+
+private:
+	void add(QuadTreeNode<T>* node, T data, QuadAABB aabb, int deep)
+	{
+		QuadAABB naabb = node->aabb;
+		if (deep < max_deep)
+		{
+			if (node->childList == nullptr)
+			{
+				node->childList = new QuadTreeNode<T>*[4];
+				int nwidth = naabb.width / 2;
+				int nheight = naabb.height / 2;
+				node->childList[0] = new QuadTreeNode<T>(QuadAABB(naabb.left, naabb.left + nwidth, naabb.top, naabb.top + nheight));
+				node->childList[1] = new QuadTreeNode<T>(QuadAABB(naabb.left + nwidth, naabb.right, naabb.top, naabb.top + nheight));
+				node->childList[2] = new QuadTreeNode<T>(QuadAABB(naabb.left, naabb.left + nwidth, naabb.top + nheight, naabb.bottom));
+				node->childList[3] = new QuadTreeNode<T>(QuadAABB(naabb.left + nwidth, naabb.right, naabb.top + nheight, naabb.bottom));
+			}
+			for (int i = 0; i < 4; i++)
+			{
+				QuadTreeNode<T>* child = node->childList[i];
+				if (child->aabb.IsContain(aabb))
+				{
+					add(child, data, aabb, deep + 1);
+				}
+			}
+		}
+		node->dataList.push_back(data);
+		node->aabbList.push_back(aabb);
+	}
+
+	void find(QuadTreeNode<T>* node, QuadAABB aabb, vector<T>& list, vector<QuadAABB>& aabbList)
+	{
+		if (node->aabbList.size() > 0)
+		{
+			for (auto x : node->dataList)
+			{
+				list.push_back(x);
+			}
+			for (auto x : node->aabbList)
+			{
+				aabbList.push_back(x);
+			}
+		}
+		if (node->childList == nullptr)
+		{
+			return;
+		}
+
+		for (int i = 0; i < 4; i++)
+		{
+			QuadTreeNode<T>* child = node->childList[i];
+			if (child->aabb.IsContain(aabb))
+			{
+				find(child, aabb, list, aabbList);
 			}
 		}
 	}
 
 
-	vector<T> DoCollisions(QuadAABB aabb, T data)
-	{
-		vector<T>list;
-		find(_root,list, true);
-		return list;
-	}
-
-
-
-
-
-
 private:
 	int max_deep;
-	shared_ptr<QuadTreeNode<T>> _root;
+	QuadTreeNode<T>* _root;
 };
