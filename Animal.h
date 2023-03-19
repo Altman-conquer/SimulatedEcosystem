@@ -319,6 +319,7 @@ protected:
 	// Used to identify an animal
 	const int id;
 
+	bool isDead;
 private:
 	
 	static int animalCount;

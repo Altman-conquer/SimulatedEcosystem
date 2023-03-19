@@ -23,6 +23,7 @@ Species Deer::GetSpecies()
 
 void Deer::Move()
 {
+	if (isDead) return;
 	MoveState state = MoveState::Walk;
 	Vector2D unit_direction;
 
@@ -91,6 +92,7 @@ void Deer::Move()
 
 void Deer::Update()
 {
+	if (isDead) return;
 	this->age_int += 1;
 	prev_position = position;
 
@@ -114,6 +116,7 @@ void Deer::Mutate()
 
 void Deer::Breed()
 {
+	if (isDead) return;
 	if (GetAge() == Age::Child || RandomFloat(0.0, 1.0) > AnimalConstants::COW_BREED_PROBABILITY)
 		return;
 
@@ -143,6 +146,7 @@ void Deer::Breed()
 
 bool Deer::Eat(Animal& other)
 {
+	if (isDead) return;
 	if (other.GetSpecies() != Species::Grass)
 		return false;
 	if ((other.GetPosition() - position).GetLength() <= GetCollisionRadius())

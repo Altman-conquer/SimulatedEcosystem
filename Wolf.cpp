@@ -25,6 +25,7 @@ void Wolf::Mutate()
 
 void Wolf::Breed()
 {
+	if (isDead) return;
 	if (GetAge() == Age::Child || RandomFloat(0.0, 1.0) > AnimalConstants::WOLF_BREED_PROBABILITY)
 		return;
 
@@ -54,6 +55,7 @@ void Wolf::Breed()
 
 bool Wolf::Eat(Animal& other) 
 {
+	if (isDead) return;
 	if ((other.GetPosition() - position).GetLength() <= GetCollisionRadius())
 	{
 		if (other.GetSpecies() == Species::Cow || other.GetSpecies() == Species::Deer)
@@ -71,7 +73,8 @@ bool Wolf::Eat(Animal& other)
 
 
 void Wolf::Move()
-{	
+{
+	if (isDead) return;
 	//calculate the magnitude of velocity
 
 	MoveState state;
@@ -142,6 +145,7 @@ void Wolf::Move()
 
 void Wolf::Update()
 {
+	if (isDead) return;
 	age_int += 1;
 	prev_position = position;
 	if (age_int > AnimalConstants::COW_MAX_AGE || energy <= 0.0)

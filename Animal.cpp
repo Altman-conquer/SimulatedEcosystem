@@ -187,6 +187,7 @@ bool Animal::Die()
 		if ((*it)->GetID() == id)
 		{
 			environment->erase(it);
+			isDead = true;
 			return true;
 		}
 	}

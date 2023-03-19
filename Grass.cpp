@@ -20,6 +20,7 @@ Species Grass::GetSpecies()
 
 void Grass::Update()
 {
+	if (isDead) return;
 	age_int += 1;
 	energy += AnimalConstants::GRASS_RECOVER_SPEED;
 }
@@ -35,7 +36,8 @@ void Grass::Mutate()
 }
 
 void Grass::Breed()
-{
+{	
+	if (isDead) return;
 	if (GetAge() == Age::Child)
 		return;
 	if (RandomFloat(0.0, 1.0) < AnimalConstants::GRASS_BREED_PROBABILITY)

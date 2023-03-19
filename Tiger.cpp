@@ -23,6 +23,7 @@ Species Tiger::GetSpecies()
 
 void Tiger::Update()//behavior algorithm 
 {
+	if (isDead) return;
 	//die
 	if (age_int > AnimalConstants::TIGER_MAX_AGE || energy <= 0.0)
 		Die();
@@ -69,6 +70,7 @@ void Tiger::Mutate()
 
 void Tiger::Breed()
 {
+	if (isDead) return;
 	if (RandomFloat(0.0, 1.0) > AnimalConstants::TIGER_BREED_PROBABILITY) 
 		return;
 	//breed probability
@@ -94,6 +96,7 @@ void Tiger::Breed()
 
 void Tiger::Move()
 {
+	if (isDead) return;
 	//move direction
 	Vector2D unit_direction;
 	MoveState state = MoveState::Walk;
@@ -168,6 +171,7 @@ void Tiger::Move()
 
 bool Tiger::Eat(Animal& other)
 {
+	if (isDead) return;
 	if ((other.GetPosition() - position).GetLength() <= GetCollisionRadius())
 	{
 		energy += other.GetEnergy();

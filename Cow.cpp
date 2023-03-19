@@ -21,6 +21,7 @@ Species Cow::GetSpecies()
 
 void Cow::Update()
 {
+	if (isDead) return;
 	age_int += 1;
 	prev_position = position;
 	if (age_int > AnimalConstants::COW_MAX_AGE || energy <= AnimalConstants::COW_MIN_ENERGY)
@@ -46,6 +47,7 @@ void Cow::Mutate()
 
 void Cow::Breed()
 {
+	if (isDead) return;
 	if (GetAge() == Age::Child || RandomFloat(0.0, 1.0) > AnimalConstants::COW_BREED_PROBABILITY)
 		return;
 
@@ -74,7 +76,8 @@ void Cow::Breed()
 }
 
 void Cow::Move()
-{
+{	
+	if (isDead) return;
 	MoveState state = MoveState::Walk;
 	Vector2D unit_direction;
 
@@ -145,7 +148,8 @@ void Cow::Move()
 }
 
 bool Cow::Eat(Animal& other)
-{
+{	
+	if (isDead) return false;
 	if (other.GetSpecies() != Species::Grass)
 		return false;
 	if ((other.GetPosition() - position).GetLength() <= GetCollisionRadius())
