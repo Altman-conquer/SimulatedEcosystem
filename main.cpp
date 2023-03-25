@@ -9,7 +9,7 @@
 #include <memory>
 #include <thread>
 #include <chrono>
-#include <QuadTree.h>
+#include "QuadTree.h"
 #include "Animal.h"
 /*
 * 
