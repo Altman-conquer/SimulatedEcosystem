@@ -20,8 +20,9 @@ Environment::Environment(AVLTree<Species, int> _n)
 	this->animals = std::make_shared<vector<shared_ptr<Animal>>>();
 	for (auto& data: _n)
 	{
-		Species& species = data.data.first;
-		int& num = data.data.second;
+		
+		const Species& species = data.first;
+		const int& num = data.second;
 		for (int i = 0; i < num; i++)
 		{
 			switch (species)

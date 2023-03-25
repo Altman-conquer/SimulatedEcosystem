@@ -55,7 +55,7 @@ void Wolf::Breed()
 
 bool Wolf::Eat(Animal& other) 
 {
-	if (isDead) return;
+	if (isDead) return false;
 	if ((other.GetPosition() - position).GetLength() <= GetCollisionRadius())
 	{
 		if (other.GetSpecies() == Species::Cow || other.GetSpecies() == Species::Deer)

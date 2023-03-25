@@ -146,7 +146,7 @@ void Deer::Breed()
 
 bool Deer::Eat(Animal& other)
 {
-	if (isDead) return;
+	if (isDead) return false;
 	if (other.GetSpecies() != Species::Grass)
 		return false;
 	if ((other.GetPosition() - position).GetLength() <= GetCollisionRadius())

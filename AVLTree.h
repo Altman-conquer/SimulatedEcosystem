@@ -2,6 +2,11 @@
 #include <stdexcept>
 #include <Utility>
 #include <xutility>
+#include <map>
+
+#define AVLTree std::map
+
+/*
 
 using std::make_pair;
 using std::pair;
@@ -10,8 +15,8 @@ using std::iterator;
 template<class K, class V>
 class AVLTreeNode {
 
-	/*template<class _K, class _V>
-	friend class AVLTree;*/
+	/ *template<class _K, class _V>
+	friend class AVLTree;* /
 
 public:
 	// Universal reference constructor. Aiming at using perfect forwarding to construct the node.
@@ -354,3 +359,4 @@ private:
 
 	Node* root;
 };
+*/

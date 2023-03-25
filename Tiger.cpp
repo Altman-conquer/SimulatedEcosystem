@@ -171,7 +171,7 @@ void Tiger::Move()
 
 bool Tiger::Eat(Animal& other)
 {
-	if (isDead) return;
+	if (isDead) return false;
 	if ((other.GetPosition() - position).GetLength() <= GetCollisionRadius())
 	{
 		energy += other.GetEnergy();
