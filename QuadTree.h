@@ -6,8 +6,8 @@
 #include <algorithm>
 #include<cmath>
 #include "QuadAABB.h"
-#include <Animal.h>
-#include <Vector2D.h>
+#include "Animal.h"
+#include "Vector2D.h"
 
 using std::vector;
 
@@ -34,7 +34,7 @@ public:
 
 		this->_root = new QuadTreeNode<T>(aabb);
 
-		//身体半径
+		//韬綋鍗婂緞
 		for (auto& animal : *animals)
 			add(animal,QuadAABB(animal->GetPosition().GetX() - animal->GetCollisionRadius(), animal->GetPosition().GetX() + animal->GetCollisionRadius(),
 							    animal->GetPosition().GetY() - animal->GetCollisionRadius(), animal->GetPosition().GetY() + animal->GetCollisionRadius()));
@@ -67,7 +67,7 @@ public:
 		}
 	}
 	 
-	//输入的是Probe radius 
+	//杈撳叆鐨勬槸Probe radius 
 	shared_ptr<Animal> ProbedNearestAnimal (shared_ptr<Animal> data)
 	{
 		vector<shared_ptr<Animal>>list;
@@ -93,7 +93,7 @@ public:
 		return NearestData;
 	}
 
-	//输入的是身体半径
+	//杈撳叆鐨勬槸韬綋鍗婂緞
 	vector<shared_ptr<Animal>> GetCollision(shared_ptr<Animal> data)
 	{
 		vector<shared_ptr<Animal>>list;
