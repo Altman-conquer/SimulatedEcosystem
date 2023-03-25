@@ -12,7 +12,6 @@ template<typename T>
 class QuadTreeNode
 {
 public:
-	//иообвСср
 	static const int LT = 0;
 	static const int RT = 1;
 	static const int LB = 2;
