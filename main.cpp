@@ -9,6 +9,8 @@
 #include <memory>
 #include <thread>
 #include <chrono>
+#include "QuadTree.h"
+#include "Animal.h"
 /*
 * 
 在构造函数里面，参数名使用一个下划线开头，例如_n，这样可以避免出现n=n的错误
@@ -26,6 +28,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     SimulatedEcosystem w;
     w.show();
+
+
  
 #ifdef DEBUG
     /*
@@ -36,8 +40,18 @@ int main(int argc, char *argv[])
     
 	AVLTree<Species, int> test_species;
 	test_species[Species::Grass] = 100;
+
     //test_species[Species::Cow] = 100;
     Environment environment(test_species);
+
+
+    QuadTree<shared_ptr<Animal>> q(environment.GetEnvironment());
+
+    for (auto& animal : *environment.GetEnvironment())
+    {
+        vector<shared_ptr<Animal>> coll = q.GetCollision(animal);
+    }
+
     
     /*PRINT_FUNCTION_NAME(LogLevel::Error)
     Log::LogMessage(GET_FUNCTION_NAME, LogLevel::Warning);*/

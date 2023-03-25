@@ -4,6 +4,7 @@
 #include "Environment.h"
 #include "Log.h"
 #include <QString>
+#include "D:/Qt/6.2.4/msvc2019_64/include/QtCore/qmetatype.h"
 
 
 class Environment;
@@ -240,6 +241,10 @@ public:
 	// Kill the animal if it is too old or is being ate.
 	//************************************
 	bool Die();
+
+
+	
+  
 
 	//************************************
 	// Method:    Hurt

@@ -62,7 +62,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Qt\6.2.4\msvc2019_64\include\QtCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -121,6 +121,9 @@
     <ClInclude Include="Grass.h" />
     <ClInclude Include="Log.h" />
     <QtMoc Include="MyChart.h" />
+    <ClInclude Include="QuadAABB.h" />
+    <ClInclude Include="QuadTree.h" />
+    <ClInclude Include="QuadTreeNode.h" />
     <ClInclude Include="Tiger.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="Vector2D.h" />
