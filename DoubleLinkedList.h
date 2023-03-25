@@ -49,7 +49,7 @@ private:
 };
 
 template<class T>
-DoubleLinkedListT>::DoubleLinkedList() :count(0) {
+DoubleLinkedList<T>::DoubleLinkedList() :count(0) {
 	head = new Link<T>();
 	head->prev = head->next = head;
 }

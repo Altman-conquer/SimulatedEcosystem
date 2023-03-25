@@ -1,7 +1,6 @@
 #pragma once
 #include <utility>
 #include <memory>
-#include <map>
 #include "Environment.h"
 #include "Log.h"
 #include <QString>
@@ -12,7 +11,6 @@ class Vector2D;
 
 using std::shared_ptr;
 using std::vector;
-using std::map;
 
 enum class Species {
 	Grass,
@@ -174,7 +172,7 @@ public:
 	Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment);
 		
 	Animal(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position,
-		Vector2D _velocity, Gender _gender, map<Gene, float> _genes, float _stamina, float _energy);
+		Vector2D _velocity, Gender _gender, AVLTree<Gene, float> _genes, float _stamina, float _energy);
 
 	virtual ~Animal();
 
@@ -307,7 +305,7 @@ protected:
 	// Used to store all animals
 	shared_ptr<vector<shared_ptr<Animal>>> environment;
 
-	map<Gene, float> genes;
+	AVLTree<Gene, float> genes;
 
 	//Add 1 in every update
 	int age_int;
@@ -321,6 +319,7 @@ protected:
 	// Used to identify an animal
 	const int id;
 
+	bool isDead;
 private:
 	
 	static int animalCount;
