@@ -23,6 +23,7 @@ void Grass::Update()
 	if (isDead) return;
 	age_int += 1;
 	energy += AnimalConstants::GRASS_RECOVER_SPEED;
+	Breed();
 }
 
 Age Grass::GetAge()
@@ -44,6 +45,7 @@ void Grass::Breed()
 	{
 		shared_ptr<Animal> new_animal = std::make_shared<Grass>(this->environment, RandomPositionVector(position, AnimalConstants::BREED_RADIUS));
 		this->environment->push_back(new_animal);
+		Log::LogMessage("New Grass");
 	}
 }
 
