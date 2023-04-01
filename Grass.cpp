@@ -23,6 +23,7 @@ void Grass::Update()
 	if (isDead) return;
 	age_int += 1;
 	energy += AnimalConstants::GRASS_RECOVER_SPEED;
+	Breed();
 }
 
 Age Grass::GetAge()
