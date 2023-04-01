@@ -8,6 +8,9 @@ using std::make_pair;
 using std::pair;
 using std::iterator;
 
+#define AVLTree std::map
+
+/*
 template<class K, class V>
 class AVLTreeNode {
 
@@ -31,8 +34,8 @@ public:
 
 	~AVLTreeNode()
 	{
-		/*delete left;
-		delete right;*/
+		/ *delete left;
+		delete right;* /
 		left = nullptr;
 
 		right = nullptr;
@@ -75,7 +78,7 @@ public:
 
 	~AVLTree()
 	{
-		/*delete root;*/
+		/ *delete root;* /
 		root = nullptr;
 	}
 
@@ -130,6 +133,12 @@ public:
 
 		Node* current;
 	};
+
+	void clear()
+	{
+		delete root;
+		root = nullptr;
+	}
 
 	template<typename _K = K, typename _V = V>
 	bool insert(_K&& _key, _V&& _value)
@@ -380,3 +389,4 @@ private:
 
 	Node* root;
 };
+*/
