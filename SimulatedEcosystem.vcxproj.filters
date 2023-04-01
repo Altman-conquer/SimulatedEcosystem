@@ -76,6 +76,9 @@
     <ClCompile Include="Wolf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EnvironmentUpdateThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h">
@@ -132,6 +135,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="MyChart.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="EnvironmentUpdateThread.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
