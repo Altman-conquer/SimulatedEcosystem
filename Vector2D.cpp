@@ -89,6 +89,6 @@ Vector2D Vector2D::operator/(const float& other) const
 
 std::ostream& operator<<(std::ostream& o, const Vector2D& other)
 {
-	o << other.x << ' ' << other.y << std::endl;
+	o << other.x << ' ' << other.y;
 	return o;
 }
