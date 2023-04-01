@@ -1,6 +1,7 @@
 #pragma once
 #include <xutility>
 #include "Utility.h"
+#include "exception"
 using std::iterator;
 
 template<typename T>
@@ -41,15 +42,16 @@ public:
 		// Decrement operator (postfix)
 		DynamicArrayListIterator operator--(int) { DynamicArrayListIterator temp = *this; ptr--; return temp; }
 
+		size_t operator-(const DynamicArrayListIterator& other) const { return ptr - other.ptr; };
+
 		// Equality operator
-		bool operator==(const DynamicArrayListIterator& other) { return ptr == other.ptr; }
+		bool operator==(const DynamicArrayListIterator& other) const { return ptr == other.ptr; }
 
 		// Inequality operator
-		bool operator!=(const DynamicArrayListIterator& other) { return ptr != other.ptr; }
+		bool operator!=(const DynamicArrayListIterator& other) const { return ptr != other.ptr; }
 
 	private:
 		T* ptr;
-
 	};
 
 	void push_back(T value)
@@ -63,6 +65,24 @@ public:
 			data = new_data;
 		}
 		data[_size++] = value;
+	}
+
+	T& at(size_t index)
+	{
+		if (index < 0 || index >= size())
+			throw "ERROR: In at function: index out of bound.";
+		return data[index];
+	}
+
+	bool erase(DynamicArrayListIterator& iterator)
+	{
+		size_t diff = iterator - begin();
+		if (diff >= size())
+			throw "ERROR: erase item out of bound.";
+
+		for (int i = diff; i < size; i++)
+			data[i] = data[i + 1];
+		return true;
 	}
 
 	bool pop_back()
@@ -95,7 +115,7 @@ public:
 
 	T& operator[](int index)
 	{
-		if (index < _size)
+		if (index < _size && index >=0)
 			return data[index];
 		throw std::out_of_range("index out of range");
 	}
