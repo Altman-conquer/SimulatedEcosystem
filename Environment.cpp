@@ -62,11 +62,14 @@ bool Environment::AddSpecies(shared_ptr<Animal> new_animal)
 vector<int> Environment::GetDeadAnimals()
 {
 	vector<int> dead_animals;
+	std::set<int> current_exist;
+
 	for (shared_ptr<Animal>& animal : *animals)
-		if (prev_animals.count(animal->GetID()) == 0)
-		{
-			dead_animals.push_back(animal->GetID());
-		}
+		current_exist.insert(animal->GetID());
+
+	for (auto i = prev_animals.begin(); i != prev_animals.end(); i++)
+		if (current_exist.count(*i) == 0)
+			dead_animals.push_back(*i);
 	return dead_animals;
 }
 
