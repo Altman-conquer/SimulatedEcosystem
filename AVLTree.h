@@ -136,14 +136,11 @@ public:
 	{
 		return _insert(_key, _value) == nullptr;
 	}
-
-	template<typename _K = K>
-	bool erase(_K&& _key)
+	
+	bool erase(AVLTreeIterator _key)
 	{
-		Node* current = _find(_key);
-		if (current == nullptr)
-			return false;
-		current->is_valid = false;
+		auto& i = find(_key);
+		i->is_valid = false;
 		return true;
 	}
 	
