@@ -137,7 +137,7 @@ public:
 		return _insert(_key, _value) == nullptr;
 	}
 
-	template<typename _K = K, typename _V = V>
+	template<typename _K = K>
 	bool erase(_K&& _key)
 	{
 		Node* current = _find(_key);
@@ -146,6 +146,14 @@ public:
 		current->is_valid = false;
 		return true;
 	}
+	
+	template<typename _K = K>
+	AVLTreeIterator find(_K&& _key)
+	{
+		Node* current = _find(_key);
+		return AVLTreeIterator(current);
+	}
+
 
 
 	AVLTreeIterator begin() { return AVLTreeIterator(root); }
