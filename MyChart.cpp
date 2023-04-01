@@ -9,10 +9,11 @@ MyChart::MyChart(QWidget* parent, QString _chartname) {
     axisX = new QValueAxis(this);
     axisY = new QValueAxis(this);
     chartview->setParent(this);
-
+    chartview->setGeometry(0, 0, 1020, 290);
+    setParent(parent);
     /*setStyleSheet("QWidget{background-color: rgba(255, 25, 20,255);}");
     chartview->setStyleSheet("QChartview{background-color: rgba(255, 255, 255, 0);}");*/
-
+    
     resize(QSize(600, 600));
 
     chartview->setRenderHint(QPainter::Antialiasing);

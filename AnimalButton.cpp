@@ -7,7 +7,7 @@ AnimalButton::AnimalButton(QWidget *parent, shared_ptr<Animal>animal)
 {
 	ui->setupUi(this);
 
-	setAnimal(animal);
+	SetAnimal(animal);
 }
 
 AnimalButton::~AnimalButton()
@@ -15,7 +15,7 @@ AnimalButton::~AnimalButton()
 	delete ui;
 }
 
-void AnimalButton::setAnimal(shared_ptr<Animal> animal) {
+void AnimalButton::SetAnimal(shared_ptr<Animal> animal) {
 	this->animal = animal;
 	int animalSize = 0;
 	int x = 0;

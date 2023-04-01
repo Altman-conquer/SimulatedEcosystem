@@ -9,9 +9,8 @@
 #include"MyChart.h"
 #include <QTimer>
 #include "AVLTree.h"
-#include <map>
 
-
+using std::map;
 using std::shared_ptr;
 
 class SimulatedEcosystem : public QMainWindow
@@ -24,27 +23,46 @@ public:
     void resizeEvent(QResizeEvent* event);
 
     //deal sidebar unfold
-    void dealUnfold();
+    void DealUnfold();
     
-    void initChart();
-    void update_Surface();
+    void InitChart();
+    void UpdateSurface();
 
 
-    void delete_Animal(int id);
-    void add_NewAnimal(shared_ptr<Animal> animal);
-    void move_Animal(shared_ptr<Animal> animal);
+    void DeleteAnimal(int id);
+    void AddNewAnimal(shared_ptr<Animal> animal);
+    void MoveAnimal(shared_ptr<Animal> animal);
 
-    void reGame();
-    void curveFigure();
+    void ReGame();
+    void CurveFigure();
+    void StartButton();
+	void StopButton();
+
+    void AddButton_1();
+	void AddButton_2();
+	void AddButton_3();
+	void AddButton_4();
+	void AddButton_5();
+
+
 private:
     Ui::SimulatedEcosystemClass ui;
+    
+
+	MyChart* chart;
+
     AnimalButton* temp = new AnimalButton(this);
-    int move_of_sidebar = 0;
-    MyChart* chart;
-    QVector<QList<QPointF>> pointlist;
+	QVector<QList<QPointF>> pointlist;
+    shared_ptr<vector<shared_ptr<Animal>>> animals;
+
     QTimer* timer = new QTimer(this);
-    AVLTree<int, AnimalButton*> my_animals;
+
+	map<int, AnimalButton*> my_animals;
     AVLTree<Species, int> test_species;
     shared_ptr<Environment> environment;
-    int time = 0;
+    
+    long long time = 0;
+	int FPS = 1;
+    int move_of_sidebar = 0;
+    bool is_updating = false;
 };
