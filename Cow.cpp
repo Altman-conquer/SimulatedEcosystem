@@ -5,13 +5,13 @@
 Cow::Cow(shared_ptr<vector<shared_ptr<Animal>>> _environment) :Animal(_environment)
 {
 	position = RandomPositionVector();
-	energy = AnimalConstants::COW_INITIAL_ENERGY;
+	energy = AnimalConstants::INITIAL_ENERGY[int(Species::Cow)];
 }
 
 Cow::Cow(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position, Gender _gender) :Animal(_environment)
 {
 	position = _position;
-	energy = AnimalConstants::COW_INITIAL_ENERGY;
+	energy = AnimalConstants::INITIAL_ENERGY[int(Species::Cow)];
 }
 
 Species Cow::GetSpecies()
@@ -24,7 +24,7 @@ void Cow::Update()
 	if (isDead) return;
 	age_int += 1;
 	prev_position = position;
-	if (age_int > AnimalConstants::COW_MAX_AGE || energy <= AnimalConstants::COW_MIN_ENERGY)
+	if (age_int > AnimalConstants::MAX_AGE[int(Species::Cow)] || energy <= AnimalConstants::MIN_ENERGY[int(Species::Cow)])
 		Die();
 	Move();
 	Breed();
@@ -32,7 +32,7 @@ void Cow::Update()
 
 Age Cow::GetAge()
 {
-	return Age(age_int >= AnimalConstants::COW_ADULT_AGE);
+	return Age(age_int >= AnimalConstants::ADULT_AGE[int(Species::Cow)]);
 }
 
 QString Cow::GetPicturePath()
@@ -48,21 +48,21 @@ void Cow::Mutate()
 void Cow::Breed()
 {
 	if (isDead) return;
-	if (GetAge() == Age::Child || RandomFloat(0.0, 1.0) > AnimalConstants::COW_BREED_PROBABILITY)
+	if (GetAge() == Age::Child || RandomFloat(0.0, 1.0) > AnimalConstants::BREED_PROBABILITY[int(Species::Cow)])
 		return;
 
 	shared_ptr<Animal> other = Environment::GetClosetPair(environment, *this, Species::Cow);
 	if (other->GetGender() != gender)
 	{
 		bool is_success = false;
-		if (other->GetGender() == Gender::Female && other->GetEnergy() > AnimalConstants::COW_INITIAL_ENERGY * 2.0)
+		if (other->GetGender() == Gender::Female && other->GetEnergy() > AnimalConstants::INITIAL_ENERGY[int(Species::Cow)] * 2.0)
 		{
-			other->DecreaseEnergy(AnimalConstants::COW_INITIAL_ENERGY);
+			other->DecreaseEnergy(AnimalConstants::INITIAL_ENERGY[int(Species::Cow)]);
 			is_success = true;
 		}
-		else if (energy > AnimalConstants::COW_INITIAL_ENERGY * 2.0)
+		else if (energy > AnimalConstants::INITIAL_ENERGY[int(Species::Cow)] * 2.0)
 		{
-			DecreaseEnergy(AnimalConstants::COW_INITIAL_ENERGY);
+			DecreaseEnergy(AnimalConstants::INITIAL_ENERGY[int(Species::Cow)]);
 			is_success = true;
 		}
 		
@@ -97,22 +97,22 @@ void Cow::Move()
 	if (state == MoveState::Run)
 	{
 
-		if (this->stamina >= AnimalConstants::COW_MAX_STAMINA / 2)
+		if (this->stamina >= AnimalConstants::MAX_STAMINA[int(Species::Cow)] / 2)
 		{
-			velocity_scalar = AnimalConstants::COW_MAX_VELOCITY;
+			velocity_scalar = AnimalConstants::MAX_VELOCITY[int(Species::Cow)];
 		}
-		else if (this->stamina > AnimalConstants::COW_MIN_STAMINA)
+		else if (this->stamina > AnimalConstants::MIN_STAMINA[int(Species::Cow)])
 		{
-			velocity_scalar = AnimalConstants::COW_MAX_VELOCITY * (this->stamina * 2 / AnimalConstants::COW_MAX_STAMINA);
+			velocity_scalar = AnimalConstants::MAX_VELOCITY[int(Species::Cow)] * (this->stamina * 2 / AnimalConstants::MAX_STAMINA[int(Species::Cow)]);
 		}
 		else
 		{
-			velocity_scalar = AnimalConstants::COW_MIN_VELOCITY;
+			velocity_scalar = AnimalConstants::MIN_VELOCITY[int(Species::Cow)];
 		}
 	}
 	else
 	{
-		if (RandomFloat(0.0, 1.0) <= AnimalConstants::COW_IDLE_PROBABILITY)
+		if (RandomFloat(0.0, 1.0) <= AnimalConstants::IDLE_PROBABILITY[int(Species::Cow)])
 		{
 			velocity_scalar = 0;
 			unit_direction = Vector2D(0, 0);
@@ -121,7 +121,7 @@ void Cow::Move()
 		else
 		{
 			unit_direction = RandomUnitVector();
-			velocity_scalar = AnimalConstants::COW_MIN_VELOCITY;
+			velocity_scalar = AnimalConstants::MIN_VELOCITY[int(Species::Cow)];
 			state = MoveState::Walk;
 		}
 	}
@@ -136,12 +136,12 @@ void Cow::Move()
 	//update stamina and energy
 	if (state == MoveState::Idle || state == MoveState::Walk)
 	{
-		this->stamina = std::min(this->stamina + AnimalConstants::COW_RECOVER_STAMINA_RATIO, AnimalConstants::COW_MAX_STAMINA);
-		this->energy = std::max(this->energy - AnimalConstants::COW_CONSUME_ENERGY_RATIO, 0.0f);
+		this->stamina = std::min(this->stamina + AnimalConstants::RECOVER_STAMINA_RATIO[int(Species::Cow)], AnimalConstants::MAX_STAMINA[int(Species::Cow)]);
+		this->energy = std::max(this->energy - AnimalConstants::CONSUME_ENERGY_RATIO[int(Species::Cow)] , 0.0f);
 	}
 	else if (state == MoveState::Run)
 	{
-		this->stamina = std::max(this->stamina - AnimalConstants::COW_CONSUME_STAMINA_RATIO, AnimalConstants::COW_MIN_STAMINA);
+		this->stamina = std::max(this->stamina - AnimalConstants::CONSUME_STAMINA_RATIO[int(Species::Cow)], AnimalConstants::MIN_STAMINA[int(Species::Cow)]);
 	}
 
 	Eat(*nearest);
@@ -157,7 +157,7 @@ bool Cow::Eat(Animal& other)
 		if(!other.Hurt(AnimalConstants::DAMAGE[int(GetSpecies())]))
 		{
 			energy += AnimalConstants::DAMAGE[int(GetSpecies())];
-			energy = std::min(AnimalConstants::COW_MAX_ENERGY, energy);
+			energy = std::min(AnimalConstants::MAX_ENERGY[int(Species::Cow)], energy);
 			other.Die();
 			return true;
 		}
