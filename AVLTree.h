@@ -31,10 +31,10 @@ public:
 
 	~AVLTreeNode()
 	{
-		delete left;
+		/*delete left;
+		delete right;*/
 		left = nullptr;
 
-		delete right;
 		right = nullptr;
 	}
 
@@ -75,7 +75,7 @@ public:
 
 	~AVLTree()
 	{
-		delete root;
+		/*delete root;*/
 		root = nullptr;
 	}
 
@@ -136,14 +136,11 @@ public:
 	{
 		return _insert(_key, _value) == nullptr;
 	}
-
-	template<typename _K = K>
-	bool erase(_K&& _key)
+	
+	bool erase(AVLTreeIterator _key)
 	{
-		Node* current = _find(_key);
-		if (current == nullptr)
-			return false;
-		current->is_valid = false;
+		auto& i = find(_key);
+		i->is_valid = false;
 		return true;
 	}
 	
@@ -196,6 +193,7 @@ private:
 
 		// Insert the node
 		current = new Node(_key, _value);
+		Node* result = current; 
 		current->parent = parent;
 		if (_key < parent->first)
 			parent->left = current;
@@ -242,7 +240,7 @@ private:
 				throw std::logic_error("The tree is wrong");
 			}
 		}
-		return current;
+		return result;
 	}
 
 	template<typename _K = K>

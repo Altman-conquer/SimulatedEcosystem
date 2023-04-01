@@ -79,10 +79,7 @@ void Environment::Update()
 		prev_animals.insert(animal->GetID());
 	
 	for (size_t i = 0; i < animals->size(); i++)
-	{
 		animals->at(i)->Update();
-	}
-	
 }
 
 shared_ptr<Animal> Environment::GetClosetPair(const shared_ptr<vector<shared_ptr<Animal>>>& animals, const Animal& animal, Species species)

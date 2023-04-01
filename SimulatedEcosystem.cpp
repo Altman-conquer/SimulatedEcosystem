@@ -164,8 +164,8 @@ void SimulatedEcosystem::CurveFigure() {
 void SimulatedEcosystem::StartButton() {
     if (ui.startButton->text() == "Start") {
         ui.startButton->setText("Restart");
-		//timer->start(EnvironmentConstants::UPDATE_FREQUENCY_MS * FPS);
-
+		timer->start(EnvironmentConstants::UPDATE_FREQUENCY_MS * FPS);
+        
     }
     else if (ui.startButton->text() == "Restart") {
 		ui.startButton->setText("OK");

@@ -13,8 +13,11 @@ namespace AnimalConstants {
 	 const float BREED_RADIUS = 10.0;
 
 	// The distance of crash
-	const float CHILD_DISTANCE = 10;
-	const float ADULT_DISTANCE = 30;
+	const float CHILD_DISTANCE = 3;
+	const float ADULT_DISTANCE = 5;
+
+	//probe radius of animals
+	const float PROBE_RADIUS = 10.0;
 
 	// Age limits of animals to tell it is adult or not.
 	 const int GRASS_ADULT_AGE = 10.0;
@@ -30,17 +33,17 @@ namespace AnimalConstants {
 	 const int TIGER_MAX_AGE = 60.0;
 
 	// Breed probability of animals
-	 const float GRASS_BREED_PROBABILITY = 1.0;
-	 const float COW_BREED_PROBABILITY = 1.0;
+	 const float GRASS_BREED_PROBABILITY = 0.5;
+	 const float COW_BREED_PROBABILITY = 0.5;
 	 const float TIGER_BREED_PROBABILITY = 0.3;
-	 const float DEER_BREED_PROBABILITY = 1.0;
-	 const float WOLF_BREED_PROBABILITY = 1.0;
+	 const float DEER_BREED_PROBABILITY = 0.5;
+	 const float WOLF_BREED_PROBABILITY = 0.5;
   
 	//Max stamina of animals
-	 const float COW_MAX_STAMINA = 1.0;
-	 const float DEER_MAX_STAMINA = 1.0;
-	 const float WOLF_MAX_STAMINA = 1.0;
-	 const float TIGER_MAX_STAMINA = 1.0;
+	 const float COW_MAX_STAMINA = 10.0;
+	 const float DEER_MAX_STAMINA = 10.0;
+	 const float WOLF_MAX_STAMINA = 10.0;
+	 const float TIGER_MAX_STAMINA = 10.0;
 
 	//Min stamina of animals
 	 const float COW_MIN_STAMINA = 1.0;
@@ -51,10 +54,10 @@ namespace AnimalConstants {
 
 
 	//Max velocity of animals
-	 const float COW_MAX_VELOCITY = 1.0;
-	 const float DEER_MAX_VELOCITY = 1.0;
-	 const float WOLF_MAX_VELOCITY = 1.0;
-	 const float TIGER_MAX_VELOCITY = 1.0;
+	 const float COW_MAX_VELOCITY = 50.0;
+	 const float DEER_MAX_VELOCITY = 50.0;
+	 const float WOLF_MAX_VELOCITY = 50.0;
+	 const float TIGER_MAX_VELOCITY = 50.0;
 
 	//Min velocity of animals
 	 const float COW_MIN_VELOCITY = 1.0;
@@ -97,36 +100,35 @@ namespace AnimalConstants {
 	 const float TIGER_CONSUME_STAMINA_RATIO = 1.0;
 
 
-	//probe radius of animals
-	 const float PROBE_RADIUS = 1.0;
-
 	//Idle probability of animals
-	 const float DEER_IDLE_PROBABILITY = 0.5;
-	 const float COW_IDLE_PROBABILITY = 0.5;
-	 const float WOLF_IDLE_PROBABILITY = 0.5;
-	 const float TIGER_IDLE_PROBABILITY = 0.5;
+	 const float DEER_IDLE_PROBABILITY = 0.2;
+	 const float COW_IDLE_PROBABILITY = 0.2;
+	 const float WOLF_IDLE_PROBABILITY = 0.2;
+	 const float TIGER_IDLE_PROBABILITY = 0.2;
 
 	//Max energy of animals
-	 const float COW_MAX_ENERGY = 1.0;
-	 const float DEER_MAX_ENERGY = 1.0;
-	 const float WOLF_MAX_ENERGY = 1.0;
-	 const float TIGER_MAX_ENERGY = 1.0;
+	 const float COW_MAX_ENERGY = 100.0;
+	 const float DEER_MAX_ENERGY = 100.0;
+	 const float WOLF_MAX_ENERGY = 100.0;
+	 const float TIGER_MAX_ENERGY = 100.0;
 
 	 const float COW_MIN_ENERGY = 10.0;
 	 const float DEER_MIN_ENERGY = 10.0;
 	 const float WOLF_MIN_ENERGY = 10.0;
 	 const float TIGER_MIN_ENERGY = 10.0;
 
+	 const float GRASS_HEALTH = 20.0;
+	 const float COW_HEALTH = 100.0;
+	 const float DEER_HEALTH = 100.0;
+	 const float WOLF_HEALTH = 100.0;
+	 const float TIGER_HEALTH = 100.0;
 	 
-	 const float COW_DAMAGE = 1.0;
-	 const float DEER_DAMAGE = 1.0;
-	 const float WOLF_DAMAGE = 1.0;
-	 const float TIGER_DAMAGE = 1.0;
+	 const float DAMAGE[int(Species::NULLSPECIES)] = { 10.0,10.0,10.0,10.0,10.0 };
 
 }
 
 Animal::Animal(std::shared_ptr<vector<shared_ptr<Animal>>> _environment):
-	id(Animal::animalCount++),age_int(0),environment(_environment),energy(0),gender(Gender(RandomInteger(0,1))),stamina(0)
+	id(Animal::animalCount++),age_int(0),environment(_environment),energy(0),gender(Gender(RandomInteger(0,1))),stamina(0), isDead(false),health(0)
 {
 
 }
