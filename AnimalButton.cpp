@@ -8,6 +8,7 @@ AnimalButton::AnimalButton(QWidget *parent, shared_ptr<Animal>animal)
 	ui->setupUi(this);
 
 	SetAnimal(animal);
+	show();
 }
 
 AnimalButton::~AnimalButton()

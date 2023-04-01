@@ -38,14 +38,14 @@ SimulatedEcosystem::SimulatedEcosystem(QWidget *parent)
 	ui.lineEdit_4->setText("0");
 	ui.lineEdit_5->setText("0");
 
-    test_species[Species::Grass] = 30;
+    /*test_species[Species::Grass] = 30;
 
     environment = std::make_shared<Environment>(test_species);
 
     shared_ptr<vector<shared_ptr<Animal>>> animals = environment->GetEnvironment();
     for (shared_ptr<Animal>& animal : *animals) {
         AddNewAnimal(animal);
-    }
+    }*/
 
 
     pointlist.clear();
@@ -166,14 +166,14 @@ void SimulatedEcosystem::CurveFigure() {
 
 void SimulatedEcosystem::StartButton() {
     if (ui.startButton->text() == "Start") {
-        //ui.startButton->setText("OK");
-		timer->start(EnvironmentConstants::UPDATE_FREQUENCY_MS * FPS);
-        /*ui.lineEdit->setReadOnly(false);
+        ui.startButton->setText("OK");
+		//timer->start(EnvironmentConstants::UPDATE_FREQUENCY_MS * FPS);
+        ui.lineEdit->setReadOnly(false);
         ui.lineEdit_2->setReadOnly(false);
         ui.lineEdit_3->setReadOnly(false);
         ui.lineEdit_4->setReadOnly(false);
         ui.lineEdit_5->setReadOnly(false);
-        ui.stopButton->hide();  */
+        ui.stopButton->hide();  
     }
     else if (ui.startButton->text() == "Restart") {
 		ui.startButton->setText("OK");
@@ -255,5 +255,8 @@ void SimulatedEcosystem::SetNumberOfAnimal() {
         AddNewAnimal(animal);
     }
     timer->start(EnvironmentConstants::UPDATE_FREQUENCY_MS * FPS);
+
+
+
 
 }
