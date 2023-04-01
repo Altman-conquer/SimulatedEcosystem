@@ -31,9 +31,9 @@ SimulatedEcosystem::SimulatedEcosystem(QWidget *parent)
 	ui.lineEdit_5->setText("0");
 
 
-	test_species[Species::Cow] = 30;
+	
 	test_species[Species::Grass] = 60;
-
+    test_species[Species::Cow] = 30;
 
     environment = std::make_shared<Environment>(test_species);
     
