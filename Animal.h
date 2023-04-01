@@ -84,7 +84,6 @@ namespace AnimalConstants {
 	// the energy of grass will increase every tick
 	extern const float GRASS_RECOVER_SPEED;
 
-
 	//Energy consume ratio
 	extern const float CONSUME_ENERGY_RATIO[int(Species::NULLSPECIES)];
 
