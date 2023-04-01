@@ -44,6 +44,7 @@ public:
 	void AddButton_4();
 	void AddButton_5();
 
+    void SetNumberOfAnimal();
 
 private:
     Ui::SimulatedEcosystemClass ui;
