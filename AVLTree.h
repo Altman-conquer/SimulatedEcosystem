@@ -154,19 +154,17 @@ public:
 		return AVLTreeIterator(current);
 	}
 
-
-
 	AVLTreeIterator begin() { return AVLTreeIterator(root); }
 
 	AVLTreeIterator end() { return AVLTreeIterator(nullptr); }
 
-	template<typename _K = K>
-	Node* operator[](_K&& _key)
+	template<typename _K = K, typename _V = V>
+	V& operator[](_K&& _key)
 	{
 		Node* temp = _find(_key);
 		if (temp != nullptr)
-			return temp;
-		return _insert(_key, V());
+			return temp->second;
+		return _insert(_key, V())->second;
 	}
 
 private:
