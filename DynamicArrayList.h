@@ -1,6 +1,7 @@
 #pragma once
 #include <xutility>
 #include "Utility.h"
+#include <exception>
 using std::iterator;
 
 template<typename T>
