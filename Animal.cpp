@@ -13,8 +13,8 @@ namespace AnimalConstants {
 	 const float BREED_RADIUS = 10.0;
 
 	// The distance of crash
-	const float CHILD_DISTANCE = 3;
-	const float ADULT_DISTANCE = 5;
+	const float CHILD_DISTANCE = 6;
+	const float ADULT_DISTANCE = 10;
 
 	//probe radius of animals
 	const float PROBE_RADIUS = 10.0;

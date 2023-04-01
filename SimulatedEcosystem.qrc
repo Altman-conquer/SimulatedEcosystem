@@ -1,10 +1,11 @@
 <RCC>
   <qresource prefix="/">
+    <file>sourcePicture/information.png</file>
     <file>sourcePicture/plus.png</file>
     <file>sourcePicture/cow.png</file>
     <file>sourcePicture/dear.png</file>
     <file>sourcePicture/tiger.png</file>
     <file>sourcePicture/wolf.png</file>
-    <file>sourcePicture/grass (2).png</file>
+    <file>sourcePicture/grass.png</file>
   </qresource>
 </RCC>

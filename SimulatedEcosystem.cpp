@@ -8,15 +8,23 @@ SimulatedEcosystem::SimulatedEcosystem(QWidget *parent)
     temp->setParent(this);
     temp->show();
     move_of_sidebar = 0;
+    ui.lineEdit->setReadOnly(true);
+    ui.lineEdit_2->setReadOnly(true);
+    ui.lineEdit_3->setReadOnly(true);
+    ui.lineEdit_4->setReadOnly(true);
+    ui.lineEdit_5->setReadOnly(true);
+
     ui.scrollAreaWidgetContents->setFixedHeight(475);
     ui.scrollAreaWidgetContents->setFixedWidth(715);
 
         
     connect(timer, &QTimer::timeout, this, &SimulatedEcosystem::UpdateSurface);
-    connect(ui.regame, &QPushButton::clicked, this, &SimulatedEcosystem::ReGame);
-    connect(ui.curveFigure, &QPushButton::clicked, this, &SimulatedEcosystem::CurveFigure);
+    //connect(ui.regame, &QPushButton::clicked, this, &SimulatedEcosystem::ReGame);
+    //connect(ui.curveFigure, &QPushButton::clicked, this, &SimulatedEcosystem::CurveFigure);
     connect(ui.startButton, &QPushButton::clicked, this, &SimulatedEcosystem::StartButton);
 	connect(ui.stopButton, &QPushButton::clicked, this, &SimulatedEcosystem::StopButton);
+    connect(ui.unfold, &QPushButton::clicked, this, &SimulatedEcosystem::DealUnfold);
+
 
     connect(ui.pushButton, &QPushButton::clicked, this, &SimulatedEcosystem::AddButton_1);
 	connect(ui.pushButton_2, &QPushButton::clicked, this, &SimulatedEcosystem::AddButton_2);
@@ -30,20 +38,16 @@ SimulatedEcosystem::SimulatedEcosystem(QWidget *parent)
 	ui.lineEdit_4->setText("0");
 	ui.lineEdit_5->setText("0");
 
-
-	test_species[Species::Cow] = 30;
-	test_species[Species::Grass] = 60;
-
+    /*test_species[Species::Grass] = 30;
 
     environment = std::make_shared<Environment>(test_species);
-    
-    shared_ptr<vector<shared_ptr<Animal>>> animals = environment->GetEnvironment();
 
+    shared_ptr<vector<shared_ptr<Animal>>> animals = environment->GetEnvironment();
     for (shared_ptr<Animal>& animal : *animals) {
         AddNewAnimal(animal);
-    }
+    }*/
 
-    connect(ui.unfold, &QPushButton::clicked, this, &SimulatedEcosystem::DealUnfold);
+
     pointlist.clear();
     chart = new MyChart(this, QString::fromLocal8Bit(""));
     ui.line->show();
@@ -62,8 +66,9 @@ void SimulatedEcosystem::resizeEvent(QResizeEvent* event) {
     int w = width();
     int h = height();
     
-    ui.stackedWidget->setGeometry(w - 20 - move_of_sidebar, 0, 200, 500);
-    ui.stackedWidget->hide();
+    ui.stackedWidget->setGeometry(253, 453, 200, 500);
+    ui.unfold->setGeometry(0, 0, 30, 30);
+    //ui.stackedWidget->hide();
     ui.stackedWidget_2->setGeometry(740, 11, 283, 483);
 
     ui.time->setGeometry(540, 11, 200, 30);
@@ -78,14 +83,14 @@ void SimulatedEcosystem::resizeEvent(QResizeEvent* event) {
 
 void SimulatedEcosystem::DealUnfold() {
     if (move_of_sidebar == 0) {
-        move_of_sidebar = 200 - 20;
-        ui.stackedWidget->setGeometry(width() - 20 - move_of_sidebar, 0, 200, 500);
-        ui.unfold->setText(">");
+        move_of_sidebar = 1;
+        ui.stackedWidget->setGeometry(100, 10, 200, 500);
+        ui.unfold->setGeometry(153, 443, 30, 30);
     }
     else {
-        move_of_sidebar = 0;
-        ui.stackedWidget->setGeometry(width() - 20 - move_of_sidebar, 0, 200, 500);
-        ui.unfold->setText("<");
+        move_of_sidebar = 0;   
+        ui.stackedWidget->setGeometry(253, 443, 200, 500);
+        ui.unfold->setGeometry(0, 0, 30, 30);
     }
 }
 
@@ -97,13 +102,11 @@ void SimulatedEcosystem::InitChart()
                                 QPointF(50,16), QPointF(60,8), QPointF(70,4), QPointF(80,2), QPointF(90,1), };
     pointlist.append(pointlist_temp);
 
-
-
-
     chart->buildChart(pointlist);
 }
 
 void SimulatedEcosystem::UpdateSurface() {
+    update();
     if (is_updating)
         return;
     is_updating = true;
@@ -139,7 +142,7 @@ void SimulatedEcosystem::UpdateSurface() {
 void SimulatedEcosystem::DeleteAnimal(int id) {
     AnimalButton* temp = my_animals[id];
 	temp->setParent(NULL);
-	delete temp;
+	//delete temp;
     my_animals.erase(my_animals.find(id));
 }
 
@@ -163,9 +166,14 @@ void SimulatedEcosystem::CurveFigure() {
 
 void SimulatedEcosystem::StartButton() {
     if (ui.startButton->text() == "Start") {
-        ui.startButton->setText("Restart");
-		timer->start(EnvironmentConstants::UPDATE_FREQUENCY_MS * FPS);
-        
+        ui.startButton->setText("OK");
+		//timer->start(EnvironmentConstants::UPDATE_FREQUENCY_MS * FPS);
+        ui.lineEdit->setReadOnly(false);
+        ui.lineEdit_2->setReadOnly(false);
+        ui.lineEdit_3->setReadOnly(false);
+        ui.lineEdit_4->setReadOnly(false);
+        ui.lineEdit_5->setReadOnly(false);
+        ui.stopButton->hide();  
     }
     else if (ui.startButton->text() == "Restart") {
 		ui.startButton->setText("OK");
@@ -186,6 +194,8 @@ void SimulatedEcosystem::StartButton() {
 		ui.lineEdit_5->setReadOnly(true);
 
 		ui.stopButton->show();
+
+        SetNumberOfAnimal();
     }
 }
 
@@ -228,4 +238,25 @@ void SimulatedEcosystem::AddButton_5() {
 	int temp = ui.lineEdit_5->text().toInt() + 1;
 	if (!ui.lineEdit_5->isReadOnly())
 	    ui.lineEdit_5->setText(QString::number(temp));
+}
+
+void SimulatedEcosystem::SetNumberOfAnimal() {
+
+    test_species[Species::Tiger] = ui.lineEdit->text().toInt();
+    test_species[Species::Wolf] = ui.lineEdit_2->text().toInt();
+    test_species[Species::Deer] = ui.lineEdit_3->text().toInt();
+    test_species[Species::Cow] = ui.lineEdit_4->text().toInt();
+    test_species[Species::Grass] = ui.lineEdit_5->text().toInt();
+
+    environment = std::make_shared<Environment>(test_species);
+
+    shared_ptr<vector<shared_ptr<Animal>>> animals = environment->GetEnvironment();
+    for (shared_ptr<Animal>& animal : *animals) {
+        AddNewAnimal(animal);
+    }
+    timer->start(EnvironmentConstants::UPDATE_FREQUENCY_MS * FPS);
+
+
+
+
 }
