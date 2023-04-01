@@ -1,7 +1,7 @@
 #pragma once
 #include <xutility>
 #include "Utility.h"
-#include <exception>
+#include "exception"
 using std::iterator;
 
 template<typename T>
@@ -70,7 +70,7 @@ public:
 	T& at(size_t index)
 	{
 		if (index < 0 || index >= size())
-			throw exception("ERROR: In at function: index out of bound.");
+			throw "ERROR: In at function: index out of bound.";
 		return data[index];
 	}
 
@@ -78,7 +78,7 @@ public:
 	{
 		size_t diff = iterator - begin();
 		if (diff >= size())
-			throw exception("ERROR: erase item out of bound.");
+			throw "ERROR: erase item out of bound.";
 
 		for (int i = diff; i < size; i++)
 			data[i] = data[i + 1];
