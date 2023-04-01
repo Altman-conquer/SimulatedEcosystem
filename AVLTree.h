@@ -4,10 +4,6 @@
 #include <xutility>
 #include <map>
 
-#define AVLTree std::map
-
-/*
-
 using std::make_pair;
 using std::pair;
 using std::iterator;
@@ -15,21 +11,21 @@ using std::iterator;
 template<class K, class V>
 class AVLTreeNode {
 
-	/ *template<class _K, class _V>
-	friend class AVLTree;* /
+	template<class _K, class _V>
+	friend class AVLTree;
 
 public:
 	// Universal reference constructor. Aiming at using perfect forwarding to construct the node.
 	// std::forward takes two template parameters. It cannot deduce the first parameter. 
 	template<typename _K = K, typename _V = V>
 	AVLTreeNode(_K&& _key, _V&& _value) :
-		data(make_pair(std::forward<_K>(_key), std::forward<_V>(_value))),
-		left(nullptr), right(nullptr), parent(nullptr), balance_factor(0) {}
+		first(_key), second(_value),
+		left(nullptr), right(nullptr), parent(nullptr), balance_factor(0), is_valid(true) {}
 
 	template<typename _V = V>
 	AVLTreeNode& operator=(_V&& _value)
 	{
-		data.second = _value;
+		second = _value;
 		return *this;
 	}
 
@@ -46,13 +42,27 @@ public:
 
 	AVLTreeNode* GetLeft() { return left; }
 
-	pair<K, V> data;
+public:
+	int GetBalanceFactor() const
+	{
+		auto dfs = [&](AVLTreeNode* current)  -> int
+		{
+			if (current == nullptr)
+				return 0;
+		};
+	}
+
+	K first;
+	V second;
 
 	AVLTreeNode* left;
 	AVLTreeNode* right;
 	AVLTreeNode* parent;
 
 	int balance_factor; // height(right) - height(left)
+
+private:
+	bool is_valid;
 };
 
 template<class K, class V>
@@ -81,6 +91,8 @@ public:
 
 		// Dereference operator
 		Node& operator*() { return *current; }
+
+		Node* operator->() { return current; }
 
 		// Increment operator (prefix)
 		AVLTreeIterator& operator++() { next(); return *this; }
@@ -125,23 +137,28 @@ public:
 		return _insert(_key, _value) == nullptr;
 	}
 
+	template<typename _K = K, typename _V = V>
+	bool erase(_K&& _key)
+	{
+		Node* current = _find(_key);
+		if (current == nullptr)
+			return false;
+		current->is_valid = false;
+		return true;
+	}
+
+
 	AVLTreeIterator begin() { return AVLTreeIterator(root); }
 
 	AVLTreeIterator end() { return AVLTreeIterator(nullptr); }
 
 	template<typename _K = K>
-	AVLTreeIterator find(_K&& key)
-	{
-		return _find(key);
-	}
-
-	template<typename _K = K>
-	V& operator[](_K&& _key)
+	Node& operator[](_K&& _key)
 	{
 		Node* temp = _find(_key);
 		if (temp != nullptr)
-			return temp->data.second;
-		return _insert(_key, V())->data.second;
+			return *temp;
+		return *_insert(_key, V());
 	}
 
 private:
@@ -160,13 +177,13 @@ private:
 		while (current != nullptr)
 		{
 			parent = current;
-			if (_key < current->data.first)
+			if (_key < current->first)
 				current = current->left;
-			else if (_key > current->data.first)
+			else if (_key > current->first)
 				current = current->right;
 			else // Key already exists
 			{
-				current->data.second = _value;
+				current->second = _value;
 				break;
 			}
 		}
@@ -174,7 +191,7 @@ private:
 		// Insert the node
 		current = new Node(_key, _value);
 		current->parent = parent;
-		if (_key < parent->data.first)
+		if (_key < parent->first)
 			parent->left = current;
 		else
 			parent->right = current; // guaranteed to be greater than the value of the parent
@@ -228,9 +245,9 @@ private:
 		Node* current = root;
 		while (current != nullptr)
 		{
-			if (current->data.first == _key)
+			if (current->first == _key)
 				return current;
-			else if (current->data.first > _key)
+			else if (current->first > _key)
 				current = current->left;
 			else
 				current = current->right;
@@ -359,4 +376,3 @@ private:
 
 	Node* root;
 };
-*/

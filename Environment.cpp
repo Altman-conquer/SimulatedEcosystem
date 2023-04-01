@@ -18,11 +18,10 @@ namespace EnvironmentConstants {
 Environment::Environment(AVLTree<Species, int> _n)
 {
 	this->animals = std::make_shared<vector<shared_ptr<Animal>>>();
-	for (auto& data: _n)
+	for (auto data = _n.begin(); data!=_n.end(); data++)
 	{
-		
-		const Species& species = data.first;
-		const int& num = data.second;
+		const Species& species = data->first;
+		const int& num = data->second;
 		for (int i = 0; i < num; i++)
 		{
 			switch (species)

@@ -9,6 +9,7 @@
 #include"MyChart.h"
 #include <QTimer>
 #include "AVLTree.h"
+#include <map>
 
 
 using std::shared_ptr;
@@ -42,7 +43,7 @@ private:
     MyChart* chart;
     QVector<QList<QPointF>> pointlist;
     QTimer* timer = new QTimer(this);
-	AVLTree<int, AnimalButton*> my_animals;
+    AVLTree<int, AnimalButton*> my_animals;
     AVLTree<Species, int> test_species;
     shared_ptr<Environment> environment;
     int time = 0;
