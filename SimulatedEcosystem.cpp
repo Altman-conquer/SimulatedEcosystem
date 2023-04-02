@@ -115,6 +115,8 @@ void SimulatedEcosystem::UpdateSurface() {
 		ui.time->setText(QString::fromLocal8Bit("Ê±¼ä£º") + QString::number(time / FPS) + QString::fromLocal8Bit(" Ìì"));
 		environment->Update();
 		animals = environment->GetEnvironment();
+		Log::LogMessage(QString("The number is %1").arg(animals->size()).toStdString());
+
 		vector<int>deadID = environment->GetDeadAnimals();
 		for (int id : deadID) {
 			DeleteAnimal(id);
@@ -147,7 +149,7 @@ void SimulatedEcosystem::DeleteAnimal(int id) {
 }
 
 void SimulatedEcosystem::AddNewAnimal(shared_ptr<Animal> animal) {
-	AnimalButton* temp = new AnimalButton(ui.scrollAreaWidgetContents, animal);
+	//AnimalButton* temp = new AnimalButton(ui.scrollAreaWidgetContents, animal);
 	my_animals[animal->GetID()] = temp;
 }
 
@@ -255,8 +257,4 @@ void SimulatedEcosystem::SetNumberOfAnimal() {
         AddNewAnimal(animal);
     }
     timer->start(EnvironmentConstants::UPDATE_FREQUENCY_MS * FPS);
-
-
-
-
 }
