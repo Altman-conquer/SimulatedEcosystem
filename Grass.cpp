@@ -28,7 +28,7 @@ void Grass::Update()
 
 Age Grass::GetAge()
 {
-	return Age(this->age_int >= AnimalConstants::GRASS_ADULT_AGE);
+	return Age(this->age_int >= AnimalConstants:: ADULT_AGE[int(Species::Grass)]);
 }
 
 void Grass::Mutate()
@@ -41,7 +41,7 @@ void Grass::Breed()
 	if (isDead) return;
 	if (GetAge() == Age::Child)
 		return;
-	if (RandomFloat(0.0, 1.0) < AnimalConstants::GRASS_BREED_PROBABILITY)
+	if (RandomFloat(0.0, 1.0) < AnimalConstants::BREED_PROBABILITY[int(Species::Grass)])
 	{
 		shared_ptr<Animal> new_animal = std::make_shared<Grass>(this->environment, RandomPositionVector(position, AnimalConstants::BREED_RADIUS));
 		this->environment->push_back(new_animal);
