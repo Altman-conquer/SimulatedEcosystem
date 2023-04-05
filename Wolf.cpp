@@ -129,7 +129,6 @@ void Wolf::Move()
 
 	//update position
 	this->position = this->position + this->velocity;
-	this->position.ClipBound();
 
 	if (state == MoveState::Idle || state == MoveState::Walk)
 	{

@@ -1,6 +1,5 @@
 #include "Vector2D.h"
 #include "Log.h"
-#include "Environment.h"
 //#include <math.h>
 
 Vector2D::Vector2D() :Vector2D(0.0, 0.0) {}
@@ -33,16 +32,16 @@ float Vector2D::GetDistance(const Vector2D& vector1, const Vector2D& vector2)
 	return sqrt(pow(vector1.x - vector2.x,2) + pow(vector1.y - vector2.y, 2));
 }
 
-void Vector2D::ClipBound()
+void Vector2D::ClipBound(float lower_bound, float upper_bound)
 {
-	if (x < EnvironmentConstants::LOWER_BOUND)
-		x = EnvironmentConstants::LOWER_BOUND;
-	else if (x > EnvironmentConstants::UPPER_BOUND)
-		x = EnvironmentConstants::UPPER_BOUND;
-	if (y < EnvironmentConstants::LOWER_BOUND)
-		y = EnvironmentConstants::LOWER_BOUND;
-	else if (y > EnvironmentConstants::UPPER_BOUND)
-		y = EnvironmentConstants::UPPER_BOUND;
+	if (x < lower_bound)
+		x = lower_bound;
+	else if (x > upper_bound)
+		x = upper_bound;
+	if (y < lower_bound)
+		y = lower_bound;
+	else if (y > upper_bound)
+		y = upper_bound;
 }
 
 float Vector2D::GetY() const

@@ -33,7 +33,7 @@ Environment::Environment(AVLTree<Species, int> _n)
 				this->animals->push_back(std::make_shared<Cow>(this->animals));
 				break;
 			case Species::Deer:
-				this->animals->push_back(std::make_shared<Cow>(this->animals));
+				this->animals->push_back(std::make_shared<Deer>(this->animals));
 				break;
 			case Species::Wolf:
 				this->animals->push_back(std::make_shared<Wolf>(this->animals));

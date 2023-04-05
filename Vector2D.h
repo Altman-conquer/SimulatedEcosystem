@@ -58,7 +58,7 @@ public:
 	//************************************
 	static float GetDistance(const Vector2D& vector1, const Vector2D& vector2);
 
-	void ClipBound();
+	void ClipBound(float lower_bound, float upper_bound);
 
 	Vector2D operator+(const Vector2D& other)const;
 

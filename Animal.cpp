@@ -33,7 +33,7 @@ namespace AnimalConstants {
 	 const int TIGER_MAX_AGE = 60.0;
 
 	// Breed probability of animals
-	 const float GRASS_BREED_PROBABILITY = 0.5;
+	 const float GRASS_BREED_PROBABILITY = 0.0;
 	 const float COW_BREED_PROBABILITY = 0.5;
 	 const float TIGER_BREED_PROBABILITY = 0.3;
 	 const float DEER_BREED_PROBABILITY = 0.5;

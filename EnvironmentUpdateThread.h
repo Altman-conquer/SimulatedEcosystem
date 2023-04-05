@@ -14,7 +14,7 @@ public:
 	explicit EnvironmentUpdateThread(shared_ptr<Environment>& _environment, QObject* parent = nullptr);
 
 	// Update the environment by 1 tick.
-	// Don't modify the envrionment until signal UpdateFinish is sent.
+	// Don't modify the environment until signal UpdateFinish is sent.
 	void Update();
 	
 signals:
