@@ -20,7 +20,7 @@ namespace AnimalConstants {
 	const float PROBE_RADIUS = 10.0;
 
 	// Age limits of animals to tell it is adult or not.
-	const int ADULT_AGE[int(Species::NULLSPECIES)] = { 10.0,10.0,10,10,10 };
+	const int ADULT_AGE[int(Species::NULLSPECIES)] = { 10,10,10,10,10 };
 
 	// Max age of animals
 	 const int MAX_AGE[int(Species::NULLSPECIES)] = { 0,60,60,60,60 };

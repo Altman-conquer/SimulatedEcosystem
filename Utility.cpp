@@ -1,9 +1,6 @@
 #include "Utility.h"
-#include<random>
-#include<ctime>
-#include "Animal.h"
+#include <random>
 #include "Vector2D.h"
-#include "Environment.h"
 
 int RandomInteger(int l, int r)
 {
@@ -26,10 +23,10 @@ Vector2D RandomUnitVector()
 	return Vector2D::GetDirectionVector(Direction(RandomInteger(0, 3)));
 }
 
-Vector2D RandomPositionVector()
+Vector2D RandomPositionVector(const float lower_bound, const float upper_bound)
 {
-	return Vector2D(RandomFloat(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND),
-		RandomFloat(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND));
+	return Vector2D(RandomFloat(lower_bound, upper_bound),
+		RandomFloat(lower_bound, upper_bound));
 }
 
 
@@ -37,15 +34,6 @@ Vector2D RandomPositionVector(const Vector2D& center, float radius)
 {
 	return Vector2D(RandomFloat(center.GetX() - radius, center.GetX() + radius),
 		RandomFloat(center.GetY() - radius, center.GetY() + radius));
-}
-
-
-void PrintAnimals(const Environment& environment)
-{
-	for (shared_ptr<Animal>& animal:*environment.GetEnvironment())
-	{
-		Log::LogMessage(std::to_string(animal->GetPosition().GetX()) + "  " + std::to_string(animal->GetPosition().GetY()), LogLevel::Info);
-	}
 }
 
 void* MemoryCopy(void* destination, const void* source, size_t num)

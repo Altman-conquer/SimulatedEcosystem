@@ -3,7 +3,7 @@
 
 Wolf::Wolf(shared_ptr<vector<shared_ptr<Animal>>> _environment) :Animal(_environment)
 {
-	position = RandomPositionVector();
+	position = RandomPositionVector(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND);
 	energy = AnimalConstants::INITIAL_ENERGY[int(Species::Wolf)];
 }
 

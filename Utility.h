@@ -4,7 +4,6 @@
 
 class Vector2D;
 class Animal;
-class Environment;
 
 //************************************
 // Method:    RandomInteger
@@ -44,7 +43,7 @@ Vector2D RandomUnitVector();
 // Returns:   Random position vector in the environment
 // Qualifier:
 //************************************
-Vector2D RandomPositionVector();
+Vector2D RandomPositionVector(const float lower_bound, const float upper_bound);
 
 //************************************
 // Method:    RandomPositionVector
@@ -56,7 +55,5 @@ Vector2D RandomPositionVector();
 Vector2D RandomPositionVector(const Vector2D& center, float radius);
 
 Vector2D RandomVector();
-
-void PrintAnimals(const Environment& environment);
 
 void* MemoryCopy(void* destination, const void* source, size_t num);

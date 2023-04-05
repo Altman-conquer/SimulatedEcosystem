@@ -5,7 +5,7 @@
 
 Grass::Grass(shared_ptr<vector<shared_ptr<Animal>>> _environment):Animal(_environment)
 {
-	position = RandomPositionVector();
+	position = RandomPositionVector(EnvironmentConstants::LOWER_BOUND, EnvironmentConstants::UPPER_BOUND);
 }
 
 Grass::Grass(shared_ptr<vector<shared_ptr<Animal>>> _environment, Vector2D _position):Animal(_environment)
