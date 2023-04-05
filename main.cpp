@@ -1,5 +1,6 @@
 #include "SimulatedEcosystem.h"
 #include <QtWidgets/QApplication>
+#include "AVLTree.h"
 /*
 * 
 在构造函数里面，参数名使用一个下划线开头，例如_n，这样可以避免出现n=n的错误
@@ -21,7 +22,13 @@ int main(int argc, char *argv[])
 
  
 #ifdef DEBUG
-    
+
+    //AVLTree<int, int> m;
+    //m[1] = 2;
+    //for (auto& [k,v] : m)
+    //{
+
+    //}
 #else
 
 #endif

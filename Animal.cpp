@@ -20,108 +20,53 @@ namespace AnimalConstants {
 	const float PROBE_RADIUS = 10.0;
 
 	// Age limits of animals to tell it is adult or not.
-	 const int GRASS_ADULT_AGE = 10.0;
-	 const int COW_ADULT_AGE = 10.0;
-	 const int DEER_ADULT_AGE = 10.0;
-	 const int WOLF_ADULT_AGE = 10.0;
-	 const int TIGER_ADULT_AGE = 10.0;
+	const int ADULT_AGE[int(Species::NULLSPECIES)] = { 10.0,10.0,10,10,10 };
 
 	// Max age of animals
-	 const int COW_MAX_AGE = 60.0;
-	 const int DEER_MAX_AGE = 60.0;
-	 const int WOLF_MAX_AGE = 60.0;
-	 const int TIGER_MAX_AGE = 60.0;
+	 const int MAX_AGE[int(Species::NULLSPECIES)] = { 0,60,60,60,60 };
 
 	// Breed probability of animals
-	 const float GRASS_BREED_PROBABILITY = 0.0;
-	 const float COW_BREED_PROBABILITY = 0.5;
-	 const float TIGER_BREED_PROBABILITY = 0.3;
-	 const float DEER_BREED_PROBABILITY = 0.5;
-	 const float WOLF_BREED_PROBABILITY = 0.5;
-  
+	 const float BREED_PROBABILITY[int(Species::NULLSPECIES)] = { .5,.5,.5,.5,.3 };
+
 	//Max stamina of animals
-	 const float COW_MAX_STAMINA = 10.0;
-	 const float DEER_MAX_STAMINA = 10.0;
-	 const float WOLF_MAX_STAMINA = 10.0;
-	 const float TIGER_MAX_STAMINA = 10.0;
-
+	 const float MAX_STAMINA[int(Species::NULLSPECIES)] = { 0,10.0,10.0,10.0,10.0 };
+	 
 	//Min stamina of animals
-	 const float COW_MIN_STAMINA = 1.0;
-	 const float DEER_MIN_STAMINA = 1.0;
-	 const float WOLF_MIN_STAMINA = 1.0;
-	 const float TIGER_MIN_STAMINA = 1.0;
-
-
+	 const float MIN_STAMINA[int(Species::NULLSPECIES)] = { 0,1.0,1.0,1.0,1.0 };
 
 	//Max velocity of animals
-	 const float COW_MAX_VELOCITY = 50.0;
-	 const float DEER_MAX_VELOCITY = 50.0;
-	 const float WOLF_MAX_VELOCITY = 50.0;
-	 const float TIGER_MAX_VELOCITY = 50.0;
-
+	 const float MAX_VELOCITY[int(Species::NULLSPECIES)] = { 0,50.0,50.0,50.0,50.0 };
+	 
 	//Min velocity of animals
-	 const float COW_MIN_VELOCITY = 1.0;
-	 const float DEER_MIN_VELOCITY = 1.0;
-	 const float WOLF_MIN_VELOCITY = 1.0;
-	 const float TIGER_MIN_VELOCITY = 1.0;
+	 const float MIN_VELOCITY[int(Species::NULLSPECIES)] = { 0,1.0,1.0,1.0,1.0 };
 
 	// The stating energy
-	const float TIGER_INITIAL_ENERGY=100.0;
-	const float GRASS_INITIAL_ENERGY = 100.0;
-	const float COW_INITIAL_ENERGY = 100.0;
-	const float DEER_INITIAL_ENERGY = 100.0;
-	const float WOLF_INITIAL_ENERGY = 100.0;
-
+	 const float INITIAL_ENERGY[int(Species::NULLSPECIES)] = { 100.0,100.0,100.0,100.0,100.0 };
+	 
 	//Energy transformation ratio
-	 const float COW_ENERGY_TRANSFORMATION_RATIO = 1.0;
-	 const float DEER_ENERGY_TRANSFORMATION_RATIO = 1.0;
-	 const float WOLF_ENERGY_TRANSFORMATION_RATIO = 1.0;
-	 const float TIGER_ENERGY_TRANSFORMATION_RATIO = 0.8;
+	const float ENERGY_TRANSFORMATION_RATIO[int(Species::NULLSPECIES)] = { 0,1.0,1.0,1.0,.8 };
 
 	// the energy of grass will increase every tick
 	 const float GRASS_RECOVER_SPEED = 1.0;
 
 	//Energy consume ratio
-	 const float COW_CONSUME_ENERGY_RATIO = 1.0;
-	 const float DEER_CONSUME_ENERGY_RATIO = 1.0;
-	 const float WOLF_CONSUME_ENERGY_RATIO = 1.0;
-	 const float TIGER_CONSUME_ENERGY_RATIO = 1.0;
+	 const float CONSUME_ENERGY_RATIO[int(Species::NULLSPECIES)] = { 0,1,1,1,1 };
 
 	//recover stamina ratio
-	 const float COW_RECOVER_STAMINA_RATIO = 1.0;
-	 const float DEER_RECOVER_STAMINA_RATIO = 1.0;
-	 const float WOLF_RECOVER_STAMINA_RATIO = 1.0;
-	 const float TIGER_RECOVER_STAMINA_RATIO = 1.0;
+	 const float RECOVER_STAMINA_RATIO[int(Species::NULLSPECIES)] = { 0,1,1,1,1 };
 
 	//consume stamina ratio
-	 const float COW_CONSUME_STAMINA_RATIO = 1.0;
-	 const float DEER_CONSUME_STAMINA_RATIO = 1.0;
-	 const float WOLF_CONSUME_STAMINA_RATIO = 1.0;
-	 const float TIGER_CONSUME_STAMINA_RATIO = 1.0;
-
+	 const float CONSUME_STAMINA_RATIO[int(Species::NULLSPECIES)] = { 0,1,1,1,1 };
 
 	//Idle probability of animals
-	 const float DEER_IDLE_PROBABILITY = 0.2;
-	 const float COW_IDLE_PROBABILITY = 0.2;
-	 const float WOLF_IDLE_PROBABILITY = 0.2;
-	 const float TIGER_IDLE_PROBABILITY = 0.2;
+	 const float IDLE_PROBABILITY[int(Species::NULLSPECIES)] = { 0,.2,.2,.2,.2 };
 
 	//Max energy of animals
-	 const float COW_MAX_ENERGY = 100.0;
-	 const float DEER_MAX_ENERGY = 100.0;
-	 const float WOLF_MAX_ENERGY = 100.0;
-	 const float TIGER_MAX_ENERGY = 100.0;
+	 const float MAX_ENERGY[int(Species::NULLSPECIES)] = { 0,100,100,100,100 };
 
-	 const float COW_MIN_ENERGY = 10.0;
-	 const float DEER_MIN_ENERGY = 10.0;
-	 const float WOLF_MIN_ENERGY = 10.0;
-	 const float TIGER_MIN_ENERGY = 10.0;
+	 const float MIN_ENERGY[int(Species::NULLSPECIES)] = { 0,10,10,10,10 };
 
-	 const float GRASS_HEALTH = 20.0;
-	 const float COW_HEALTH = 100.0;
-	 const float DEER_HEALTH = 100.0;
-	 const float WOLF_HEALTH = 100.0;
-	 const float TIGER_HEALTH = 100.0;
+	 const float INITIAL_HEALTH[int(Species::NULLSPECIES)] = { 20,100,100,100,100 };
 	 
 	 const float DAMAGE[int(Species::NULLSPECIES)] = { 10.0,10.0,10.0,10.0,10.0 };
 
